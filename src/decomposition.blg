@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: decomposition.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Warning--I didn't find a database entry for "lukacs1997real"
+Warning--can't use both volume and number fields in bs1
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            533 strings with 4745 characters,
+and the built_in function-call counts, 1777 in all, are:
+= -- 171
+> -- 90
+< -- 2
++ -- 37
+- -- 30
+* -- 132
+:= -- 300
+add.period$ -- 16
+call.type$ -- 5
+change.case$ -- 30
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 65
+empty$ -- 136
+format.name$ -- 30
+if$ -- 365
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 10
+pop$ -- 29
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 45
+stack$ -- 0
+substring$ -- 96
+swap$ -- 14
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 1
+while$ -- 17
+width$ -- 6
+write$ -- 58
+(There were 2 warnings)

@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{optical-flow}
+S.~S. Beauchemin and J.~L. Barron.
+\newblock The computation of optical flow.
+\newblock {\em ACM Comput. Surv.}, 27(3):433--466, September 1995.
+
+\bibitem{opencv}
+Gary Bradski and Adrian Kaehler.
+\newblock Opencv.
+\newblock {\em Dr. Dobb’s journal of software tools}, 3, 2000.
+
+\bibitem{imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
+\bibitem{bs1}
+Thanarat Horprasert, David Harwood, and Larry~S Davis.
+\newblock A statistical approach for real-time robust background subtraction
+  and shadow detection.
+\newblock In {\em Ieee iccv}, volume~99, pages 1--19. Citeseer, 1999.
+
+\bibitem{bs2}
+Zoran Zivkovic and Ferdinand Van Der~Heijden.
+\newblock Efficient adaptive density estimation per image pixel for the task of
+  background subtraction.
+\newblock {\em Pattern recognition letters}, 27(7):773--780, 2006.
+
+\end{thebibliography}
