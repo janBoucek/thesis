@@ -16,35 +16,65 @@
 % todo: compute Inception accuracy
 
 \section{Introduction}
+Estimated 80\% of the human data is in form of images or videos. There is a lot of useful information hidden, but it is still very complicated to gain it. Most of the information is still labeled manually by people, who make mistakes and are expensive. There is an incredible need for automated video processing in many branches of the industry. Being able to accurately detect and track vehicles can provide valuable data about transportation to governments. Reidentification and tracking objects over multiple cameras in real time can help reinforcement agencies to effectively fight crime. 
+
 \subsection{Overview of methodology}
-todo...
+This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for the police. The cameras are very wide angle and have been mounted directly to the street lamps.
+
+
 \subsection{Contribution}
+The author of this thesis implemented several modules for this project.
+
+\begin{itemize}
+\item The calibration of the camera and estimation of the vehicle position.
+
+\item Detector and tracker of vehicles using classical methods
+
+\item Semi-supervised data generator
+
+\item Improving and extending and training deep learning detector and connecting it with a provided tracker.
+
+\item Training a neural network for vehicles similarity
+
+\item Testing and comparing results.
+
+
+\end{itemize}
+
 implementing of classical model detections.
 using the facenet model for similarities.
 Improving the ssd model.
 
-
 \section{Related work}
 state of the art
 
+\section{Fish-eye camera model}
 
-\section{Image Dewarping}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\linewidth]{fig/stream1.png}
+\caption{Frame of the provided video}
+\label{fig:stream1}
+\end{figure}
 
-The fish-eye images are very distorted and standard neural net detectors, which have been pretrained on imagenet, have difficulty correctly recognizing objects. The main idea of this section is 
+For correct estimation of the position of detected objects, it is crucial to understand the camera optics and sensor. We need to find the transformations from the camera pixel position to the real world position. 
+
+The cameras have been provided by the Brazilian party and no technical parameters are available. The model of the camera and it's parameters must be found. A set of improvised requested calibration images have been provided.
 
 \subsection{Scene localization}
 \label{sec:scene_localization}
-Before we start decomposing the image, we need to compensate for another hardware error of the camera. As can be seen in the image \ref{???}, the scene is not exactly in the middle. It is not even circle, but rather an ellipse. Properties of the elipse could be neasured manually, but our system will be deployed on multiple cameras and due to uncertainty in the manufacturing process, each scene has a different location and distortion. Since we need a high precision for further position estimation, an universal algorithm for detecting the sphere has been introduced.
+Before we find the model of the optics, we need to compensate for another hardware error of the camera. As can be seen in the image \ref{fig:stream1}, the scene is shifted to the left down. It is not even circle, but rather an ellipse. This is due to manufacturing uncertainty and this error is different on each camera. Since this project will be easily scalable, and it is not convenient to measure and set the parameters manually, an universal algorithm for detecting ellipse has been introduced.
 
-The algorithm is based on optimization. It takes an image and produces parameters of the ellipse. From observation, the ellipse can only be either the horizontal major axis or the vertical major axis ellipse. The used equation is rather unussual, but it allows faster cost function evaluation.
+The algorithm is based on optimization. It takes an image as an input and produces parameters of the ellipse. From observation, the ellipse can only be either the horizontal major axis or the vertical major axis ellipse. The equation \ref{eq:ellipse} of the ellipse is rather unusual, but it allows faster cost function evaluation.
 
 \begin{equation}
+\label{eq:ellipse}
 \frac{(x-s_x)^2}{a} + \frac{(y-s_y)^2}{1} = r^2
 \end{equation}
 
 Now we need to find the parameters $s_x, s_y, a, r$.
 
-The original image $I$ of the size $H, W$ and channels $I_1, I_2, I_3$ is transformed to a mask $M$ of the same size by thresholding the total sum of chanals on 8 bit scale is grather or equal to 1. \cite{lukacs1997real}
+The original image $I$ of the size $H, W$ and channels $I_1, I_2, I_3$ is transformed to a mask $M$ of the same size by thresholding the total sum of channels on 8 bit scale is grater or equal to 1. \cite{lukacs1997real}
 
 \begin{equation*}
 M_{x,y} = \begin{cases}
@@ -70,7 +100,7 @@ The cost function $C(M, E(s_x, s_y, a, r))$ penalizes the pixels that have been 
 C(M, s_x, s_y, a, r) = \sum_{x = 0}^{W-1} \sum_{y = 0}^{H-1} E_{x,y}(s_x, s_y, a, r) \cdot (1-M_{x,y}) + (1 - E_{x,y}(s_x, s_y, a, r)) \cdot M_{x,y}
 \end{equation}
 
-The algorithm could evaluate all combinations of parameters, but the number of searched parameters can be grately reduced by searching in a coarse to to fine manner. 
+The algorithm could evaluate all combinations of parameters, but the number of searched parameters can be greatly reduced by searching in a coarse to to fine manner. 
 
 
 \begin{verbatim}
@@ -94,8 +124,9 @@ return x, y, a, r
 
 This algorithm quickly finds the ellipse with very high precision. Furthermore the most expensive function, $select\_best$ can be highly parallelized.
 
-\section{Fish-eye camera model}
-To correctly localize object from the camera, we need to know the transformations between real world coordinates $x^w, y^w, x^w$ and the projection on the captured frame $x^f, y^f$. After applying the algorithm from \ref{sec:scene_localization}, we know, where in the frame the scene is projected. First, we will consider the circle model and at the end we will apply the transformation to ellipse. 
+\subsection{Camera model}
+
+To correctly localize object from the camera, we need to know the transformations between real world coordinates $x^w, y^w, z^w$ and the projection on the captured frame $x^f, y^f$. After applying the algorithm from \ref{sec:scene_localization}, we know, where in the frame the scene is projected. First, we will consider the circle model and at the end we will apply the transformation to ellipse. 
 
 Computing in the cartesian coordinates is not very useful for optics. Instead, the world coordinates are chosen to be spherical and the frame coordinates are chosen to be polar. The world coordinates are in respect to the camera. 
 The transformations between the world cartesian coordinates $x^w, y^w, x^w$ and the world spherical coordinates $r^w, \theta^w, \phi^w$ are as follows:
@@ -124,7 +155,7 @@ r^w &= \sqrt{(x^w)^2 + (y^w)^2 + (z^w)^2} \\
 
 
 
-The detected scene circle has the radius of $R$ pixels and the center at pixels $s_x, s_y$. The tranformations betwean cartesian frame coordinates $x^f, y^f$ and the polar frame coordinates $r^f, \theta^f$ are:
+The detected scene circle has the radius of $R$ pixels and the center at pixels $s_x, s_y$. The transformations between cartesian frame coordinates $x^f, y^f$ and the polar frame coordinates $r^f, \theta^f$ are:
 
 \begin{equation*}
 \begin{aligned}[c]
@@ -138,7 +169,7 @@ r^f &= \sqrt{(x^f - s_x)^2 + (y^f - s_y)^2} \\
 \end{aligned}
 \end{equation*}
 
-Next, we need to find the transformations between the world spheriacal coordinates $r^w, \theta^w, \phi^w$ and the frame polar coordinates $r^f, \theta^f$, but there are some nice properties:
+Next, we need to find the transformations between the world spherical coordinates $r^w, \theta^w, \phi^w$ and the frame polar coordinates $r^f, \theta^f$, but there are some nice properties:
 
 \begin{itemize}
 \item The $\varphi$ are the same, i.e. $\varphi^w = \varphi^f$.
@@ -153,22 +184,66 @@ r^f &= f^{-1}(\theta^w). \\
 \end{aligned}
 \end{equation}
 
-There are many models for finding $f$. The simplest one is 
+There are many models for finding $f$. 
+
+\begin{itemize}
+\item The linear model: $f(r^f) = FOV \cdot r^f$
+\item The tangent model: $f(r^f) = FOV \cdot \tan(r^f)$
+\item The sinus model: $f(r^f) = FOV \cdot \sin(r^f)$
+\end{itemize}
+
+With each model, we need to find the one parameter $FOV$, which is the field of view of the camera.
+
+There was no access to the cameras, so the standard calibration using mesh could not be used. Instead, a set of marks was provided as shown in the picture. These marks are exactly 2 meters apart and are enough to estimate the function $f(r^f)$.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/calibration.png}
+\caption{The provided calibration data}
+\label{fig:calibration}
+\end{figure}
+
+
+\subsubsection{Linear model}
+
+This is the simplest one. The real world angle is proportional to the distance from the center on the image. 
+
+\begin{equation}
+\theta^w = f(r^f) = FOV \cdot r^f
+\end{equation}
+
+Fitting of the model is shown in the fig.\ref{fig:linear_model}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/linear_model3.eps}
+\caption{The linear model of the lens}
+\label{fig:linear_model}
+\end{figure}
+
+The linear model somehow estimates the real one, but not that well.
+
+\subsubsection{Tangent model}
+
+This is a more complicated model, which is based on the pinhole camera model.
 
 \begin{equation}
 \theta^w = f(r^f) = \theta^w \cdot FOV,
 \end{equation}
-where $FOV$ is the field of viw of the camera. Fitting of the model is shown in the fig.\ref{fig:linear_model}
 
+Fitting of the model is shown in the fig.\ref{fig:linear_model}
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\linewidth]{fig/linear_model.eps}
-\caption{The linear model of the lesnse}
+\includegraphics[width=1\linewidth]{fig/tan_model2.eps}
+\caption{The linear model of the lens}
 \label{fig:linear_model}
 \end{figure}
 
-The linear model estimates the real one quite well and there is no need to search for more complicated model. This model is accurate to about 70$^\circ$ from the radial axis, which is the operational interval of the camera for our purposes.
+This model represents the camera optics much better and was chosen to be the final one.
+
+\subsection{Real world coordinates}
+
 
 
 
@@ -185,7 +260,7 @@ The classification problem is easier than the detection problem. Given the image
 
 \subsubsection{top 1 accuracy}
 
-The classifier returns the predicted class. If the class matches with the ground truth, the accuracy is 1, therwise it is 0.
+The classifier returns the predicted class. If the class matches with the ground truth, the accuracy is 1, otherwise it is 0.
 
 \subsection{top 5 accuracy}
 
@@ -194,9 +269,9 @@ Another evaluation is the top 5 accuracy, used for example in imagenet \cite{ima
 \subsection{Mean average precision.}
 Mean average precision (mAP) is the most used metrics for object detection problem. The advantage is, that it does not depend on the selected confidence threshold, but only on the IoU threshold. This metrics is not constrained only for object detection problems in vision, but can be used for all detection problems. 
 
-The algorithm for computing mAP runs for all thresholds. Given an arbitrary threshold, the predicted bounding boxes are those, whos confidence exceeds it. If there is a high IoU of a ground truth box and some predicted bounding boxes having the same class, the predicted box with the highest confidence is matched and considered true positive($TP$) and no other box can be matched with the ground truth bounding box. If a predicted bounding box is not matched with any ground truth bounding boxes, it is considered false positive($FP$). If a ground truth bounding box is not matched with any predicted bounding box, it is considered a false negative($FN$).
+The algorithm for computing mAP runs for all thresholds. Given an arbitrary threshold, the predicted bounding boxes are those, whose confidence exceeds it. If there is a high IoU of a ground truth box and some predicted bounding boxes having the same class, the predicted box with the highest confidence is matched and considered true positive($TP$) and no other box can be matched with the ground truth bounding box. If a predicted bounding box is not matched with any ground truth bounding boxes, it is considered false positive($FP$). If a ground truth bounding box is not matched with any predicted bounding box, it is considered a false negative($FN$).
 
-Precision($P$) corresponds to what portion of ground truth boxes have been matched. With lowering the threshold, it can only increase, sonce more ground truth bounding boxes wiil be matched.
+Precision($P$) corresponds to what portion of ground truth boxes have been matched. With lowering the threshold, it can only increase, since more ground truth bounding boxes will be matched.
 \begin{equation}
 P = \frac{TP}{TP + FP}
 \end{equation}
@@ -206,7 +281,7 @@ Recall($R$) corresponds to what portion of predicted bounding boxes have been ma
 R = \frac{TP}{TP + FN}
 \end{equation}
 
-The precision-recall curve in the Fig.\ref{fig:precision-recall} shows the dependency of precision and recall. The higher the precision, the lower the recall. The area below the curve is called averge precision($AP$) and the mean over all classes is called mean average precision($mAP$).
+The precision-recall curve in the Fig.\ref{fig:precision-recall} shows the dependency of precision and recall. The higher the precision, the lower the recall. The area below the curve is called average precision($AP$) and the mean over all classes is called mean average precision($mAP$).
 
 \begin{equation}
 mAP = \frac{1}{|C|} \sum_{c \in C} AP_c
@@ -214,20 +289,40 @@ mAP = \frac{1}{|C|} \sum_{c \in C} AP_c
 
 where $C$ is the set of classes.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=1\linewidth]{fig/precision-recall.png}
-\caption{Precision-recall curve}
+\caption{Example of precision-recall curve}
 \label{fig:precision-recall}
 \end{figure}
 
 
 
 
-\section{Background Subtraction}
-We can use the fact, that the camera is static. This brings more information and the vehicles can be detected with the background subtraction algorithm. The main idea is creating a model of the scene without vehicles and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach would not work very well and some improvements need to be made. 
+\section{Classical detector}
 
-The algorithm has been implemented in opencv \cite{opencv}. The background is usually created by the mean over several images \cite{bs1, bs2}. It is also updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane, where vehicles drive has a colored lines. This is very bad for thresholding, when the whole lane or nothing is detected. A new approach has been introduced, as taking the median instead of the mean. This turns out to work much better, but still has it's limits. If the traffic is very high and vehicles occupy in average more than half of the ground, the background model will fail completely. Some more complicated models based on unsupervised learning could be used, but they would be computationally too complex and would not work for realtime video.
+The final will be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some metadata would be sent. That would include: 
+
+\begin{itemize}
+\item Time stamps of a frames.
+\item Locations of objects and their classes.
+\item Some description vector of the detections.
+\item Detections clustered to tracks.
+\end{itemize}
+
+This system could be greatly distributed sending packets of information among only the cameras that the information is relevant to.
+
+However this has some downfalls, mainly in computational manner. Each camera would have to be equipped with a computational unit. The detections, tracking and similarities would all have to be computed onboard. Since it is not possible to have a GPU in every lamp for many reasons, for example it is a very wet environment, usage of neural networks would not be possible and some classical detection and tracking methods running on CPU have been developed.
+
+
+
+
+\subsection{Background subtraction}
+Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{...}. The main idea is creating a model of the scene without vehicles and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
+
+The algorithm has been implemented in opencv \cite{opencv}. The background is mostly created by the mean over several images \cite{bs1, bs2}. It is also updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane, where vehicles drive has a colored lines. This is very bad for thresholding, when the whole lane or nothing is detected. 
+
+A new approach has been introduced, which greatly improves the quality of current background subtraction methods. A simple change of taking the median instead of the mean at each pixel position gives much better estimation of the background. This turns out to work much better, but still has it's limits. If the traffic is very high and vehicles occupy in average more than half of the ground, the background model will fail completely. Some more complicated models based on unsupervised learning, such as clustering for each pixel position could be used, but they would be computationally too complex and would not be practical for realtime video.
 
 
 
@@ -265,11 +360,13 @@ There is a set of rules, but these are the main ones:
 	\item If a background subtraction detection is without an optical flow point and there is no 'zombie' in the detection, optical flow point is created in the middle of the bounding box. 
 	\item If a zombie is not recovered in 10 frames, it disappears. 
 	\item If there are more optical flow points in one background subtraction detection, the bounding boxes continue movement with a low pass filter.
-	\item The optical flow points are forced to the middle of the bounding box. This solves the problem of the detection being put on the front of the car while coming and due to noise later being outside the bounding box, when the vehicle is viewed from a side.
+	\item The optical flow points are forced to the middle of the bounding box. This solves the problem of the detection being put on the front of the car while coming and due to noise later being outside the bounding box, when the vehicle is viewed from a side. 
 \end{itemize}
 
 These improvements work surprisingly well and solve the tracking problem to some extent. If vehicles overlap completely, this approach will fail, but so will most of the other ones. 
 
+
+% corello
 
 
 

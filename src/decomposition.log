@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  14 APR 2018 10:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  15 APR 2018 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,7 +514,11 @@ Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 \c@subfigure=\count114
 \c@subtable=\count115
 )
-(./decomposition.aux)
+(./decomposition.aux
+
+LaTeX Warning: Label `fig:linear_model' multiply defined.
+
+)
 \openout1 = `decomposition.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -529,8 +533,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count116
 \scratchdimen=\dimen122
@@ -593,26 +596,41 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+
+<fig/stream1.png, id=1, 1927.2pt x 1094.0875pt>
+File: fig/stream1.png Graphic file (type png)
+ <use fig/stream1.png>
+Package pdftex.def Info: fig/stream1.png used on input line 55.
+(pdftex.def)             Requested size: 390.0pt x 221.40125pt.
 
 
-LaTeX Warning: Reference `???' on page 1 undefined on input line 27.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./fig/stream1.png (PNG
+ copy)>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Citation `lukacs1997real' on page 1 undefined on input line 37.
+LaTeX Warning: Citation `lukacs1997real' on page 3 undefined on input line 77.
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (22.18123pt too wide) detected at line 61
+Overfull \hbox (22.18123pt too wide) detected at line 101
 \OML/cmm/m/it/12 C\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 M; s[]; s[]; a; r\OT1/cmr/m
 /n/12 ) = [] [] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s[]; s[];
  a; r\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12
@@ -621,97 +639,124 @@ Overfull \hbox (22.18123pt too wide) detected at line 61
 MS/cmsy/m/n/12 ^^A \OML/cmm/m/it/12 M[]
  []
 
-[2] <fig/sphere.jpg, id=20, 2193.19376pt x 1755.55875pt>
+[3] <fig/sphere.jpg, id=24, 2193.19376pt x 1755.55875pt>
 File: fig/sphere.jpg Graphic file (type jpg)
  <use fig/sphere.jpg>
-Package pdftex.def Info: fig/sphere.jpg used on input line 95.
+Package pdftex.def Info: fig/sphere.jpg used on input line 136.
 (pdftex.def)             Requested size: 390.0pt x 312.15631pt.
 
-[3 <./fig/sphere.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 134.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
-Package epstopdf Info: Source file: <fig/linear_model.eps>
-(epstopdf)                    date: 2018-03-20 12:31:52
-(epstopdf)                    size: 27432 bytes
-(epstopdf)             Output file: <fig/linear_model-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-03-21 09:41:37
-(epstopdf)                    size: 19163 bytes
-(epstopdf)             Command: <repstopdf --outfile=fig/linear_model-eps-conve
-rted-to.pdf fig/linear_model.eps>
-(epstopdf)             \includegraphics on input line 156.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <./fig/sphere.jpg>]
+<fig/calibration.png, id=31, 1371.1225pt x 770.88pt>
+File: fig/calibration.png Graphic file (type png)
+ <use fig/calibration.png>
+Package pdftex.def Info: fig/calibration.png used on input line 201.
+(pdftex.def)             Requested size: 390.0pt x 219.26787pt.
+Package epstopdf Info: Source file: <fig/linear_model3.eps>
+(epstopdf)                    date: 2018-04-09 14:34:50
+(epstopdf)                    size: 29657 bytes
+(epstopdf)             Output file: <fig/linear_model3-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-04-14 15:32:54
+(epstopdf)                    size: 24875 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/linear_model3-eps-conv
+erted-to.pdf fig/linear_model3.eps>
+(epstopdf)             \includegraphics on input line 219.
 Package epstopdf Info: Output file is already uptodate.
-<fig/linear_model-eps-converted-to.pdf, id=24, 462.72874pt x 346.29375pt>
-File: fig/linear_model-eps-converted-to.pdf Graphic file (type pdf)
 
-<use fig/linear_model-eps-converted-to.pdf>
-Package pdftex.def Info: fig/linear_model-eps-converted-to.pdf used on input li
-ne 156.
+<fig/linear_model3-eps-converted-to.pdf, id=32, 462.72874pt x 346.29375pt>
+File: fig/linear_model3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig/linear_model3-eps-converted-to.pdf>
+Package pdftex.def Info: fig/linear_model3-eps-converted-to.pdf used on input l
+ine 219.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] [5 <./fig/linear_model-eps-converted-to.pdf>]
-<fig/precision-recall.png, id=67, 462.528pt x 346.896pt>
+Package epstopdf Info: Source file: <fig/tan_model2.eps>
+(epstopdf)                    date: 2018-04-09 14:36:17
+(epstopdf)                    size: 29967 bytes
+(epstopdf)             Output file: <fig/tan_model2-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-04-14 15:47:48
+(epstopdf)                    size: 24875 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/tan_model2-eps-convert
+ed-to.pdf fig/tan_model2.eps>
+(epstopdf)             \includegraphics on input line 238.
+Package epstopdf Info: Output file is already uptodate.
+<fig/tan_model2-eps-converted-to.pdf, id=33, 462.72874pt x 346.29375pt>
+File: fig/tan_model2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig/tan_model2-eps-converted-to.pdf>
+Package pdftex.def Info: fig/tan_model2-eps-converted-to.pdf used on input line
+ 238.
+(pdftex.def)             Requested size: 390.0pt x 291.86758pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./fig/calibration.png>] [7 <./fig/linear_model3-eps-converted-to.pdf>]
+Underfull \vbox (badness 3557) has occurred while \output is active []
+
+ [8 <./fig/tan_model2-eps-converted-to.pdf>]
+<fig/precision-recall.png, id=116, 462.528pt x 346.896pt>
 File: fig/precision-recall.png Graphic file (type png)
 
 <use fig/precision-recall.png>
-Package pdftex.def Info: fig/precision-recall.png used on input line 209.
+Package pdftex.def Info: fig/precision-recall.png used on input line 294.
 (pdftex.def)             Requested size: 390.0pt x 292.5128pt.
 
+Underfull \vbox (badness 5008) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+ [9]
+[10 <./fig/precision-recall.png>]
 
-[6] <fig/frame.png, id=72, 1051.93pt x 953.5625pt>
+LaTeX Warning: Citation `...' on page 11 undefined on input line 321.
+
+<fig/frame.png, id=125, 1051.93pt x 953.5625pt>
 File: fig/frame.png Graphic file (type png)
  <use fig/frame.png>
-Package pdftex.def Info: fig/frame.png used on input line 226.
+Package pdftex.def Info: fig/frame.png used on input line 331.
 (pdftex.def)             Requested size: 204.00996pt x 184.9429pt.
 
-Overfull \hbox (9.00996pt too wide) in paragraph at lines 226--228
+Overfull \hbox (9.00996pt too wide) in paragraph at lines 331--333
 [][]
  []
 
-<fig/background.png, id=73, 1027.84pt x 949.5475pt>
+<fig/background.png, id=126, 1027.84pt x 949.5475pt>
 File: fig/background.png Graphic file (type png)
  <use fig/background.png>
-Package pdftex.def Info: fig/background.png used on input line 232.
+Package pdftex.def Info: fig/background.png used on input line 337.
 (pdftex.def)             Requested size: 200.18489pt x 184.9429pt.
 
-Overfull \hbox (5.18489pt too wide) in paragraph at lines 232--234
+Overfull \hbox (5.18489pt too wide) in paragraph at lines 337--339
 [][]
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 225--236
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 330--341
 []$[]$  $[]$ 
  []
 
-
-Underfull \vbox (badness 2065) has occurred while \output is active []
-
- [7 <./fig/precision-recall.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./fig/frame.png> <./fig/background.png>] (./decomposition.bbl [9]) [10]
-(./decomposition.aux)
+[11] [12 <./fig/frame.png> <./fig/background.png>] (./decomposition.bbl)
+[13] [14] (./decomposition.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4951 strings out of 493029
- 69810 string characters out of 6136235
- 141123 words of memory out of 5000000
- 8390 multiletter control sequences out of 15000+600000
+ 4970 strings out of 493029
+ 70240 string characters out of 6136235
+ 143195 words of memory out of 5000000
+ 8406 multiletter control sequences out of 15000+600000
  10619 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,39p,854b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,39p,699b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -724,10 +769,10 @@ sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on decomposition.pdf (10 pages, 4060835 bytes).
+Output written on decomposition.pdf (14 pages, 6715651 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 184 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
