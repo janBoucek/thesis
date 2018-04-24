@@ -9,6 +9,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \numberwithin{figure}{section}
+\usepackage{caption}
+
 
 \begin{document}
 
@@ -244,6 +246,10 @@ This model represents the camera optics much better and was chosen to be the fin
 
 \subsection{Real world coordinates}
 
+There is many ways how to represent real world for representing the car in the city. The most ovious one would be represent the position by longitude, latitude and elevation. This is exact, but not very practical. Since the distances between same circles of latitude and longitude are different, this would need more complicated transformations and there is a simple model. 
+
+Since we care only about only one city, one camera will be the frame of reference.
+
 
 
 
@@ -300,8 +306,7 @@ where $C$ is the set of classes.
 
 
 \section{Classical detector}
-
-The final will be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some metadata would be sent. That would include: 
+The final will be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some meta-data would be sent. That would include: 
 
 \begin{itemize}
 \item Time stamps of a frames.
@@ -312,47 +317,123 @@ The final will be easily scalable and a particular system architecture has been 
 
 This system could be greatly distributed sending packets of information among only the cameras that the information is relevant to.
 
-However this has some downfalls, mainly in computational manner. Each camera would have to be equipped with a computational unit. The detections, tracking and similarities would all have to be computed onboard. Since it is not possible to have a GPU in every lamp for many reasons, for example it is a very wet environment, usage of neural networks would not be possible and some classical detection and tracking methods running on CPU have been developed.
-
+However this has some downfalls, mainly in computational manner. Each camera would have to be equipped either with a capable computational unit. The detections, tracking and similarities would all have to be computed onboard. Since it is not possible to have a GPU in every lamp for many reasons, for example it is a very wet environment, usage of neural networks would not be possible and some classical detection and tracking methods running on CPU have been explored and developed.
 
 
 
 \subsection{Background subtraction}
-Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{...}. The main idea is creating a model of the scene without vehicles and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
+\label{sec:bgs}
 
-The algorithm has been implemented in opencv \cite{opencv}. The background is mostly created by the mean over several images \cite{bs1, bs2}. It is also updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane, where vehicles drive has a colored lines. This is very bad for thresholding, when the whole lane or nothing is detected. 
+Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{...}. The main idea is creating a model of the scene without the objects that we want to detect and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
 
-A new approach has been introduced, which greatly improves the quality of current background subtraction methods. A simple change of taking the median instead of the mean at each pixel position gives much better estimation of the background. This turns out to work much better, but still has it's limits. If the traffic is very high and vehicles occupy in average more than half of the ground, the background model will fail completely. Some more complicated models based on unsupervised learning, such as clustering for each pixel position could be used, but they would be computationally too complex and would not be practical for realtime video.
+For the background subtraction procedure, a model of the background has to be found. For our purposes we need to know, how the road looks like without any vehicles and people. This can't be done by simply waiting for such a case, because the traffic is usually quite high. Instead, we need to figure out the background from more multiple frames. 
+
+The algorithm has been implemented in opencv \cite{opencv}. The background is generally created by the mean over several images \cite{bs1, bs2}. It is also updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane, where vehicles drive has a colored lines as shown in the figure \ref{fig:cut_mean}. When computed the difference from a video frame to such a background model, as shown in the figure \ref{fig:threshold_mean}, the places, where usually cars drive, can have high values. This can be bad for creating a mask by thresholding, because a higher thresholding constant has to be set.
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+        \includegraphics[height=37mm]{fig/background_mean_crop.png}
+        \caption{Mean model}
+        \label{fig:cut_mean}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[Sample1]{0.5\linewidth}    
+        \includegraphics[height=37mm]{fig/background_med_crop.png}  
+        \caption{Median model}
+        \label{fig:cut_med}  
+    \end{subfigure} 
+    \caption{Background model created by the mean and the median approach.}
+\end{figure}
+
+The background model changes with every new frame. In the first iteration, the background $B_0$ is just the first frame $F_0$. The background in next iteration is just the weighted sum of the  current frame and the background model in the previous iteration.
+
+\begin{equation}
+B_n = \alpha \cdot F_n + (1 - \alpha) \cdot B_{n-1}
+\end{equation}
+
+This algorithm is very fast and can be highly parallelized and computed on graphics cards. The picture having $N$  pixels, the complexity of this standard background subtraction algorithm is  $O(N)$.
 
 
 
 \begin{figure}
     \begin{subfigure}[Sample1]{0.5\linewidth}
-        \includegraphics[height=65mm]{fig/frame.png}
-        \label{fig:a}
-        \caption{A video frame}
+        \includegraphics[height=37mm]{fig/threshold_mean_crop.png}
+        \caption{Mean}
+        \label{fig:threshold_mean}
     \end{subfigure}
     \qquad
     \begin{subfigure}[Sample1]{0.5\linewidth}    
-        \includegraphics[height=65mm]{fig/background.png}
-        \label{fig:b}    
-        \caption{The background created using median}
+        \includegraphics[height=37mm]{fig/threshold_med_crop.png}
+        \caption{Median}
+        \label{fig:threshold_med}    
     \end{subfigure} 
-    \caption{my caption}
+    \caption{The difference between the frame and a background shown in a gray-scale.}
 \end{figure}
 
+A new approach has been introduced, which greatly improves the quality of current background subtraction methods. A simple change of taking the median instead of the mean at each pixel position gives much better estimation of the background. The algorithm keeps a queue of $K$ images in a memory and with each incoming frame it puts it in the database and for each pixel it computes a median from the queue. This algorithm can be implemented with the complexity $O(N \cdot log(K))$, if we insert each pixel from an incoming frame to a sorted structure. In reality, for small $K$ this would slow the algorithm, because in opencv and numpy there is a great support for working with the whole images. This approach is simply compute the median over all the images from the queue. The complexity is $O(N \cdot K \cdot log(k)).$ The $K$ has been set to 35. The histogram of a particular pixel position over the queue is show in the figure \ref{fig:pixel_hist}.
 
 
-The difference between background model and the current frame is very noisy and some filtration has to be made. Before subtraction, the background and the frame has been filtrated with a gaussian filter with the size 3x3 for smoothing. Then smoothed again with the filter 11x11. This image is then thresholded and a mask is obtained. Each blob is presented with a contour and they are thresholded once more by the area. The resulted blobs become detections and a bounding box is created.
+This turns out to work much better, but still has it's limits. If the traffic is very high and vehicles occupy in average more than half of the ground, the background model will fail, but mean approach would fail as well. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\linewidth]{fig/pixel_hist.eps}
+\caption{The histogram of a particular pixel over 100 images with computed medians}
+\label{fig:pixel_hist}
+\end{figure}
+
+Some more complicated models based on unsupervised learning, such as clustering or taking the most frequent bin from histogram for each pixel position could be used, but they would be computationally too complex and would not be practical for realtime video.
+
+The difference between background model and the current frame is very noisy and some filtration has to be made. Before subtraction, the background and the frame has been filtrated with a gaussian filter with the size 3x3 for smoothing. This compensates for the camera vibrations. Then smoothed again with the filter 11x11. This serves as an apriori probability. The idea is, that if there are big differences in the neighboring area, it is a higher probability of the pixel belonging to the car. This also helps to detect gray and black cars, which have similar color to the road. Another advantage is, that this greatly reduces noise and helps to detect vehicles as whole.
+
+This differential image is thresholded and a mask is obtained as shown in the figure \ref{fig:mask_area}. Each blob is presented with a contour and they are thresholded once more by the area. The resulted blobs become detections and a bounding box is created.
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[height=85mm]{fig/frame_cropped.png} 
+        \caption{A frame for detection}
+        \label{fig:frame_for_detection}   
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[height=85mm]{fig/mask_area.png}
+        \caption{The detections and areas of contours.}   
+        \label{fig:mask_area}
+    \end{subfigure} 
+    \caption{The background subtraction detection algorithm.}
+\end{figure}
 
 The background must be continuously adapting to the scene, but the rate of adapting is crucial. If the background is changing too slowly, it will not work very well with changes of lightning from coming clouds, etc. If the background adapts too fast, it will start to contain cars, that stop at the cross section and when the cars leave, this will become a new false detection. From experiments, there is no optimal adapting rate and it depends on the scene, weather and even then these problems will not completely disappear. One small advantage is filtering detections while adapting background.
 
-Background subtraction has many more downsides. Moving trees and shadows create false positives and overlapping objects are represented as one. 
+Background subtraction is a very fast detection algorithm and when having perfect conditions, it is very accurate and The bounding boxes are more precise than most deep learning approaches.
 
-For these problems, background subtraction alone can't be used as a good detector. However, if the conditions are perfect, that means very low traffic for non overlapping vehicles and successful background learning, non changing weather and few trees and their many shadows, the background subtraction works very well. On these scenes, this can be very useful for collecting high quality training data for neural networks. 
+Unfortunately it has many downsides. 
 
-\section{Optical Flow}
-A custom set of algorithms has been implemented in opencv\cite{opencv} for improving the background subtraction problems.  Optical flow \cite{optical-flow} is not used over the whole image, since that would be too expensive. Instead, each detection is extended for a one optical flow point. In the next frame, this point will move with the object. This extends the detector for object tracking and partially solves the problem of two overlapping vehicles. If two vehicles drive close to each other, background subtraction would start to treat them as one object. This improved model will detect this situation and keep the bounding boxes on the different vehicles. 
+\begin{itemize}
+\item Moving trees and their shadows create false positives.
+\item Overlapping vehicles are detected as only one.
+\item It works bad in high traffic, because it can't create a correct background model.
+\item It is very sensitive to changes of lightning, such as moving clouds.
+\item It is very sensitive to correct setting of hyper-parameters.
+\end{itemize}
+
+Most of these points relate to changing background. Especially if the scene is partially cloudy and the lightning changes a lot, the background model needs to adapt quickly. On the other hand, if in the scene is a traffic light, cars spend a lot of time on one spot and could be incorporated to the background model. Not only the car will not be detected, but a false positive will be detected when the car leaves.
+
+For these problems, background subtraction alone can't be used as a good detector, but on perfect scenes  it can be very useful for collecting high quality training data for neural networks detectors, as described in the section \ref{...}.
+
+\subsection{Optical Flow}
+
+The detections have been described in section \ref{sec:bgs}. Having only the detections for each frame does not give us that much information. We need to connect these detections to a track, which is a sequence of detections over the frames, in which the object appears in the scene.
+
+A custom set of algorithms has been implemented in opencv\cite{opencv} for extending the background subtraction algorithm. Optical flow \cite{optical-flow} is used for a motion estimation. It estimates a motion vector to each 
+
+####################
+
+Harris corner features
+shi-thomasi
+
+
+is not used over the whole image, since that would be too expensive. Instead, each detection is extended for a one optical flow point. In the next frame, this point will move with the object. This extends the detector for object tracking and partially solves the problem of two overlapping vehicles. If two vehicles drive close to each other, background subtraction would start to treat them as one object. This improved model will detect this situation and keep the bounding boxes on the different vehicles. 
 
 There is a set of rules, but these are the main ones:
 \begin{itemize}
