@@ -20,9 +20,14 @@
 \section{Introduction}
 Estimated 80\% of the human data is in form of images or videos. There is a lot of useful information hidden, but it is still very complicated to gain it. Most of the information is still labeled manually by people, who make mistakes and are expensive. There is an incredible need for automated video processing in many branches of the industry. Being able to accurately detect and track vehicles can provide valuable data about transportation to governments. Reidentification and tracking objects over multiple cameras in real time can help reinforcement agencies to effectively fight crime. 
 
-\subsection{Overview of methodology}
-This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for the police. The cameras are very wide angle and have been mounted directly to the street lamps.
+\subsection{Problem statement}
+This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for the police. The cameras are very wide angle and have been mounted directly to the street lamps...
 
+\subsection{Overview of methodology}
+
+The whole thesis has been divided to subproblems and solved more or less separately. First a processing of a single frame needs to be perfected. That includes detection and classification. Detection is in form of a bounding box. Each detection in a single frame needs to be classified into several classes. When we have a detections and classifications over a sequence of frames, a tracking needs to be implemented. That means connecting the bounding boxes into sequences, where each sequence of bounding boxes represents a trajectory of a vehicle. 
+
+When processing a video in one camera has been solved, the problem expands to multiple cameras. Tracking over multiple cameras is deciding, which tracks represent the same vehicle. That is based on a metrics of similarity between two tracks. Finally some representation of the city and the car's position needs to be developed. 
 
 \subsection{Contribution}
 The author of this thesis implemented several modules for this project.
@@ -34,9 +39,9 @@ The author of this thesis implemented several modules for this project.
 
 \item Semi-supervised data generator
 
-\item Improving and extending and training deep learning detector and connecting it with a provided tracker.
+\item Improving, extending and training deep learning detector and connecting it with a provided tracker.
 
-\item Training a neural network for vehicles similarity
+\item Training a neural network for vehicle similarity
 
 \item Testing and comparing results.
 
@@ -91,7 +96,7 @@ We create an additional mask $E(s_x, s_y, a, r)$ of the ellipse as
 
 \begin{equation*}
 E_{x,y}(s_x, s_y, a, r) = \begin{cases}
-1 & if \frac{(x-s_x)^2}{a} + \frac{(y-s_y)^2}{1} \leq r^2 \\
+1 & if \quad \frac{(x-s_x)^2}{a} + \frac{(y-s_y)^2}{1} \leq r^2 \\
 0 & otherwise
 \end{cases}
 \end{equation*}
@@ -104,25 +109,28 @@ C(M, s_x, s_y, a, r) = \sum_{x = 0}^{W-1} \sum_{y = 0}^{H-1} E_{x,y}(s_x, s_y, a
 
 The algorithm could evaluate all combinations of parameters, but the number of searched parameters can be greatly reduced by searching in a coarse to to fine manner. 
 
+In each step, a baseline is set and for each parameter a higher and a lower value by a constant is evaluated. The best value is selected and set as a new baseline for the next step and the constant is divided by two. The main idea is basically a binary search.
 
-\begin{verbatim}
-x, y, a, r := initialize_params()
-center_step, a_step, r_step := initialize_steps()
 
-while(not imporoving):
-    x_list := [x - center_step, x, x + center_step]
-    y_list := [y - center_step, y, y + center_step]
-    a_list := [a - a_step, a, a + a_step]
-    r_list := [r - r_step, r, r + r_step]
-    
-    x, y, a, r := select_best(x_list, y_list, a_list, r_list)
-    
-    center_step := center_step / 2
-    a_step := a_step / 2
-    r_step := r_step / 2
-    
-return x, y, a, r
-\end{verbatim}
+%
+%\begin{verbatim}
+%x, y, a, r := initialize_params()
+%center_step, a_step, r_step := initialize_steps()
+%
+%while(not imporoving):
+%    x_list := [x - center_step, x, x + center_step]
+%    y_list := [y - center_step, y, y + center_step]
+%    a_list := [a - a_step, a, a + a_step]
+%    r_list := [r - r_step, r, r + r_step]
+%    
+%    x, y, a, r := select_best(x_list, y_list, a_list, r_list)
+%    
+%    center_step := center_step / 2
+%    a_step := a_step / 2
+%    r_step := r_step / 2
+%    
+%return x, y, a, r
+%\end{verbatim}
 
 This algorithm quickly finds the ellipse with very high precision. Furthermore the most expensive function, $select\_best$ can be highly parallelized.
 
@@ -244,11 +252,33 @@ Fitting of the model is shown in the fig.\ref{fig:linear_model}
 
 This model represents the camera optics much better and was chosen to be the final one.
 
-\subsection{Real world coordinates}
+\subsection{The city coordinate system}
 
-There is many ways how to represent real world for representing the car in the city. The most ovious one would be represent the position by longitude, latitude and elevation. This is exact, but not very practical. Since the distances between same circles of latitude and longitude are different, this would need more complicated transformations and there is a simple model. 
+There is many ways how to represent real world for representing the car in the city. The most obvious one would be represent the position by longitude, latitude and elevation. This would be correct, but not very practical. Since the distances between same circles of latitude and longitude are different, this would need more complicated transformations and there is a simpler model. 
 
-Since we care only about only one city, one camera will be the frame of reference.
+Since we care only about only one city, we will use a city cartesian coordinate system $(x^c, y^c)$. We can choose any position and rotation of the coordinate center. All we need to know is the relative translations and rotations of each camera $(\Delta x, \Delta y, \Delta\phi)$ to the city coordinate system. For simple transformations we will use homogeneous coordinates, which are in form of $(x, y, 1)^T$. 
+
+
+A point from a camera coordinate system $(x^w, y^w)$ is transformed to the city coordinate system $(x^c, y^c)$ as
+\[
+  \begin{bmatrix}
+    x^c \\
+    y^c \\
+    1
+  \end{bmatrix}
+   = 
+  \begin{bmatrix}
+    cos\Delta\phi & -sin\Delta\phi & \Delta x\\
+    sin\Delta\phi & cos\Delta\phi & \Delta y\\
+    0 & 0 & 1
+  \end{bmatrix}   
+  \cdot 
+  \begin{bmatrix}
+    x^w \\
+    y^w \\
+    1
+  \end{bmatrix}
+\]
 
 
 
@@ -305,7 +335,7 @@ where $C$ is the set of classes.
 
 
 
-\section{Classical detector}
+\section{Classical methods}
 The final will be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some meta-data would be sent. That would include: 
 
 \begin{itemize}
@@ -324,11 +354,13 @@ However this has some downfalls, mainly in computational manner. Each camera wou
 \subsection{Background subtraction}
 \label{sec:bgs}
 
-Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{...}. The main idea is creating a model of the scene without the objects that we want to detect and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
+Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{bgs-review}. The main idea is creating a model of the scene without the objects that we want to detect and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
 
 For the background subtraction procedure, a model of the background has to be found. For our purposes we need to know, how the road looks like without any vehicles and people. This can't be done by simply waiting for such a case, because the traffic is usually quite high. Instead, we need to figure out the background from more multiple frames. 
 
-The algorithm has been implemented in opencv \cite{opencv}. The background is generally created by the mean over several images \cite{bs1, bs2}. It is also updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane, where vehicles drive has a colored lines as shown in the figure \ref{fig:cut_mean}. When computed the difference from a video frame to such a background model, as shown in the figure \ref{fig:threshold_mean}, the places, where usually cars drive, can have high values. This can be bad for creating a mask by thresholding, because a higher thresholding constant has to be set.
+\cite{bs1, bs2}
+
+The algorithm has been implemented in opencv \cite{opencv}. The background is usually created by the mean over several images called running gaussian average \cite{wren1997pfinder}. The idea is to estimate a gaussian to each pixel independently. Each pixel is updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane. In places, where vehicles drive, are colored lines as shown in the figure \ref{fig:cut_mean}. When computed the difference from a video frame to such a background model, as shown in the figure \ref{fig:threshold_mean}, the places, where usually cars drive, can have high values. This can be bad for creating a mask by thresholding, because a higher thresholding constant has to be set.
 
 \begin{figure}
     \begin{subfigure}[Sample1]{0.5\linewidth}
@@ -370,7 +402,7 @@ This algorithm is very fast and can be highly parallelized and computed on graph
     \caption{The difference between the frame and a background shown in a gray-scale.}
 \end{figure}
 
-A new approach has been introduced, which greatly improves the quality of current background subtraction methods. A simple change of taking the median instead of the mean at each pixel position gives much better estimation of the background. The algorithm keeps a queue of $K$ images in a memory and with each incoming frame it puts it in the database and for each pixel it computes a median from the queue. This algorithm can be implemented with the complexity $O(N \cdot log(K))$, if we insert each pixel from an incoming frame to a sorted structure. In reality, for small $K$ this would slow the algorithm, because in opencv and numpy there is a great support for working with the whole images. This approach is simply compute the median over all the images from the queue. The complexity is $O(N \cdot K \cdot log(k)).$ The $K$ has been set to 35. The histogram of a particular pixel position over the queue is show in the figure \ref{fig:pixel_hist}.
+An improved way of acquiring background model has been used, which greatly improves the quality of current background subtraction methods. A simple change of taking the median instead of the mean at each pixel position gives much better estimation of the background \cite{bgs-med1, bgs-med2}. The algorithm keeps a queue of $K$ images in a memory and with each incoming frame it puts it in the database and for each pixel it computes a median from the queue. This algorithm can be implemented with the complexity $O(N \cdot log(K))$, if we insert each pixel from an incoming frame to a sorted structure. In reality, for small $K$ this would slow the algorithm, because in opencv and numpy there is a great support for working with the whole images. This approach is simply compute the median over all the images from the queue. The complexity is $O(N \cdot K \cdot log(k)).$ The $K$ has been set to 35. The histogram of a particular pixel position over the queue is show in the figure \ref{fig:pixel_hist}.
 
 
 This turns out to work much better, but still has it's limits. If the traffic is very high and vehicles occupy in average more than half of the ground, the background model will fail, but mean approach would fail as well. 
@@ -423,18 +455,28 @@ For these problems, background subtraction alone can't be used as a good detecto
 
 \subsection{Optical Flow}
 
-The detections have been described in section \ref{sec:bgs}. Having only the detections for each frame does not give us that much information. We need to connect these detections to a track, which is a sequence of detections over the frames, in which the object appears in the scene.
+The detections have been described in section \ref{sec:bgs}. Having only the detections for each frame does not give us that much information. We need to connect these detections to a track.
 
-A custom set of algorithms has been implemented in opencv\cite{opencv} for extending the background subtraction algorithm. Optical flow \cite{optical-flow} is used for a motion estimation. It estimates a motion vector to each 
+A custom set of algorithms has been implemented in opencv\cite{opencv} for extending the background subtraction algorithm to tracking. Optical flow \cite{optical-flow} is used for a motion estimation in a video. It pairs pixels in two subsequent frames. In other words, it is a discrete 2D vector field, where each vector is a displacement vector showing the movement of points from first frame to second.
+
+The computation of optical flow over the whole image is usually a very expensive procedure. The method used is Lucas-Kanede method \cite{lucas-kanede}. 
+
+***desctiption, equations?
 
 
-Harris corner features
-shi-thomasi
+This algorithm is not used on whole image. That would be computationally too expensive and would not be feasible for limited computational resources and realtime system. Instead, each detection is extended for a one optical flow point. In the next frame, this point will move with the object. Each detection is characterized through this point. 
 
+This extends the detector for object tracking and partially solves the problem of two overlapping vehicles. If two vehicles drive close to each other, background subtraction would start to treat them as one object. This improved model will detect this situation and try to keep the bounding boxes on the different vehicles. 
 
-is not used over the whole image, since that would be too expensive. Instead, each detection is extended for a one optical flow point. In the next frame, this point will move with the object. This extends the detector for object tracking and partially solves the problem of two overlapping vehicles. If two vehicles drive close to each other, background subtraction would start to treat them as one object. This improved model will detect this situation and keep the bounding boxes on the different vehicles. 
+In first experiments, when a new detection appeared, the position of the optical flow point was selected with the Shi-Tomasi \cite{shi-tomasi} algorithm, which is an improved version of the Harris corner and edge detector \cite{harris}. It tries to find some features, that have high gradient and will be easier to track, rather than 
 
-There is a set of rules, but these are the main ones:
+The real world scenarios bring 
+
+Trees and lamps complicate the situation greatly. When a vehicle drives behind some sort of a pillar, the optical flow point can not be matched with a next frame and stays on the same place. When the vehicle completely passes, the tracking is lost. Another feature had to be added, which is an additional centering of the optical flow point to the middle of the bounding box. 
+
+In a perfect scenario the algorithm would be easy. However in real world scenario, false positives, as well as false negatives must be dealt with, trees and lamps furthermore complicate the situation.
+
+The tracking algorithm has been described by a set of rules. The main ones are:
 \begin{itemize}
 	\item If an optical flow point is outside the background subtraction mask, it becomes a 'zombie'.
 	\item If a background subtraction detection is without an optical flow point and there is no 'zombie' in the detection, optical flow point is created in the middle of the bounding box. 
@@ -447,9 +489,12 @@ These improvements work surprisingly well and solve the tracking problem to some
 
 
 % corello
+% Harris corner features
+% shi-thomasi
 
-
-
+\section{Detection and tracking}
+\section{Reidentification}
+\section{Evaluation}
 
 
 

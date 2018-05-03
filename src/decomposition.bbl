@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{optical-flow}
 S.~S. Beauchemin and J.~L. Barron.
@@ -10,16 +10,60 @@ Gary Bradski and Adrian Kaehler.
 \newblock Opencv.
 \newblock {\em Dr. Dobb’s journal of software tools}, 3, 2000.
 
+\bibitem{bgs-med2}
+Rita Cucchiara, Costantino Grana, Massimo Piccardi, and Andrea Prati.
+\newblock Detecting moving objects, ghosts, and shadows in video streams.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  25(10):1337--1342, 2003.
+
 \bibitem{imagenet}
 J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
 \newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
 \newblock In {\em CVPR09}, 2009.
+
+\bibitem{harris}
+Chris Harris and Mike Stephens.
+\newblock A combined corner and edge detector.
+\newblock In {\em Alvey vision conference}, volume~15, pages 10--5244.
+  Citeseer, 1988.
 
 \bibitem{bs1}
 Thanarat Horprasert, David Harwood, and Larry~S Davis.
 \newblock A statistical approach for real-time robust background subtraction
   and shadow detection.
 \newblock In {\em Ieee iccv}, volume~99, pages 1--19. Citeseer, 1999.
+
+\bibitem{bgs-med1}
+BPL Lo and SA~Velastin.
+\newblock Automatic congestion detection system for underground platforms.
+\newblock In {\em Intelligent Multimedia, Video and Speech Processing, 2001.
+  Proceedings of 2001 International Symposium on}, pages 158--161. IEEE, 2001.
+
+\bibitem{lucas-kanede}
+Bruce~D Lucas, Takeo Kanade, et~al.
+\newblock An iterative image registration technique with an application to
+  stereo vision.
+\newblock 1981.
+
+\bibitem{bgs-review}
+Massimo Piccardi.
+\newblock Background subtraction techniques: a review.
+\newblock In {\em Systems, man and cybernetics, 2004 IEEE international
+  conference on}, volume~4, pages 3099--3104. IEEE, 2004.
+
+\bibitem{shi-tomasi}
+Jianbo Shi et~al.
+\newblock Good features to track.
+\newblock In {\em Computer Vision and Pattern Recognition, 1994. Proceedings
+  CVPR'94., 1994 IEEE Computer Society Conference on}, pages 593--600. IEEE,
+  1994.
+
+\bibitem{wren1997pfinder}
+Christopher~Richard Wren, Ali Azarbayejani, Trevor Darrell, and Alex~Paul
+  Pentland.
+\newblock Pfinder: Real-time tracking of the human body.
+\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
+  19(7):780--785, 1997.
 
 \bibitem{bs2}
 Zoran Zivkovic and Ferdinand Van Der~Heijden.
