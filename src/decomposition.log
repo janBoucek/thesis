@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  3 MAY 2018 09:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  9 MAY 2018 07:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,37 +596,43 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 36.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<fig/stream1.png, id=9, 1927.2pt x 1094.0875pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+ [2] [3] [4]
+<fig/stream1.png, id=18, 1927.2pt x 1094.0875pt>
 File: fig/stream1.png Graphic file (type png)
  <use fig/stream1.png>
-Package pdftex.def Info: fig/stream1.png used on input line 62.
+Package pdftex.def Info: fig/stream1.png used on input line 133.
 (pdftex.def)             Requested size: 390.0pt x 221.40125pt.
- [2 <./fig/stream1.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 77.
+
+Underfull \vbox (badness 1342) has occurred while \output is active []
+
+ [5 <./fig/stream1.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 148.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 77.
+LaTeX Font Info:    Try loading font information for U+msb on input line 148.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Citation `lukacs1997real' on page 3 undefined on input line 84.
+LaTeX Warning: Citation `lukacs1997real' on page 6 undefined on input line 155.
 
 
-Overfull \hbox (22.18123pt too wide) detected at line 108
+
+Overfull \hbox (22.18123pt too wide) detected at line 179
 \OML/cmm/m/it/12 C\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 M; s[]; s[]; a; r\OT1/cmr/m
 /n/12 ) = [] [] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s[]; s[];
  a; r\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12
@@ -635,20 +641,20 @@ Overfull \hbox (22.18123pt too wide) detected at line 108
 MS/cmsy/m/n/12 ^^A \OML/cmm/m/it/12 M[]
  []
 
-[3] <fig/sphere.jpg, id=23, 2193.19376pt x 1755.55875pt>
+[6] <fig/sphere.jpg, id=32, 2193.19376pt x 1755.55875pt>
 File: fig/sphere.jpg Graphic file (type jpg)
  <use fig/sphere.jpg>
-Package pdftex.def Info: fig/sphere.jpg used on input line 146.
+Package pdftex.def Info: fig/sphere.jpg used on input line 217.
 (pdftex.def)             Requested size: 390.0pt x 312.15631pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] [5 <./fig/sphere.jpg>]
-<fig/calibration.png, id=30, 1371.1225pt x 770.88pt>
+[7] [8 <./fig/sphere.jpg>]
+<fig/calibration.png, id=40, 1371.1225pt x 770.88pt>
 File: fig/calibration.png Graphic file (type png)
  <use fig/calibration.png>
-Package pdftex.def Info: fig/calibration.png used on input line 211.
+Package pdftex.def Info: fig/calibration.png used on input line 282.
 (pdftex.def)             Requested size: 390.0pt x 219.26787pt.
 Package epstopdf Info: Source file: <fig/linear_model3.eps>
 (epstopdf)                    date: 2018-04-09 12:34:50
@@ -658,15 +664,15 @@ Package epstopdf Info: Source file: <fig/linear_model3.eps>
 (epstopdf)                    size: 24875 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/linear_model3-eps-conv
 erted-to.pdf fig/linear_model3.eps>
-(epstopdf)             \includegraphics on input line 229.
+(epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/linear_model3-eps-converted-to.pdf, id=31, 462.72874pt x 346.29375pt>
+<fig/linear_model3-eps-converted-to.pdf, id=41, 462.72874pt x 346.29375pt>
 File: fig/linear_model3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/linear_model3-eps-converted-to.pdf>
 Package pdftex.def Info: fig/linear_model3-eps-converted-to.pdf used on input l
-ine 229.
+ine 300.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
 
 
@@ -680,36 +686,29 @@ Package epstopdf Info: Source file: <fig/tan_model2.eps>
 (epstopdf)                    size: 24875 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/tan_model2-eps-convert
 ed-to.pdf fig/tan_model2.eps>
-(epstopdf)             \includegraphics on input line 248.
+(epstopdf)             \includegraphics on input line 319.
 Package epstopdf Info: Output file is already uptodate.
-<fig/tan_model2-eps-converted-to.pdf, id=32, 462.72874pt x 346.29375pt>
+<fig/tan_model2-eps-converted-to.pdf, id=42, 462.72874pt x 346.29375pt>
 File: fig/tan_model2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/tan_model2-eps-converted-to.pdf>
 Package pdftex.def Info: fig/tan_model2-eps-converted-to.pdf used on input line
- 248.
+ 319.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./fig/calibration.png>] [7 <./fig/linear_model3-eps-converted-to.pdf>]
-[8 <./fig/tan_model2-eps-converted-to.pdf>] [9]
-<fig/precision-recall.png, id=118, 462.528pt x 346.896pt>
-File: fig/precision-recall.png Graphic file (type png)
-
-<use fig/precision-recall.png>
-Package pdftex.def Info: fig/precision-recall.png used on input line 330.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
- [10 <./fig/precision-recall.png>]
+[9 <./fig/calibration.png>] [10 <./fig/linear_model3-eps-converted-to.pdf>]
+[11 <./fig/tan_model2-eps-converted-to.pdf>]
 <fig/background_mean_crop.png, id=124, 707.64375pt x 361.35pt>
 File: fig/background_mean_crop.png Graphic file (type png)
 
 <use fig/background_mean_crop.png>
-Package pdftex.def Info: fig/background_mean_crop.png used on input line 367.
+Package pdftex.def Info: fig/background_mean_crop.png used on input line 391.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 367--368
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 391--392
 [][] 
  []
 
@@ -717,26 +716,26 @@ Overfull \hbox (11.16164pt too wide) in paragraph at lines 367--368
 File: fig/background_med_crop.png Graphic file (type png)
 
 <use fig/background_med_crop.png>
-Package pdftex.def Info: fig/background_med_crop.png used on input line 373.
+Package pdftex.def Info: fig/background_med_crop.png used on input line 397.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 373--374
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 397--398
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 366--377
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 390--401
 []$[]$  $[]$ 
  []
 
-[11] <fig/threshold_mean_crop.png, id=129, 707.64375pt x 361.35pt>
+[12] <fig/threshold_mean_crop.png, id=129, 707.64375pt x 361.35pt>
 File: fig/threshold_mean_crop.png Graphic file (type png)
 
 <use fig/threshold_mean_crop.png>
-Package pdftex.def Info: fig/threshold_mean_crop.png used on input line 392.
+Package pdftex.def Info: fig/threshold_mean_crop.png used on input line 416.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 392--393
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 416--417
 [][] 
  []
 
@@ -744,19 +743,19 @@ Overfull \hbox (11.16164pt too wide) in paragraph at lines 392--393
 File: fig/threshold_med_crop.png Graphic file (type png)
 
 <use fig/threshold_med_crop.png>
-Package pdftex.def Info: fig/threshold_med_crop.png used on input line 398.
+Package pdftex.def Info: fig/threshold_med_crop.png used on input line 422.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 398--399
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 422--423
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 391--402
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 415--426
 []$[]$  $[]$ 
  []
 
-[12 <./fig/background_mean_crop.png (PNG copy)> <./fig/background_med_crop.png 
+[13 <./fig/background_mean_crop.png (PNG copy)> <./fig/background_med_crop.png 
 (PNG copy)> <./fig/threshold_mean_crop.png (PNG copy)> <./fig/threshold_med_cro
 p.png (PNG copy)>]
 Package epstopdf Info: Source file: <fig/pixel_hist.eps>
@@ -767,51 +766,74 @@ Package epstopdf Info: Source file: <fig/pixel_hist.eps>
 (epstopdf)                    size: 18427 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/pixel_hist-eps-convert
 ed-to.pdf fig/pixel_hist.eps>
-(epstopdf)             \includegraphics on input line 412.
+(epstopdf)             \includegraphics on input line 436.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/pixel_hist-eps-converted-to.pdf, id=135, 462.72874pt x 346.29375pt>
+<fig/pixel_hist-eps-converted-to.pdf, id=136, 462.72874pt x 346.29375pt>
 File: fig/pixel_hist-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/pixel_hist-eps-converted-to.pdf>
 Package pdftex.def Info: fig/pixel_hist-eps-converted-to.pdf used on input line
- 412.
+ 436.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
- [13 <./fig/pixel_hist-eps-converted-to.pdf>] <fig/frame_cropped.png, id=175, 7
+ [14 <./fig/pixel_hist-eps-converted-to.pdf>] <fig/frame_cropped.png, id=175, 7
 83.92876pt x 880.28876pt>
 File: fig/frame_cropped.png Graphic file (type png)
 
 <use fig/frame_cropped.png>
-Package pdftex.def Info: fig/frame_cropped.png used on input line 425.
+Package pdftex.def Info: fig/frame_cropped.png used on input line 449.
 (pdftex.def)             Requested size: 215.37173pt x 241.84842pt.
 
-Overfull \hbox (20.37173pt too wide) in paragraph at lines 425--426
+Overfull \hbox (20.37173pt too wide) in paragraph at lines 449--450
 [][] 
  []
 
 <fig/mask_area.png, id=176, 1188.44pt x 1290.8225pt>
 File: fig/mask_area.png Graphic file (type png)
  <use fig/mask_area.png>
-Package pdftex.def Info: fig/mask_area.png used on input line 431.
+Package pdftex.def Info: fig/mask_area.png used on input line 455.
 (pdftex.def)             Requested size: 222.6506pt x 241.84842pt.
 
-Overfull \hbox (27.6506pt too wide) in paragraph at lines 431--432
+Overfull \hbox (27.6506pt too wide) in paragraph at lines 455--456
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 424--435
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 448--459
 []$[]$  $[]$ 
  []
 
 
-Underfull \vbox (badness 1776) has occurred while \output is active []
+Underfull \vbox (badness 1028) has occurred while \output is active []
 
- [14 <./fig/frame_cropped.png (PNG copy)> <./fig/mask_area.png (PNG copy)>]
+ [15 <./fig/frame_cropped.png (PNG copy)> <./fig/mask_area.png (PNG copy)>]
 
-LaTeX Warning: Reference `...' on page 15 undefined on input line 454.
+LaTeX Warning: Reference `...' on page 16 undefined on input line 478.
 
-[15] (./decomposition.bbl [16] [17]) [18] (./decomposition.aux)
+[16] [17] [18] <fig/omni_labeling.png, id=189, 1004.75375pt x 1056.94875pt>
+File: fig/omni_labeling.png Graphic file (type png)
+
+<use fig/omni_labeling.png>
+Package pdftex.def Info: fig/omni_labeling.png used on input line 542.
+(pdftex.def)             Requested size: 195.0pt x 205.12845pt.
+ [19 <./fig/omni_labeling.png>]
+<fig/precision-recall.png, id=194, 462.528pt x 346.896pt>
+File: fig/precision-recall.png Graphic file (type png)
+
+<use fig/precision-recall.png>
+Package pdftex.def Info: fig/precision-recall.png used on input line 589.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+(./decomposition.bbl [21 <./fig/precision-recall.png>]
+Underfull \hbox (badness 2359) in paragraph at lines 15--19
+[]\OT1/cmr/m/n/12 Manuele Bicego, An-drea Lago-rio, En-rico Grosso, and Mas-sim
+o
+ []
+
+[22] [23] [24] [25] [26] [27]) [28] (./decomposition.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -820,10 +842,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5011 strings out of 493029
- 71340 string characters out of 6136235
- 143285 words of memory out of 5000000
- 8442 multiletter control sequences out of 15000+600000
+ 5079 strings out of 493029
+ 72632 string characters out of 6136235
+ 143658 words of memory out of 5000000
+ 8509 multiletter control sequences out of 15000+600000
  10450 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,39p,1043b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -839,10 +861,10 @@ sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 
-Output written on decomposition.pdf (18 pages, 6120244 bytes).
+Output written on decomposition.pdf (28 pages, 8237717 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 266 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

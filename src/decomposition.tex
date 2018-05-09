@@ -18,18 +18,27 @@
 % todo: compute Inception accuracy
 
 \section{Introduction}
-Estimated 80\% of the human data is in form of images or videos. There is a lot of useful information hidden, but it is still very complicated to gain it. Most of the information is still labeled manually by people, who make mistakes and are expensive. There is an incredible need for automated video processing in many branches of the industry. Being able to accurately detect and track vehicles can provide valuable data about transportation to governments. Reidentification and tracking objects over multiple cameras in real time can help reinforcement agencies to effectively fight crime. 
+Estimated 80\% of the human data is in form of images or videos. ***citace*** There is a lot of useful information hidden, but it is still very complicated to gain it. Most of the information is still labeled manually by people, who make mistakes and are expensive. There is an incredible need for automated video processing in many branches of the industry. Being able to accurately detect and track vehicles can provide valuable data about transportation to governments. Reidentification and tracking objects over multiple cameras in real time can help reinforcement agencies to effectively fight crime. 
 
 \subsection{Problem statement}
-This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for the police. The cameras are very wide angle and have been mounted directly to the street lamps...
+This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for local reinforcement agencies. The cameras will be mounted directly to street lamps and will provide surveillance data to the police. The cameras have 360 degrees view thanks to their very short focal distances. 
+
+If there was a crime committed and the person is driving away in a vehicle, an police officer marks the car and a set of algorithms introduced in this thesis will track the location of the vehicle in the city.
 
 \subsection{Overview of methodology}
 
-The whole thesis has been divided to subproblems and solved more or less separately. First a processing of a single frame needs to be perfected. That includes detection and classification. Detection is in form of a bounding box. Each detection in a single frame needs to be classified into several classes. When we have a detections and classifications over a sequence of frames, a tracking needs to be implemented. That means connecting the bounding boxes into sequences, where each sequence of bounding boxes represents a trajectory of a vehicle. 
+The whole thesis has been divided to subproblems and solved more or less separately. The model of the camera, it's parameters and transformations to the real world coordinates were be found as described int the section \ref{sec:lens}. The possibility of distributed computing directly in the cameras have been explored as described int the section \ref{sec:classical}. That included fast non deep learning set of algorithms for detection \cite{piccardi2004background}, tracking \cite{optical-flow} and classification \cite{haar} running on CPU. This approach could not be used directly because of some problems mentioned in the section. However, it was used for semi-supervised dataset generation. The approach for frame decomposition into multiple non distorted images have been explored in section \ref{sec:decomposition}, but for computational reasons not used in the final product. 
 
-When processing a video in one camera has been solved, the problem expands to multiple cameras. Tracking over multiple cameras is deciding, which tracks represent the same vehicle. That is based on a metrics of similarity between two tracks. Finally some representation of the city and the car's position needs to be developed. 
+An annotation tool has been used as described in the section \ref{sec:ssd-dataset} for creating training and validation dataset. SSD\cite{ssd} neural network architecture has been used for object detection. This network has been extended for an additional input of frame difference to better recognize moving objects and trained on 
+NVIDIA GeForce GTX 1080.
+
+Google Facenet \cite{facenet}, which was trained on custom dataset from section \ref{sec:classical} has been used as a metrics of similarity between detections in section \ref{sec:facenet}. 
+
 
 \subsection{Contribution}
+
+***probrat osobne s vedoucim ***
+
 The author of this thesis implemented several modules for this project.
 
 \begin{itemize}
@@ -53,9 +62,71 @@ using the facenet model for similarities.
 Improving the ssd model.
 
 \section{Related work}
-state of the art
+****
+The computer vision field has made an incredible leap forward in last couple of years. The ImageNet \cite{deng2009imagenet} competition has been for many years the 
+
+The biggest driving force has been he use of convolutional neural networks. 
+****
+
+\subsection{classification}
+
+Image classification is a task, where given an image, one class has to be assigned from previously known set of classes. This is a hard task because of the variance in lightning, pose, rotation, scale, as well as intra class variation.  
+
+Accuracy is usually measured as the proportion of correctly classified images in the test set. Two metrics are used. In top 1 accuracy only one prediction is made. In top 5 accuracy, 5 predictions are made and an image is considered to be correctly classified, if the correct class is among them.
+
+To properly train, evaluate and compare models, several datasets, such as Mnist \cite{lecun-mnisthandwrittendigit-2010}, ImageNet \cite{deng2009imagenet}, or PASCAL VOC \cite{Everingham10} have been created.
+
+Before the invention of convolutional neural networks, other classifiers were used. Classifiers in general can be divided into parametric and non parametric methods. The non-parametric ones require no training phase and the decision is based directly on the data. Most common method is the Nearest Neighbor approach \cite{boiman2008defense, zhang2006svm}. The parametric methods on the other hand require a training phase to find the parameters of the model, which can be in form of decision tree \cite{bosch2007image}, adaboost \cite{opelt2004weak}, or the most common Support vector machine (SVM).
+
+The classification pipeline of SVM is such that a set of features is extracted and an Support Vector Machine (SVM) is applied. These features can have many different forms and can also be combined. A histogram\cite{chapelle1999support}, Bag of features \cite{lazebnik2006beyond, nowak2006sampling}, SIFT features \cite{yang2009linear, bicego2006use} or Haar features \cite{munder2006experimental} can be used. Each Haar feature is a difference of average brightness level in two different rectangles in the image. 
+
+In 2012 AlexNet \cite{krizhevsky2012imagenet} won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) with the top-5 error being just a 15.4\%. This was a huge success compared to the second best with 26.2\% top-5 error rate and is considered to be the beginning of deep learning in computer vision. 
+
+The paper ZFNet \cite{zeiler2014visualizing} in 2103 introduced some inside to how CNNs work by introducing De Deconvolutional Network could show various feature activations. It also outperformed the AlexNet on ImageNet by the top-5 error rate being 14.8\% and winning the ILSVRC 2013.
+
+GoogLeNet/Inception won the ILSVRC 2014 with the incredible top-5 error rate of 6.67\%. the architecture was based on LeNet \cite{lecun1998gradient}, but introduced an inception module. this module eliminates all full-connected layers, greatly reducing the number of parameters.
+
+
+
+
+
+The invention of deep convolutional neural networks \cite{krizhevsky2012imagenet, lecun1989backpropagation} has improved the classification accuracy incredibly.
+
+\subsection{detection}
+\subsubsection{Vehicle detection}
+There are many ways to detect vehicles, not just with cameras. One can detect changes in magnetic fields \cite{daubaras2012vehicle, caruso1999vehicle} or a laser scanner \cite{gate2009fast}.
+
+Cameras are the most common sensor, but they can be also combined with a laser scanner \cite{wender20083d, premebida2007lidar} or a sonar \cite{kim2005front, wang2003online}. Sometimes a stereo vision \cite{bertozzi2000stereo, toulminet2006vehicle} can be used to gain a better model of the environment.
+
+Lot of research has been done for detection of vehicles and people thanks to the recent advancements in autonomous driving. Many datasets have been created \cite{apollo-scape, madhavan2017bdd, RobotCarDatasetIJRR, ncarlevaris-2015a} for detecting vehicles, pedestrians and other objects from the vehicle's point of view. There is even a research for detecting vehicles by their shadow \cite{tzomakas1998vehicle}. The state of the art in vehicle detection using cameras is detecting each image independently using techniques described in the next section.
+
+
+\subsubsection{Object detection}
+
+In computer vision, the object detection is a specified task. The goal is to draw a bounding box around each object and assign it one class selected from a previously known set of classes. The accuracy is measured in mean Average Precision described in the section \ref{sec:mAP}. 
+
+Before the rapid using of neural networks, various methods have been used for object detection. Haar features were used for detecting faces \cite{haar, lienhart2002extended, viola2004robust} and vehicles \cite{sun2002real}. For general object detection, the background subtraction \cite{piccardi2004background, horprasert1999statistical} or optical flow \cite{naoya1990optical, quenot1992orthogonal} described in the sections \ref{sec:bgs} and \ref{sec:optical-flow}. SIFT \cite{lowe2004distinctive} HOG \cite{girshick2014rich, wang2009hog, zhu2006fast, felzenszwalb2010object, dalal2005histograms} are also being used.
+
+The big advancements came with the invention of region proposal networks \cite{girshick2016region}. The R-CNN \cite{DBLP:journals/corr/GirshickDDM13} were the first to introduce this concept. It consists of two neural networks, one to propose the regions of interests and the second one to classify them. Their performance was mAP of 53.3\% on PASCAL VOC 2012 dataset. This was a huge success compared to the mAP of 43.3 \%\cite{carreira2012cpmc} the year before. However, R-CNN were very slow (47 seconds on GPU with the VGG16 \cite{simonyan2014very} network), thus were far from realtime video analysis. It requires a full AlexNet forward pass for each of the around 2000 proposals.
+
+Improved and faster version Fast R-CNN \cite{girshick2015fast} achieved 68.4\% on PASCAL VOC 2012 with the VGG16 network while significantly increasing speed over 200 times compared to R-CNN. This was due to sharing computations over proposals and using a single network for the feature extractor, classifier and the regressor in one network. However, the selective search for the region proposals was found to be the bottleneck for the detection process.
+
+The Faster R-CNN focused on exactly that. The feature extractor was also used for the region proposal network making the region proposal almost cost free. They also increased the learning speed, because only one CNN needed to be trained. Faster R-CNN with VGG-16 achieved 75.9\% mAP on VOC 2012 dataset with just 198 ms on GPU. This is much 
+
+
+
+ 
+
+...
+\subsection{tracking}
+...
+\subsection{reidentification}
+When positions and orientations of the cameras are not known, the location and speed of the detected objects is used for obtaining the spatial relationships among the cameras \cite{makris2004bridging, rahimi2004simultaneous}. The key to reliable reidentification is to correctly model the relationships among cameras, as well as to find a similarity metrics of the detected objects. The detected objects can look very differently on different scenes thanks to different scaling, rotations and lighting conditions. The lighting can be estimated and compensated \cite{javed2005appearance}...
+
+
 
 \section{Fish-eye camera model}
+\label{sec:lens}
 
 \begin{figure}[h]
 \centering
@@ -132,7 +203,7 @@ In each step, a baseline is set and for each parameter a higher and a lower valu
 %return x, y, a, r
 %\end{verbatim}
 
-This algorithm quickly finds the ellipse with very high precision. Furthermore the most expensive function, $select\_best$ can be highly parallelized.
+The cost function evaluations can be run in parallel, which can speed up the process on multi-core CPU.
 
 \subsection{Camera model}
 
@@ -287,56 +358,9 @@ A point from a camera coordinate system $(x^w, y^w)$ is transformed to the city 
 
 
 
-\section{Detection Evaluation}
-For training a neural network, it is important to have some means of evaluating it, so we can compare models. We need to have some algorithm of evaluating the detections on an images against the ground truth. With the detection problem, this is more complicated, than the classification problem.
-
-\subsection{Classification evaluation}
-
-The classification problem is easier than the detection problem. Given the image, predict a class, which is picked from previously known set of classes. The classifier can also return the probability distribution, in which case, the predicted class is the one with the highest probability. There are several metrics for measuring accuracy.
-
-\subsubsection{top 1 accuracy}
-
-The classifier returns the predicted class. If the class matches with the ground truth, the accuracy is 1, otherwise it is 0.
-
-\subsection{top 5 accuracy}
-
-Another evaluation is the top 5 accuracy, used for example in imagenet \cite{imagenet} competition. In this evaluation, the detector predicts 5 classes and if the ground truth is among them, it returns 1, otherwise 0. 
-
-\subsection{Mean average precision.}
-Mean average precision (mAP) is the most used metrics for object detection problem. The advantage is, that it does not depend on the selected confidence threshold, but only on the IoU threshold. This metrics is not constrained only for object detection problems in vision, but can be used for all detection problems. 
-
-The algorithm for computing mAP runs for all thresholds. Given an arbitrary threshold, the predicted bounding boxes are those, whose confidence exceeds it. If there is a high IoU of a ground truth box and some predicted bounding boxes having the same class, the predicted box with the highest confidence is matched and considered true positive($TP$) and no other box can be matched with the ground truth bounding box. If a predicted bounding box is not matched with any ground truth bounding boxes, it is considered false positive($FP$). If a ground truth bounding box is not matched with any predicted bounding box, it is considered a false negative($FN$).
-
-Precision($P$) corresponds to what portion of ground truth boxes have been matched. With lowering the threshold, it can only increase, since more ground truth bounding boxes will be matched.
-\begin{equation}
-P = \frac{TP}{TP + FP}
-\end{equation}
-
-Recall($R$) corresponds to what portion of predicted bounding boxes have been matched. 
-\begin{equation}
-R = \frac{TP}{TP + FN}
-\end{equation}
-
-The precision-recall curve in the Fig.\ref{fig:precision-recall} shows the dependency of precision and recall. The higher the precision, the lower the recall. The area below the curve is called average precision($AP$) and the mean over all classes is called mean average precision($mAP$).
-
-\begin{equation}
-mAP = \frac{1}{|C|} \sum_{c \in C} AP_c
-\end{equation}
-
-where $C$ is the set of classes.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{fig/precision-recall.png}
-\caption{Example of precision-recall curve}
-\label{fig:precision-recall}
-\end{figure}
-
-
-
-
-\section{Classical methods}
-The final will be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some meta-data would be sent. That would include: 
+\section{Detection and tracking on CPU}
+\label{sec:classical}
+The final system needs be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some meta-data would be sent. That would include: 
 
 \begin{itemize}
 \item Time stamps of a frames.
@@ -347,18 +371,18 @@ The final will be easily scalable and a particular system architecture has been 
 
 This system could be greatly distributed sending packets of information among only the cameras that the information is relevant to.
 
-However this has some downfalls, mainly in computational manner. Each camera would have to be equipped either with a capable computational unit. The detections, tracking and similarities would all have to be computed onboard. Since it is not possible to have a GPU in every lamp for many reasons, for example it is a very wet environment, usage of neural networks would not be possible and some classical detection and tracking methods running on CPU have been explored and developed.
+However this has some downfalls, mainly in computational manner. Each camera would have to be equipped either with a capable computational unit. The detections, tracking and similarities would all have to be computed onboard. Since it is not possible to have a GPU in every lamp for many reasons, for example it is a very wet environment, usage of neural networks would not be possible. This section introduces non deep learning approach for detection, tracking and classification, that could run on CPU.
 
 
 
-\subsection{Background subtraction}
+\subsection{Background subtraction detection}
 \label{sec:bgs}
 
-Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{bgs-review}. The main idea is creating a model of the scene without the objects that we want to detect and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
+Probably the best classical detection methods from static videos, that can be computed in real time on limited hardware, are based on the background subtraction algorithm \cite{piccardi2004background}. The main idea is creating a model of the scene without the objects that we want to detect and then subtracting the current frame and by thresholding determine, where the vehicles are. This simple approach does not work very well and some improvements need to be made. 
 
-For the background subtraction procedure, a model of the background has to be found. For our purposes we need to know, how the road looks like without any vehicles and people. This can't be done by simply waiting for such a case, because the traffic is usually quite high. Instead, we need to figure out the background from more multiple frames. 
+For the background subtraction procedure, a model of the background has to be found. For our purposes we need to know, how the road looks like without any vehicles and people. This can't be done by simply waiting for such a case, because the traffic is usually quite high. Instead, we need to figure out the background from multiple frames. 
 
-\cite{bs1, bs2}
+\cite{horprasert1999statistical, zivkovic2006efficient}
 
 The algorithm has been implemented in opencv \cite{opencv}. The background is usually created by the mean over several images called running gaussian average \cite{wren1997pfinder}. The idea is to estimate a gaussian to each pixel independently. Each pixel is updated with each new frame as a weighted sum. The background looks like a photo with a long exposition and the lane. In places, where vehicles drive, are colored lines as shown in the figure \ref{fig:cut_mean}. When computed the difference from a video frame to such a background model, as shown in the figure \ref{fig:threshold_mean}, the places, where usually cars drive, can have high values. This can be bad for creating a mask by thresholding, because a higher thresholding constant has to be set.
 
@@ -453,7 +477,8 @@ Most of these points relate to changing background. Especially if the scene is p
 
 For these problems, background subtraction alone can't be used as a good detector, but on perfect scenes  it can be very useful for collecting high quality training data for neural networks detectors, as described in the section \ref{...}.
 
-\subsection{Optical Flow}
+\subsection{Optical Flow tracking}
+\label{sec:optical-flow}
 
 The detections have been described in section \ref{sec:bgs}. Having only the detections for each frame does not give us that much information. We need to connect these detections to a track.
 
@@ -468,13 +493,12 @@ This algorithm is not used on whole image. That would be computationally too exp
 
 This extends the detector for object tracking and partially solves the problem of two overlapping vehicles. If two vehicles drive close to each other, background subtraction would start to treat them as one object. This improved model will detect this situation and try to keep the bounding boxes on the different vehicles. 
 
-In first experiments, when a new detection appeared, the position of the optical flow point was selected with the Shi-Tomasi \cite{shi-tomasi} algorithm, which is an improved version of the Harris corner and edge detector \cite{harris}. It tries to find some features, that have high gradient and will be easier to track, rather than 
+In first experiments, when a new detection appeared, the position of the optical flow point was selected with the Shi-Tomasi \cite{shi-tomasi} algorithm, which is an improved version of the Harris corner and edge detector \cite{harris}. It tries to find some features, that have high gradient and will be easier to track, rather than selecting just the muddle of the bounding box.
 
-The real world scenarios bring 
 
-Trees and lamps complicate the situation greatly. When a vehicle drives behind some sort of a pillar, the optical flow point can not be matched with a next frame and stays on the same place. When the vehicle completely passes, the tracking is lost. Another feature had to be added, which is an additional centering of the optical flow point to the middle of the bounding box. 
 
-In a perfect scenario the algorithm would be easy. However in real world scenario, false positives, as well as false negatives must be dealt with, trees and lamps furthermore complicate the situation.
+In a perfect scenario the algorithm could be used without further improvements. However in real world scenario, false positives, as well as false negatives detections must be dealt with. Furthermore trees and lamps also complicate the situation greatly. When a vehicle drives behind some sort of a pillar, the optical flow point can not be matched with a next frame and stays on the same place in the frame. When the vehicle completely passes, the tracking is lost. A feature had to be added, which is an additional centering of the optical flow point to the middle of the bounding box. with each new frame, the optical flow point moves with the vehicle, but is also moved towards the middle of the bounding box. This solves the issues of the pillar obstacles, but excludes using the Shi-Tomasi and Harris features. 
+
 
 The tracking algorithm has been described by a set of rules. The main ones are:
 \begin{itemize}
@@ -487,13 +511,113 @@ The tracking algorithm has been described by a set of rules. The main ones are:
 
 These improvements work surprisingly well and solve the tracking problem to some extent. If vehicles overlap completely, this approach will fail, but so will most of the other ones. 
 
+\subsection{classification}
+
+In the frames, there are many objects detected and need to be classified. The most important distinction is between a person and a vehicle. 
+
+*********** ...bude smazano. Presunuto do Relaed work/classification
+Classifiers can be divided into parametric and non parametric methods. The non-parametric ones require no training phase and the decision is based directly on the data. Most common method is the Nearest Neighbor approach \cite{boiman2008defense, zhang2006svm}. The parametric methods on the other hand require a training phase to find the parameters of the model, which can be in form of decision tree \cite{bosch2007image}, adaboost \cite{opelt2004weak}, or the most common Support vector machine (SVM).
+
+The classification pipeline of SVM is such that a set of features is extracted and an Support Vector Machine (SVM) is applied.  These features can have many different forms and can also be combined. A histogram\cite{chapelle1999support}, Bag of features \cite{lazebnik2006beyond, nowak2006sampling}, SIFT features \cite{yang2009linear, bicego2006use} or Haar features \cite{munder2006experimental} can be used. Each Haar feature is a difference of average brightness level in two different rectangles in the image. 
+**************
+
+A simple classifier has been introduced using 87 distinct Haar features. The SVM has been trained on 8144 images of cars and 10567 images of people. The test set split ratio was 0.2. The final accuracy 0.842. That is quite a good score without using neural networks, but not good enough for the final product.
+
+
+
+
+The training and testing data have been acquired by developed semi-supervised data annotator based on the detector and tracker introduced in the section \ref{sec:data-generation}.
+
+\subsection{Semi-supervised data generation} 
+\label{sec:data-generation}
+
+Standard annotation approaches for image detection training need the annotator to draw a rectangle and assign it a class for every detection. This is very time consuming and therefore costly. Video is usually around 25 frames per second, so to annotate a minute of video means annotate a 1500 images. This process can be made easier by skipping some frames and moving the bounding boxes around. For the skipped frames linearly approximate the movement of the objects. This can speed up the process, but it still takes a very long time. 
+
+
+The algorithms introduced in this section can not be used for the final product, mainly because of the problems described in the section \ref{sec:bgs}. However that does not mean, that this can not be used for other purposes. As mentioned before, it works very well on easy scenes. The bounding boxes are precise and this can help the annotator to annotate scenes faster and more precisely, than standard approaches. the annotator is presented a dialog as shown in the figure \ref{fig:labeling}. That includes the whole track, which is annotated through one click. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\linewidth]{fig/omni_labeling.png}
+\caption{The dialog from the annotation tool.}
+\label{fig:labeling}
+\end{figure}
+
+
+Because of the not perfect classifier, it is not used. Instead, the annotator selects the class or to throw the whole track away.
+
+
+and can alswhich detections will be used
+
 
 % corello
-% Harris corner features
-% shi-thomasi
 
 \section{Detection and tracking}
+tried inception rcnn, but not working directly.
+
+***A processing of a single frame needs to be perfected. That includes detection and classification. Detection is in form of a bounding box. Each detection in a single frame needs to be classified into several classes. When we have a detections and classifications over a sequence of frames, a tracking needs to be implemented. That means connecting the bounding boxes into sequences, where each sequence of bounding boxes represents a trajectory of a vehicle. ***
+
+
+
+\subsubsection{Mean average precision.}
+\label{sec:mAP}
+Mean average precision (mAP) is the most used metrics for object detection problem. The advantage is, that it does not depend on the selected confidence threshold, but only on the IoU threshold. This metrics is not constrained only for object detection problems in vision, but can be used for all detection problems. 
+
+The algorithm for computing mAP runs for all thresholds. Given an arbitrary threshold, the predicted bounding boxes are those, whose confidence exceeds it. If there is a high IoU of a ground truth box and some predicted bounding boxes having the same class, the predicted box with the highest confidence is matched and considered true positive($TP$) and no other box can be matched with the ground truth bounding box. If a predicted bounding box is not matched with any ground truth bounding boxes, it is considered false positive($FP$). If a ground truth bounding box is not matched with any predicted bounding box, it is considered a false negative($FN$).
+
+Precision($P$) corresponds to what portion of ground truth boxes have been matched. With lowering the threshold, it can only increase, since more ground truth bounding boxes will be matched.
+\begin{equation}
+P = \frac{TP}{TP + FP}
+\end{equation}
+
+Recall($R$) corresponds to what portion of predicted bounding boxes have been matched. 
+\begin{equation}
+R = \frac{TP}{TP + FN}
+\end{equation}
+
+The precision-recall curve in the Fig.\ref{fig:precision-recall} shows the dependency of precision and recall. The higher the precision, the lower the recall. The area below the curve is called average precision($AP$) and the mean over all classes is called mean average precision($mAP$).
+
+\begin{equation}
+mAP = \frac{1}{|C|} \sum_{c \in C} AP_c
+\end{equation}
+
+where $C$ is the set of classes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{fig/precision-recall.png}
+\caption{Example of precision-recall curve}
+\label{fig:precision-recall}
+\end{figure}
+
+
+
+
+
+
+
+\subsection{Image decomposition}
+\label{sec:decomposition}
+
+\subsection{Dataset}
+\label{sec:ssd-dataset}
+
+\subsection{SSD}
+\label{sec:ssd}
+
 \section{Reidentification}
+
+
+***When processing a video in one camera has been solved, the problem expands to multiple cameras. Tracking over multiple cameras is deciding, which tracks represent the same vehicle. That is based on a metrics of similarity between two tracks. Finally some representation of the city and the car's position needs to be developed.  ***
+
+\subsection{dataset}
+standford \cite{standford} cars dataset
+
+\subsection{facenet}
+\label{sec:facenet}
+
+
 \section{Evaluation}
 
 

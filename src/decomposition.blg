@@ -5,47 +5,49 @@ The style file: plain.bst
 Database file #1: ref.bib
 Warning--I didn't find a database entry for "lukacs1997real"
 Warning--can't use both volume and number fields in harris
-Warning--can't use both volume and number fields in bs1
+Warning--can't use both volume and number fields in horprasert1999statistical
+Warning--empty journal in lecun-mnisthandwrittendigit-2010
 Warning--empty journal in lucas-kanede
-You've used 12 entries,
+Warning--empty journal in madhavan2017bdd
+You've used 65 entries,
             2118 wiz_defined-function locations,
-            580 strings with 6012 characters,
-and the built_in function-call counts, 4724 in all, are:
-= -- 484
-> -- 200
-< -- 8
-+ -- 82
-- -- 66
-* -- 326
-:= -- 742
-add.period$ -- 41
-call.type$ -- 12
-change.case$ -- 67
+            861 strings with 16034 characters,
+and the built_in function-call counts, 27502 in all, are:
+= -- 2843
+> -- 1215
+< -- 49
++ -- 488
+- -- 410
+* -- 1890
+:= -- 4230
+add.period$ -- 227
+call.type$ -- 65
+change.case$ -- 398
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 189
-empty$ -- 375
-format.name$ -- 66
-if$ -- 1022
+cite$ -- 70
+duplicate$ -- 1111
+empty$ -- 2139
+format.name$ -- 410
+if$ -- 6029
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 12
-newline$ -- 63
-num.names$ -- 24
-pop$ -- 73
+int.to.str$ -- 65
+missing$ -- 65
+newline$ -- 328
+num.names$ -- 130
+pop$ -- 456
 preamble$ -- 1
-purify$ -- 55
+purify$ -- 333
 quote$ -- 0
-skip$ -- 144
+skip$ -- 849
 stack$ -- 0
-substring$ -- 323
-swap$ -- 63
-text.length$ -- 8
+substring$ -- 1887
+swap$ -- 407
+text.length$ -- 49
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
-warning$ -- 3
-while$ -- 47
-width$ -- 14
-write$ -- 139
-(There were 4 warnings)
+type$ -- 260
+warning$ -- 5
+while$ -- 272
+width$ -- 67
+write$ -- 754
+(There were 6 warnings)
