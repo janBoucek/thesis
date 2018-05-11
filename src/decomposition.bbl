@@ -1,9 +1,26 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
+
+\bibitem{banerjee2008multi}
+Salil~P Banerjee and Kris Pallipuram.
+\newblock Multi person tracking using kalman filter, 2008.
 
 \bibitem{optical-flow}
 S.~S. Beauchemin and J.~L. Barron.
 \newblock The computation of optical flow.
 \newblock {\em ACM Comput. Surv.}, 27(3):433--466, September 1995.
+
+\bibitem{benfold2011stable}
+Ben Benfold and Ian Reid.
+\newblock Stable multi-target tracking in real-time surveillance video.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2011 IEEE
+  Conference on}, pages 3457--3464. IEEE, 2011.
+
+\bibitem{bertinetto2016fully}
+Luca Bertinetto, Jack Valmadre, Joao~F Henriques, Andrea Vedaldi, and Philip~HS
+  Torr.
+\newblock Fully-convolutional siamese networks for object tracking.
+\newblock In {\em European conference on computer vision}, pages 850--865.
+  Springer, 2016.
 
 \bibitem{bertozzi2000stereo}
 Massimo Bertozzi, Alberto Broggi, Alessandra Fascioli, and Stefano Nichele.
@@ -59,11 +76,30 @@ Olivier Chapelle, Patrick Haffner, and Vladimir~N Vapnik.
 \newblock Support vector machines for histogram-based image classification.
 \newblock {\em IEEE transactions on Neural Networks}, 10(5):1055--1064, 1999.
 
+\bibitem{chen2011tracking}
+Zhiwen Chen, Jianzhong Cao, Yao Tang, and Linao Tang.
+\newblock Tracking of moving object based on optical flow detection.
+\newblock In {\em Computer Science and Network Technology (ICCSNT), 2011
+  International Conference on}, volume~2, pages 1096--1099. IEEE, 2011.
+
+\bibitem{comaniciu2003kernel}
+Dorin Comaniciu, Visvanathan Ramesh, and Peter Meer.
+\newblock Kernel-based object tracking.
+\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
+  25(5):564--577, 2003.
+
 \bibitem{bgs-med2}
 Rita Cucchiara, Costantino Grana, Massimo Piccardi, and Andrea Prati.
 \newblock Detecting moving objects, ghosts, and shadows in video streams.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   25(10):1337--1342, 2003.
+
+\bibitem{dai2016r}
+Jifeng Dai, Yi~Li, Kaiming He, and Jian Sun.
+\newblock R-fcn: Object detection via region-based fully convolutional
+  networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  379--387, 2016.
 
 \bibitem{dalal2005histograms}
 Navneet Dalal and Bill Triggs.
@@ -82,6 +118,18 @@ Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li~Fei-Fei.
 \newblock In {\em Computer Vision and Pattern Recognition, 2009. CVPR 2009.
   IEEE Conference on}, pages 248--255. IEEE, 2009.
 
+\bibitem{elgammal2002background}
+Ahmed Elgammal, Ramani Duraiswami, David Harwood, and Larry~S Davis.
+\newblock Background and foreground modeling using nonparametric kernel density
+  estimation for visual surveillance.
+\newblock {\em Proceedings of the IEEE}, 90(7):1151--1163, 2002.
+
+\bibitem{erhan2014scalable}
+Dumitru Erhan, Christian Szegedy, Alexander Toshev, and Dragomir Anguelov.
+\newblock Scalable object detection using deep neural networks.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 2147--2154, 2014.
+
 \bibitem{Everingham10}
 M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman.
 \newblock The pascal visual object classes (voc) challenge.
@@ -93,6 +141,11 @@ Pedro~F Felzenszwalb, Ross~B Girshick, David McAllester, and Deva Ramanan.
 \newblock Object detection with discriminatively trained part-based models.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   32(9):1627--1645, 2010.
+
+\bibitem{gaidon2016virtual}
+Adrien Gaidon, Qiao Wang, Yohann Cabon, and Eleonora Vig.
+\newblock Virtual worlds as proxy for multi-object tracking analysis.
+\newblock {\em arXiv preprint arXiv:1605.06457}, 2016.
 
 \bibitem{gate2009fast}
 Gwennael Gate and Fawzi Nashashibi.
@@ -126,6 +179,12 @@ Ross~B. Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik.
   segmentation.
 \newblock {\em CoRR}, abs/1311.2524, 2013.
 
+\bibitem{gladh2016deep}
+Susanna Gladh, Martin Danelljan, Fahad~Shahbaz Khan, and Michael Felsberg.
+\newblock Deep motion features for visual tracking.
+\newblock In {\em Pattern Recognition (ICPR), 2016 23rd International
+  Conference on}, pages 1243--1248. IEEE, 2016.
+
 \bibitem{harris}
 Chris Harris and Mike Stephens.
 \newblock A combined corner and edge detector.
@@ -138,11 +197,34 @@ Anselm Haselhoff and Anton Kummert.
 \newblock In {\em Intelligent Vehicles Symposium, 2009 IEEE}, pages 261--266.
   IEEE, 2009.
 
+\bibitem{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 770--778, 2016.
+
+\bibitem{held2016learning}
+David Held, Sebastian Thrun, and Silvio Savarese.
+\newblock Learning to track at 100 fps with deep regression networks.
+\newblock In {\em European Conference on Computer Vision}, pages 749--765.
+  Springer, 2016.
+
 \bibitem{horprasert1999statistical}
 Thanarat Horprasert, David Harwood, and Larry~S Davis.
 \newblock A statistical approach for real-time robust background subtraction
   and shadow detection.
 \newblock In {\em Ieee iccv}, volume~99, pages 1--19. Citeseer, 1999.
+
+\bibitem{huang2017densely}
+Gao Huang, Zhuang Liu, Kilian~Q Weinberger, and Laurens van~der Maaten.
+\newblock Densely connected convolutional networks.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, volume~1, page~3, 2017.
+
+\bibitem{huang1997object}
+Timothy Huang and Stuart Russell.
+\newblock Object identification in a bayesian context.
+\newblock In {\em IJCAI}, volume~97, pages 1276--1282, 1997.
 
 \bibitem{apollo-scape}
 Xinyu Huang, Xinjing Cheng, Qichuan Geng, Binbin Cao, Dingfu Zhou, Peng Wang,
@@ -150,11 +232,51 @@ Xinyu Huang, Xinjing Cheng, Qichuan Geng, Binbin Cao, Dingfu Zhou, Peng Wang,
 \newblock The apolloscape dataset for autonomous driving.
 \newblock {\em CoRR}, abs/1803.06184, 2018.
 
+\bibitem{isard2001bramble}
+Michael Isard and John MacCormick.
+\newblock Bramble: A bayesian multiple-blob tracker.
+\newblock In {\em Computer Vision, 2001. ICCV 2001. Proceedings. Eighth IEEE
+  International Conference on}, volume~2, pages 34--41. IEEE, 2001.
+
 \bibitem{javed2005appearance}
 Omar Javed, Khurram Shafique, and Mubarak Shah.
 \newblock Appearance modeling for tracking in multiple non-overlapping cameras.
 \newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
   IEEE Computer Society Conference on}, volume~2, pages 26--33. IEEE, 2005.
+
+\bibitem{joshi2012survey}
+Kinjal~A Joshi and Darshak~G Thakore.
+\newblock A survey on moving object detection and tracking in video
+  surveillance system.
+\newblock {\em International Journal of Soft Computing and Engineering},
+  2(3):44--48, 2012.
+
+\bibitem{kale2015moving}
+Kiran Kale, Sushant Pawar, and Pravin Dhulekar.
+\newblock Moving object tracking using optical flow and motion vector
+  estimation.
+\newblock In {\em Reliability, Infocom Technologies and Optimization
+  (ICRITO)(Trends and Future Directions), 2015 4th International Conference
+  on}, pages 1--6. IEEE, 2015.
+
+\bibitem{kang2003continuous}
+Jinman Kang, Isaac Cohen, and Gerard Medioni.
+\newblock Continuous tracking within and across camera streams.
+\newblock In {\em Computer Vision and Pattern Recognition, 2003. Proceedings.
+  2003 IEEE Computer Society Conference on}, volume~1, pages I--I. IEEE, 2003.
+
+\bibitem{kettnaker1999bayesian}
+Vera Kettnaker and Ramin Zabih.
+\newblock Bayesian multi-camera surveillance.
+\newblock In {\em Computer Vision and Pattern Recognition, 1999. IEEE Computer
+  Society Conference on.}, volume~2, pages 253--259. IEEE, 1999.
+
+\bibitem{khan2003consistent}
+Sohaib Khan and Mubarak Shah.
+\newblock Consistent labeling of tracked objects in multiple cameras with
+  overlapping fields of view.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  25(10):1355--1360, 2003.
 
 \bibitem{kim2005front}
 SamYong Kim, Se-Young Oh, JeongKwan Kang, YoungWoo Ryu, Kwangsoo Kim,
@@ -175,6 +297,13 @@ Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock In {\em Advances in neural information processing systems}, pages
   1097--1105, 2012.
+
+\bibitem{krumm2000multi}
+John Krumm, Steve Harris, Brian Meyers, Barry Brumitt, Michael Hale, and Steve
+  Shafer.
+\newblock Multi-camera multi-person tracking for easyliving.
+\newblock In {\em Visual Surveillance, 2000. Proceedings. Third IEEE
+  International Workshop on}, pages 3--10. IEEE, 2000.
 
 \bibitem{lazebnik2006beyond}
 Svetlana Lazebnik, Cordelia Schmid, and Jean Ponce.
@@ -199,13 +328,28 @@ Yann LeCun and Corinna Cortes.
 \newblock {MNIST} handwritten digit database.
 \newblock 2010.
 
+\bibitem{lee2016globally}
+Jinho Lee, Brian~Kenji Iwana, Shouta Ide, and Seiichi Uchida.
+\newblock Globally optimal object tracking with fully convolutional networks.
+\newblock {\em arXiv preprint arXiv:1612.08274}, 2016.
+
+\bibitem{li2017fssd}
+Zuoxin Li and Fuqiang Zhou.
+\newblock Fssd: Feature fusion single shot multibox detector.
+\newblock {\em arXiv preprint arXiv:1712.00960}, 2017.
+
 \bibitem{lienhart2002extended}
 Rainer Lienhart and Jochen Maydt.
 \newblock An extended set of haar-like features for rapid object detection.
 \newblock In {\em Image Processing. 2002. Proceedings. 2002 International
   Conference on}, volume~1, pages I--I. IEEE, 2002.
 
-\bibitem{ssd}
+\bibitem{lin2017focal}
+Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and Piotr Doll{\'a}r.
+\newblock Focal loss for dense object detection.
+\newblock {\em arXiv preprint arXiv:1708.02002}, 2017.
+
+\bibitem{liu2016ssd}
 Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed,
   Cheng-Yang Fu, and Alexander~C Berg.
 \newblock Ssd: Single shot multibox detector.
@@ -240,6 +384,13 @@ Vashisht Madhavan and Trevor Darrell.
 \newblock The bdd-nexar collective: A large-scale, crowsourced, dataset of
   driving scenes.
 \newblock 2017.
+
+\bibitem{mae1996object}
+Yasushi Mae, Yoshiaki Shirai, Jun Miura, and Yoshinori Kuno.
+\newblock Object tracking in cluttered background based on optical flow and
+  edges.
+\newblock In {\em Pattern Recognition, 1996., Proceedings of the 13th
+  International Conference on}, volume~1, pages 196--200. IEEE, 1996.
 
 \bibitem{makris2004bridging}
 Dimitrios Makris, Tim Ellis, and James Black.
@@ -278,6 +429,18 @@ Massimo Piccardi.
 \newblock In {\em Systems, man and cybernetics, 2004 IEEE international
   conference on}, volume~4, pages 3099--3104. IEEE, 2004.
 
+\bibitem{porikli2003inter}
+Fatih Porikli.
+\newblock Inter-camera color calibration by correlation model function.
+\newblock In {\em Image Processing, 2003. ICIP 2003. Proceedings. 2003
+  International Conference on}, volume~2, pages II--133. IEEE, 2003.
+
+\bibitem{porikli2005multi}
+Fatih Porikli and Oncel Tuzel.
+\newblock Multi-kernel object tracking.
+\newblock In {\em Multimedia and Expo, 2005. ICME 2005. IEEE International
+  Conference on}, pages 1234--1237. IEEE, 2005.
+
 \bibitem{premebida2007lidar}
 Cristiano Premebida, Gon{\c{c}}alo Monteiro, Urbano Nunes, and Paulo Peixoto.
 \newblock A lidar and vision-based approach for pedestrian and vehicle
@@ -299,6 +462,22 @@ Ali Rahimi, Brian Dunagan, and Trevor Darrell.
 \newblock In {\em Computer Vision and Pattern Recognition, 2004. CVPR 2004.
   Proceedings of the 2004 IEEE Computer Society Conference on}, volume~1, pages
   I--I. IEEE, 2004.
+
+\bibitem{redmon2016you}
+Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
+\newblock You only look once: Unified, real-time object detection.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 779--788, 2016.
+
+\bibitem{redmon2017yolo9000}
+Joseph Redmon and Ali Farhadi.
+\newblock Yolo9000: better, faster, stronger.
+\newblock {\em arXiv preprint}, 2017.
+
+\bibitem{redmon2018yolov3}
+Joseph Redmon and Ali Farhadi.
+\newblock Yolov3: An incremental improvement.
+\newblock {\em arXiv preprint arXiv:1804.02767}, 2018.
 
 \bibitem{facenet}
 Florian Schroff, Dmitry Kalenichenko, and James Philbin.
@@ -324,6 +503,10 @@ Zehang Sun, Ronald Miller, George Bebis, and David DiMeo.
 \newblock In {\em Applications of Computer Vision, 2002.(WACV 2002).
   Proceedings. Sixth IEEE Workshop on}, pages 171--176. IEEE, 2002.
 
+\bibitem{tan2005introduction}
+Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+\newblock Introduction to data mining. 1st, 2005.
+
 \bibitem{toulminet2006vehicle}
 Gwena{\"e}lle Toulminet, Massimo Bertozzi, St{\'e}phane Mousset, Abdelaziz
   Bensrhair, and Alberto Broggi.
@@ -336,6 +519,12 @@ Christos Tzomakas and Werner von Seelen.
 \newblock Vehicle detection in traffic scenes using shadows.
 \newblock In {\em Ir-Ini, Institut fur Nueroinformatik, Ruhr-Universitat}.
   Citeseer, 1998.
+
+\bibitem{veenman1998fast}
+Cor~J Veenman, Emile~A Hendriks, and Marcel~JT Reinders.
+\newblock A fast and robust point tracking algorithm.
+\newblock In {\em Image Processing, 1998. ICIP 98. Proceedings. 1998
+  International Conference on}, pages 653--657. IEEE, 1998.
 
 \bibitem{viola2004robust}
 Paul Viola and Michael~J Jones.
@@ -368,12 +557,35 @@ Christopher~Richard Wren, Ali Azarbayejani, Trevor Darrell, and Alex~Paul
 \newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
   19(7):780--785, 1997.
 
+\bibitem{xie2017aggregated}
+Saining Xie, Ross Girshick, Piotr Doll{\'a}r, Zhuowen Tu, and Kaiming He.
+\newblock Aggregated residual transformations for deep neural networks.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2017 IEEE
+  Conference on}, pages 5987--5995. IEEE, 2017.
+
 \bibitem{yang2009linear}
 Jianchao Yang, Kai Yu, Yihong Gong, and Thomas Huang.
 \newblock Linear spatial pyramid matching using sparse coding for image
   classification.
 \newblock In {\em Computer Vision and Pattern Recognition, 2009. CVPR 2009.
   IEEE Conference on}, pages 1794--1801. IEEE, 2009.
+
+\bibitem{yilmaz2007object}
+Alper Yilmaz.
+\newblock Object tracking by asymmetric kernel mean shift with automatic scale
+  and orientation selection.
+\newblock In {\em Computer Vision and Pattern Recognition, 2007. CVPR'07. IEEE
+  Conference on}, pages 1--6. IEEE, 2007.
+
+\bibitem{yilmaz2006object}
+Alper Yilmaz, Omar Javed, and Mubarak Shah.
+\newblock Object tracking: A survey.
+\newblock {\em Acm computing surveys (CSUR)}, 38(4):13, 2006.
+
+\bibitem{zagoruyko2016wide}
+Sergey Zagoruyko and Nikos Komodakis.
+\newblock Wide residual networks.
+\newblock {\em arXiv preprint arXiv:1605.07146}, 2016.
 
 \bibitem{zeiler2014visualizing}
 Matthew~D Zeiler and Rob Fergus.
@@ -387,6 +599,17 @@ Hao Zhang, Alexander~C Berg, Michael Maire, and Jitendra Malik.
   category recognition.
 \newblock In {\em Computer Vision and Pattern Recognition, 2006 IEEE Computer
   Society Conference on}, volume~2, pages 2126--2136. IEEE, 2006.
+
+\bibitem{zhao2005real}
+Tao Zhao, Manoj Aggarwal, Rakesh Kumar, and Harpreet Sawhney.
+\newblock Real-time wide area multi-camera stereo tracking.
+\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+  IEEE Computer Society Conference on}, volume~1, pages 976--983. IEEE, 2005.
+
+\bibitem{zhong2012moving}
+Qu~Zhong, Zhang Qingqing, and Gao Tengfei.
+\newblock Moving object tracking based on codebook and particle filter.
+\newblock {\em Procedia Engineering}, 29:174--178, 2012.
 
 \bibitem{zhu2006fast}
 Qiang Zhu, Mei-Chen Yeh, Kwang-Ting Cheng, and Shai Avidan.

@@ -29,10 +29,9 @@ If there was a crime committed and the person is driving away in a vehicle, an p
 
 The whole thesis has been divided to subproblems and solved more or less separately. The model of the camera, it's parameters and transformations to the real world coordinates were be found as described int the section \ref{sec:lens}. The possibility of distributed computing directly in the cameras have been explored as described int the section \ref{sec:classical}. That included fast non deep learning set of algorithms for detection \cite{piccardi2004background}, tracking \cite{optical-flow} and classification \cite{haar} running on CPU. This approach could not be used directly because of some problems mentioned in the section. However, it was used for semi-supervised dataset generation. The approach for frame decomposition into multiple non distorted images have been explored in section \ref{sec:decomposition}, but for computational reasons not used in the final product. 
 
-An annotation tool has been used as described in the section \ref{sec:ssd-dataset} for creating training and validation dataset. SSD\cite{ssd} neural network architecture has been used for object detection. This network has been extended for an additional input of frame difference to better recognize moving objects and trained on 
-NVIDIA GeForce GTX 1080.
+An annotation tool has been used as described in the section \ref{sec:ssd-dataset} for creating training and validation dataset. SSD\cite{liu2016ssd} neural network architecture has been used for object detection. This network has been extended for an additional input of temporal difference to better recognize moving objects and has been trained on NVIDIA GeForce GTX 1080.
 
-Google Facenet \cite{facenet}, which was trained on custom dataset from section \ref{sec:classical} has been used as a metrics of similarity between detections in section \ref{sec:facenet}. 
+Google Facenet \cite{facenet}, which was trained on a custom dataset from section \ref{sec:classical} has been used as a metrics of similarity between detections in section \ref{sec:facenet}. An overall model 
 
 
 \subsection{Contribution}
@@ -62,13 +61,10 @@ using the facenet model for similarities.
 Improving the ssd model.
 
 \section{Related work}
-****
-The computer vision field has made an incredible leap forward in last couple of years. The ImageNet \cite{deng2009imagenet} competition has been for many years the 
 
-The biggest driving force has been he use of convolutional neural networks. 
-****
+The computer vision field has made an incredible leap forward in last couple of years. Thanks to the increasing computational capabilities of computers and recent advancements in deep learning, we are able to do tasks, that we could not imagine. Image classification, location and detection are tasks, that have gone through an incredible evolution in the last 5 years. The face recognition, autonomous driving, surveillance and many more fields have been the driving force for computer vision. The tracking of objects over multiple cameras is valuable in retail, traffic monitoring and surveillance.
 
-\subsection{classification}
+\subsection{Classification}
 
 Image classification is a task, where given an image, one class has to be assigned from previously known set of classes. This is a hard task because of the variance in lightning, pose, rotation, scale, as well as intra class variation.  
 
@@ -78,7 +74,9 @@ To properly train, evaluate and compare models, several datasets, such as Mnist 
 
 Before the invention of convolutional neural networks, other classifiers were used. Classifiers in general can be divided into parametric and non parametric methods. The non-parametric ones require no training phase and the decision is based directly on the data. Most common method is the Nearest Neighbor approach \cite{boiman2008defense, zhang2006svm}. The parametric methods on the other hand require a training phase to find the parameters of the model, which can be in form of decision tree \cite{bosch2007image}, adaboost \cite{opelt2004weak}, or the most common Support vector machine (SVM).
 
-The classification pipeline of SVM is such that a set of features is extracted and an Support Vector Machine (SVM) is applied. These features can have many different forms and can also be combined. A histogram\cite{chapelle1999support}, Bag of features \cite{lazebnik2006beyond, nowak2006sampling}, SIFT features \cite{yang2009linear, bicego2006use} or Haar features \cite{munder2006experimental} can be used. Each Haar feature is a difference of average brightness level in two different rectangles in the image. 
+The classification pipeline of SVM is such that a set of features is extracted and an Support Vector Machine (SVM) is applied. These features can have many different forms and can also be combined. A histogram\cite{chapelle1999support}, Bag of features \cite{lazebnik2006beyond, nowak2006sampling}, SIFT features \cite{yang2009linear, bicego2006use} or Haar features \cite{munder2006experimental} can be used.
+
+Convolutional neural networks (CNNs) are the state of the art in image classification. They have been introduced in 1990's\cite{lecun1989backpropagation}, but only recently 
 
 In 2012 AlexNet \cite{krizhevsky2012imagenet} won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) with the top-5 error being just a 15.4\%. This was a huge success compared to the second best with 26.2\% top-5 error rate and is considered to be the beginning of deep learning in computer vision. 
 
@@ -86,13 +84,17 @@ The paper ZFNet \cite{zeiler2014visualizing} in 2103 introduced some inside to h
 
 GoogLeNet/Inception won the ILSVRC 2014 with the incredible top-5 error rate of 6.67\%. the architecture was based on LeNet \cite{lecun1998gradient}, but introduced an inception module. this module eliminates all full-connected layers, greatly reducing the number of parameters.
 
+The second best network in ILSVRC 2014 was the VGG Net \cite{simonyan2014very}. The depth of the network has been increased, but the number of parameters kept low thanks to very small 3x3 filters. The architecture is simpler than the Inception and it is widely used in transfered learning and as a detection backbones.
 
+The Microsoft's ResNet\cite{he2016deep} introduced a 152 layers deep architecture. they are able to train the network thanks to the introduction of the residual connections. Part of the information passes through the layers unchanged. This helps to solve the vanishing gradient problem. With the top-5 error rate 3.57\% They surpassed the human accuracy winning the ILSVRC 2015.
 
+The ResNet idea has been further developed. Wide ResNet\cite{zagoruyko2016wide} reduced the number of layers while widened the network. ResNeXt \cite{xie2017aggregated} is furthermore highly modularized and introducing new dimension called cardinality, which is more effective, than simply increasing the number of layers or their width. 
 
+DenseNet \cite{huang2017densely} connects each layer to every other layers in front of it. This furthermore helps with the vanishing gradient problem and reducing the number of parameters. It outperforms ResNet while requiring less memory and computation.
 
-The invention of deep convolutional neural networks \cite{krizhevsky2012imagenet, lecun1989backpropagation} has improved the classification accuracy incredibly.
+The task of image classification is considered to be solved, but more research is being done. These image classification networks can be used as a backbone for other tasks, such as image detection, localization or segmentation.
 
-\subsection{detection}
+\subsection{Detection}
 \subsubsection{Vehicle detection}
 There are many ways to detect vehicles, not just with cameras. One can detect changes in magnetic fields \cite{daubaras2012vehicle, caruso1999vehicle} or a laser scanner \cite{gate2009fast}.
 
@@ -105,23 +107,61 @@ Lot of research has been done for detection of vehicles and people thanks to the
 
 In computer vision, the object detection is a specified task. The goal is to draw a bounding box around each object and assign it one class selected from a previously known set of classes. The accuracy is measured in mean Average Precision described in the section \ref{sec:mAP}. 
 
-Before the rapid using of neural networks, various methods have been used for object detection. Haar features were used for detecting faces \cite{haar, lienhart2002extended, viola2004robust} and vehicles \cite{sun2002real}. For general object detection, the background subtraction \cite{piccardi2004background, horprasert1999statistical} or optical flow \cite{naoya1990optical, quenot1992orthogonal} described in the sections \ref{sec:bgs} and \ref{sec:optical-flow}. SIFT \cite{lowe2004distinctive} HOG \cite{girshick2014rich, wang2009hog, zhu2006fast, felzenszwalb2010object, dalal2005histograms} are also being used.
+Before the rapid using of neural networks, various methods have been used for object detection. Haar features were used for detecting faces \cite{haar, lienhart2002extended, viola2004robust} and vehicles \cite{sun2002real}. For general object detection, the background subtraction \cite{piccardi2004background, horprasert1999statistical} or optical flow \cite{naoya1990optical, quenot1992orthogonal, chen2011tracking} described in the sections \ref{sec:bgs} and \ref{sec:optical-flow}. SIFT \cite{lowe2004distinctive} HOG \cite{girshick2014rich, wang2009hog, zhu2006fast, felzenszwalb2010object, dalal2005histograms} are also being used.
 
-The big advancements came with the invention of region proposal networks \cite{girshick2016region}. The R-CNN \cite{DBLP:journals/corr/GirshickDDM13} were the first to introduce this concept. It consists of two neural networks, one to propose the regions of interests and the second one to classify them. Their performance was mAP of 53.3\% on PASCAL VOC 2012 dataset. This was a huge success compared to the mAP of 43.3 \%\cite{carreira2012cpmc} the year before. However, R-CNN were very slow (47 seconds on GPU with the VGG16 \cite{simonyan2014very} network), thus were far from realtime video analysis. It requires a full AlexNet forward pass for each of the around 2000 proposals.
+The big advancements came with the introduction of region proposal networks \cite{girshick2016region}. The R-CNN \cite{DBLP:journals/corr/GirshickDDM13} were the first to introduce this concept. R-CNN consists of two neural networks, one to propose the regions of interests and the second one to classify them. Their performance was mAP of 53.3\% on PASCAL VOC 2012 dataset. This was a huge success compared to the mAP of 43.3 \%\cite{carreira2012cpmc} the year before. However, R-CNN were very slow (47 seconds on GPU with the VGG16 \cite{simonyan2014very} network), thus were far from realtime video analysis. It requires a full AlexNet forward pass for each of the around 2000 proposals.
 
 Improved and faster version Fast R-CNN \cite{girshick2015fast} achieved 68.4\% on PASCAL VOC 2012 with the VGG16 network while significantly increasing speed over 200 times compared to R-CNN. This was due to sharing computations over proposals and using a single network for the feature extractor, classifier and the regressor in one network. However, the selective search for the region proposals was found to be the bottleneck for the detection process.
 
-The Faster R-CNN focused on exactly that. The feature extractor was also used for the region proposal network making the region proposal almost cost free. They also increased the learning speed, because only one CNN needed to be trained. Faster R-CNN with VGG-16 achieved 75.9\% mAP on VOC 2012 dataset with just 198 ms on GPU. This is much 
+The Faster R-CNN focused on exactly that. The feature extractor was also used for the region proposal network making the region proposal almost cost free. They also increased the learning speed, because only one CNN needed to be trained. Faster R-CNN with VGG-16 achieved 75.9\% mAP on PASCAL VOC 2012 dataset with just 7 fps on GPU. This is much closer to processing a realtime video.
+
+The YOLO\cite{redmon2016you} performs 45 fps, mAP 63.4 on VOC 2007. It splits the image in a grid and predicts only two bounding boxes and class probabilities for a grid. However it struggles with detecting more small objects close to each other and would not be a good detector for vehicles from street camera. However,here have been some improvements to this network \cite{redmon2017yolo9000, redmon2018yolov3}.
+
+Region convolutional neural networks, which create proposals and then classify them, are still too slow. The Single shot multibox detector (SSD) \cite{liu2016ssd} based on \cite{erhan2014scalable} leaves out the region proposals with the fixed number of regions. It was introduced in November 2016 and had an incredible 74.3\% mAP at 59 fps on VOC 2007. This network has been chosen for object detection in this thesis and will be described more in the section \ref{sec:ssd}. 
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|}
+  \hline
+  &Faster R-CNN & Fast YOLO & YOLO & SSD300 & SSD512 \\
+  \hline
+  fps & 7 & 155 & 21 & 59 & 22\\
+  \hline
+  mAP & 73.2 & 52.7 & 66.4 & 74.3 & 76.8\\
+  \hline
+\end{tabular}
+\caption{Results on PASCAL VOC2007 test.}
+\end{table}
+
+There has been lately many more architectures introduced, such as \cite{lin2017focal, li2017fssd, dai2016r} and many more are coming.
+
+
+\subsection{Object tracking}
+
+The previously described tasks process single images. Now the problem expands to a new discrete time dimension when processing video, but for now keeping just one video feed. The goal is to create a trajectory or a sequence of bounding boxes of an object. This task is difficult because of the illumination changes, partial and full object occlusions and the realtime processing requirements \cite{yilmaz2006object}. Almost all trackers assume, that the fps of the video is high enough, that the movements of the objects are smooth. 
+
+The approach can be divided into a dense and a sparse method. 
+
+The sparse method scans only pixels near by the tracked objects and tries to estimate their movement. This is especially good for tracking low number of objects. The object can be represented as a single point \cite{kale2015moving}, a bounding box \cite{comaniciu2003kernel, porikli2005multi, yilmaz2007object, elgammal2002background}, or a silhouette \cite{isard2001bramble}. Only the changes can be registered \cite{kale2015moving} or a robust reidentification \cite{veenman1998fast} can be used, which is more robust to occlusions. A statistical representation can be connected with a Kalman filter \cite{banerjee2008multi} or a particle filter \cite{zhong2012moving}. The movement is often estimated using sparse optical flow \cite{kale2015moving, mae1996object}. With the recent deep learning advancements, tasks as tracking are also being solved with deep neural networks \cite{bertinetto2016fully, held2016learning, gladh2016deep, gaidon2016virtual, lee2016globally}.
+
+The dense methods for tracking receives a video and detections for each frame. This has the advantage, that the tracks can be created without explicitly manually selecting each object we want to track. However, these approaches are more computationally complex, since they require object detection. The try to connect the bounding boxes into a sequence of tracks. The main methods use Jaccard overlap \cite{tan2005introduction, benfold2011stable} and optical flow \cite{chen2011tracking}. This task can be complex because of the crossing tracks as well as false positive and false negative detections \cite{joshi2012survey, elgammal2002background}.
 
 
 
- 
 
-...
-\subsection{tracking}
-...
-\subsection{reidentification}
-When positions and orientations of the cameras are not known, the location and speed of the detected objects is used for obtaining the spatial relationships among the cameras \cite{makris2004bridging, rahimi2004simultaneous}. The key to reliable reidentification is to correctly model the relationships among cameras, as well as to find a similarity metrics of the detected objects. The detected objects can look very differently on different scenes thanks to different scaling, rotations and lighting conditions. The lighting can be estimated and compensated \cite{javed2005appearance}...
+
+
+
+
+
+
+
+
+\subsection{Reidentification}
+When an object leaves one camera and appears in another camera, the task is to recognize it. When positions and orientations of the cameras are not known, the location and speed of the detected objects can be used for obtaining the spatial relationships among the cameras \cite{makris2004bridging}. The key to reliable reidentification is to correctly model the relationships among the cameras, as well as to find a similarity metrics of the detected objects. When the cameras overlap, the key is to accurately estimate the position of the tracked object and match them \cite{khan2003consistent, krumm2000multi, zhao2005real}. The detected objects can look very differently on different scenes because of the different scaling, rotations and lighting conditions. The brightness transfer function can be estimated and compensated \cite{javed2005appearance, porikli2003inter}. 
+
+When the camera's fields of view don't overlap, the task becomes much more challenging. The camera positions can be either known \cite{rahimi2004simultaneous} or unknown \cite{makris2004bridging}. For reidentification, mean a posteriori (MAP) is estimated, giving the probability of the detected object being the same \cite{javed2005appearance, huang1997object}. \cite{kettnaker1999bayesian} used a probabilistic Baesian model formulation with previously known transition functions. \cite{kang2003continuous} explored this system for controllable movable cameras. 
+
 
 
 
@@ -135,7 +175,7 @@ When positions and orientations of the cameras are not known, the location and s
 \label{fig:stream1}
 \end{figure}
 
-For correct estimation of the position of detected objects, it is crucial to understand the camera optics and sensor. We need to find the transformations from the camera pixel position to the real world position. 
+For correct estimation of the position of detected objects, it is crucial to find the relationships between the camera pixel position and the real world positions. 
 
 The cameras have been provided by the Brazilian party and no technical parameters are available. The model of the camera and it's parameters must be found. A set of improvised requested calibration images have been provided.
 
@@ -214,7 +254,7 @@ The transformations between the world cartesian coordinates $x^w, y^w, x^w$ and 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\linewidth]{fig/sphere.jpg}
+\includegraphics[width=1\linewidth]{fig/sphere.png}
 \caption{The spherical coordinates of the world}
 \label{fig:sphere}
 \end{figure}
@@ -479,14 +519,13 @@ For these problems, background subtraction alone can't be used as a good detecto
 
 \subsection{Optical Flow tracking}
 \label{sec:optical-flow}
-
 The detections have been described in section \ref{sec:bgs}. Having only the detections for each frame does not give us that much information. We need to connect these detections to a track.
 
 A custom set of algorithms has been implemented in opencv\cite{opencv} for extending the background subtraction algorithm to tracking. Optical flow \cite{optical-flow} is used for a motion estimation in a video. It pairs pixels in two subsequent frames. In other words, it is a discrete 2D vector field, where each vector is a displacement vector showing the movement of points from first frame to second.
 
 The computation of optical flow over the whole image is usually a very expensive procedure. The method used is Lucas-Kanede method \cite{lucas-kanede}. 
 
-***desctiption, equations?
+***desctiption, equations, dense/sparse? ***
 
 
 This algorithm is not used on whole image. That would be computationally too expensive and would not be feasible for limited computational resources and realtime system. Instead, each detection is extended for a one optical flow point. In the next frame, this point will move with the object. Each detection is characterized through this point. 
@@ -515,16 +554,7 @@ These improvements work surprisingly well and solve the tracking problem to some
 
 In the frames, there are many objects detected and need to be classified. The most important distinction is between a person and a vehicle. 
 
-*********** ...bude smazano. Presunuto do Relaed work/classification
-Classifiers can be divided into parametric and non parametric methods. The non-parametric ones require no training phase and the decision is based directly on the data. Most common method is the Nearest Neighbor approach \cite{boiman2008defense, zhang2006svm}. The parametric methods on the other hand require a training phase to find the parameters of the model, which can be in form of decision tree \cite{bosch2007image}, adaboost \cite{opelt2004weak}, or the most common Support vector machine (SVM).
-
-The classification pipeline of SVM is such that a set of features is extracted and an Support Vector Machine (SVM) is applied.  These features can have many different forms and can also be combined. A histogram\cite{chapelle1999support}, Bag of features \cite{lazebnik2006beyond, nowak2006sampling}, SIFT features \cite{yang2009linear, bicego2006use} or Haar features \cite{munder2006experimental} can be used. Each Haar feature is a difference of average brightness level in two different rectangles in the image. 
-**************
-
-A simple classifier has been introduced using 87 distinct Haar features. The SVM has been trained on 8144 images of cars and 10567 images of people. The test set split ratio was 0.2. The final accuracy 0.842. That is quite a good score without using neural networks, but not good enough for the final product.
-
-
-
+A simple classifier has been introduced using 87 distinct Haar features.  Each Haar feature is a difference of average brightness level in two different rectangles in the image. The SVM classifier has been trained on 8144 images of cars and 10567 images of people. The test set split ratio was 0.2 reaching the accuracy 0.842. That is quite a good score without using neural networks, but not good enough for the final project.
 
 The training and testing data have been acquired by developed semi-supervised data annotator based on the detector and tracker introduced in the section \ref{sec:data-generation}.
 
@@ -619,6 +649,7 @@ standford \cite{standford} cars dataset
 
 
 \section{Evaluation}
+The 
 
 
 
