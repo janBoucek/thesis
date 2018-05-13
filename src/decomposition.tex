@@ -1,5 +1,6 @@
 \pdfoutput=1
-\documentclass[a4paper,12pt,titlepage, twoside]{article}
+% \documentclass[a4paper,12pt,titlepage, twoside]{article}
+\documentclass[a4paper,12pt,titlepage]{article}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
@@ -583,10 +584,94 @@ and can alswhich detections will be used
 
 % corello
 
-\section{Detection and tracking}
+\section{Detection and reidentification}
 tried inception rcnn, but not working directly.
 
 ***A processing of a single frame needs to be perfected. That includes detection and classification. Detection is in form of a bounding box. Each detection in a single frame needs to be classified into several classes. When we have a detections and classifications over a sequence of frames, a tracking needs to be implemented. That means connecting the bounding boxes into sequences, where each sequence of bounding boxes represents a trajectory of a vehicle. ***
+
+
+\subsection{Neural networks for classification}
+\label{sec:neural_networks_classification}
+The Neural networks have been the state of the art for the classification. Furthermore they are used as the backbone for detection networks.
+
+\subsubsection{intuition}
+
+\subsubsection{*** conv layers, ..., ?}
+\subsubsection{VGG512}
+
+\subsection{SSD network}
+\label{sec:ssd}
+
+The state of the art in detection is at the time the Single Shot MultiBox detector \cite{liu2016ssd}. This network provides accurate realtime object detections (74.3\% mAP at 59fps on VOC2007 on GPU). They achieve much faster speed, compared to previous Faster R-CNN (7 fps on GPU) thanks to eliminating the bounding box proposals. Since the SSD architecture is much simpler and compact, than R-CNN architectures, the training is performed end to end on a single model, instead of training multiple networks for region proposal, classification and bounding box regression.
+
+\subsubsection{Architecture}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/SSDvsYOLO.png}
+\caption{Comparison of the SSD\cite{liu2016ssd}(300x300) and YOLO\cite{redmon2016you}(448x448) architectures.}
+\label{fig:ssd_vs_yolo}
+\end{figure}
+
+The SSD network uses one feed forward flow to produce a fixed number of bounding boxes and their probability for each class. The early layers are sometimes called a base network or a backbone. They are a classical architecture for image classification. 
+
+Some additional layers have been added on top of the base network show in fig. \ref{fig:ssd_vs_yolo}. Multi-scale feature maps for detection are convolutional layers that progressively decrease their size and allow cheap detections of multiple scales. Convolutional predictors for detection can from feature maps of size $m \times n$ with $p$ channels can predict scores for categories or the offsets for each $3 \times 3$ element  using small kernels of $3 \times 3 \times p$. With decreasing feature maps, the predictions relate to different object scales. The bounding boxes offsets are measured relative to the each feature map location. 
+
+\subsubsection{Default boxes and aspect ratios}
+Each feature map cell, from the feature maps at the end of the network, is associated with a set bounding boxes. They differ in shape and scale as shown in the figure \ref{fig:ssd8}. Since the feature maps are computed from convolutions and max pool layers, the bounding boxes regularly tile the input image as shown in the figure \ref{fig:ssd8} with fixed positions.
+
+A prediction of a probability of each class and predicted offset of the the bounding box is computed. The offsets are given relative to the associated fixed position of the bounding box as shown in the figure \ref{fig:ssd4}. For predicting $k$ shapes and $c$ classes with 4 numbers representing the translations $\Delta(cx, cy, w, h)$, we need $k(c+4)$ filters for each feature map cell and for one $m \times n$ feature map layer we need $mnk(c+4)$ filters. The default boxes are similar to anchor boxes in Faster R-CNN with the difference, that SSD uses multiple feature maps for different object scales. 
+
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.3\linewidth}
+    	\includegraphics[height=35mm, width=35mm]{fig/ssd_dog_cat.png} 
+        \caption{SSD prediction}
+        \label{fig:ssd_detection}   
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[Sample1]{0.3\linewidth} 
+    	\includegraphics[height=35mm, width=35mm]{fig/ssd_feature_map.png}
+        \caption{8 $\times$ 8 feature map.}   
+        \label{fig:ssd4}
+    \end{subfigure} 
+    \quad
+    \begin{subfigure}[Sample1]{0.3\linewidth} 
+    	\includegraphics[height=35mm, width=35mm]{fig/ssd_4_feature_map.png}
+        \caption{The predicted offsets.}   
+        \label{fig:ssd8}
+    \end{subfigure} 
+    \caption{The background subtraction detection algorithm.}
+\end{figure}
+
+\subsubsection{Training}
+With each training image, the ground truth boxes need to be assigned to a default bounding box. The ground truth box is matched to all default boxes, which have the Jaccard overlap higher than 0.5. This is more robust, than picking only the one box with the highest overlap as in MultiBox \cite{erhan2014scalable}. After that, the training is performed end to end by a standard backpropagation. 
+
+The training phase also includes a positive and a hard negative mining. Not all predicted boxes participate on training. Most of the predicted boxes are usually negatives. The backpropagation is on all the boxes matched with ground truth box as well as the negatives with lowest score for background. This is called hard negative mining and it speeds up the convergence. The negatives are picked with the ratio 3:1 to the positives.
+
+
+
+
+
+\subsection{Facenet}
+\label{sec:facenet}
+
+
+
+
+\section{Implementation}
+
+\subsection{Image decomposition}
+\label{sec:decomposition}
+
+\subsection{Dataset}
+\label{sec:ssd-dataset}
+standford \cite{standford} cars dataset
+
+
+
+
+\section{Evaluation}
 
 
 
@@ -622,34 +707,6 @@ where $C$ is the set of classes.
 \end{figure}
 
 
-
-
-
-
-
-\subsection{Image decomposition}
-\label{sec:decomposition}
-
-\subsection{Dataset}
-\label{sec:ssd-dataset}
-
-\subsection{SSD}
-\label{sec:ssd}
-
-\section{Reidentification}
-
-
-***When processing a video in one camera has been solved, the problem expands to multiple cameras. Tracking over multiple cameras is deciding, which tracks represent the same vehicle. That is based on a metrics of similarity between two tracks. Finally some representation of the city and the car's position needs to be developed.  ***
-
-\subsection{dataset}
-standford \cite{standford} cars dataset
-
-\subsection{facenet}
-\label{sec:facenet}
-
-
-\section{Evaluation}
-The 
 
 
 
