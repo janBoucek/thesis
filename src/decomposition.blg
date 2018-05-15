@@ -4,51 +4,52 @@ The top-level auxiliary file: decomposition.aux
 The style file: plain.bst
 Database file #1: ref.bib
 Warning--I didn't find a database entry for "lukacs1997real"
+Warning--can't use both volume and number fields in ciresan2011flexible
 Warning--can't use both volume and number fields in harris
 Warning--can't use both volume and number fields in horprasert1999statistical
 Warning--can't use both volume and number fields in huang2017densely
 Warning--empty journal in lecun-mnisthandwrittendigit-2010
 Warning--empty journal in lucas-kanede
 Warning--empty journal in madhavan2017bdd
-You've used 103 entries,
+You've used 135 entries,
             2118 wiz_defined-function locations,
-            1033 strings with 22450 characters,
-and the built_in function-call counts, 43410 in all, are:
-= -- 4473
-> -- 1922
-< -- 81
-+ -- 766
-- -- 648
-* -- 2926
-:= -- 6651
-add.period$ -- 356
-call.type$ -- 103
-change.case$ -- 631
+            1188 strings with 28721 characters,
+and the built_in function-call counts, 57286 in all, are:
+= -- 5861
+> -- 2628
+< -- 103
++ -- 1047
+- -- 894
+* -- 3849
+:= -- 8787
+add.period$ -- 463
+call.type$ -- 135
+change.case$ -- 848
 chr.to.int$ -- 0
-cite$ -- 109
-duplicate$ -- 1778
-empty$ -- 3385
-format.name$ -- 648
-if$ -- 9555
+cite$ -- 142
+duplicate$ -- 2334
+empty$ -- 4425
+format.name$ -- 894
+if$ -- 12597
 int.to.chr$ -- 0
-int.to.str$ -- 103
-missing$ -- 101
-newline$ -- 516
-num.names$ -- 206
-pop$ -- 747
+int.to.str$ -- 135
+missing$ -- 128
+newline$ -- 674
+num.names$ -- 270
+pop$ -- 1023
 preamble$ -- 1
-purify$ -- 528
+purify$ -- 712
 quote$ -- 0
-skip$ -- 1383
+skip$ -- 1840
 stack$ -- 0
-substring$ -- 2904
-swap$ -- 673
-text.length$ -- 81
+substring$ -- 3721
+swap$ -- 898
+text.length$ -- 103
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 412
-warning$ -- 6
-while$ -- 426
-width$ -- 106
-write$ -- 1185
-(There were 7 warnings)
+type$ -- 540
+warning$ -- 7
+while$ -- 546
+width$ -- 138
+write$ -- 1543
+(There were 8 warnings)

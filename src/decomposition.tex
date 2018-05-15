@@ -9,9 +9,11 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{url}
 \numberwithin{figure}{section}
 \usepackage{caption}
-
+\usepackage{siunitx}
+\usepackage{textcomp}
 
 \begin{document}
 
@@ -20,6 +22,8 @@
 
 \section{Introduction}
 Estimated 80\% of the human data is in form of images or videos. ***citace*** There is a lot of useful information hidden, but it is still very complicated to gain it. Most of the information is still labeled manually by people, who make mistakes and are expensive. There is an incredible need for automated video processing in many branches of the industry. Being able to accurately detect and track vehicles can provide valuable data about transportation to governments. Reidentification and tracking objects over multiple cameras in real time can help reinforcement agencies to effectively fight crime. 
+
+*** It is shown in this thesis, that the introduced object detection approach is better on presented domain, than the standard approaches ***
 
 \subsection{Problem statement}
 This thesis has been implemented for the company Good Vision s.r.o to be used in many South American cities for local reinforcement agencies. The cameras will be mounted directly to street lamps and will provide surveillance data to the police. The cameras have 360 degrees view thanks to their very short focal distances. 
@@ -32,7 +36,7 @@ The whole thesis has been divided to subproblems and solved more or less separat
 
 An annotation tool has been used as described in the section \ref{sec:ssd-dataset} for creating training and validation dataset. SSD\cite{liu2016ssd} neural network architecture has been used for object detection. This network has been extended for an additional input of temporal difference to better recognize moving objects and has been trained on NVIDIA GeForce GTX 1080.
 
-Google Facenet \cite{facenet}, which was trained on a custom dataset from section \ref{sec:classical} has been used as a metrics of similarity between detections in section \ref{sec:facenet}. An overall model 
+Google Facenet \cite{schroff2015facenet}, which was trained on a custom dataset from section \ref{sec:classical} has been used as a metrics of similarity between detections in section \ref{sec:facenet}. An overall model 
 
 
 \subsection{Contribution}
@@ -63,11 +67,11 @@ Improving the ssd model.
 
 \section{Related work}
 
-The computer vision field has made an incredible leap forward in last couple of years. Thanks to the increasing computational capabilities of computers and recent advancements in deep learning, we are able to do tasks, that we could not imagine. Image classification, location and detection are tasks, that have gone through an incredible evolution in the last 5 years. The face recognition, autonomous driving, surveillance and many more fields have been the driving force for computer vision. The tracking of objects over multiple cameras is valuable in retail, traffic monitoring and surveillance.
+The computer vision field has made an incredible leap forward in last couple of years. Thanks to the increasing computational capabilities of computers and recent advancements in deep learning, we are able to do tasks, that we could not imagine. Image classification, location and detection are tasks, that have gone through an incredible evolution in the last 5 years. The face recognition, autonomous driving, surveillance and many more fields have been the driving force for computer vision. The tracking of objects over multiple cameras is valuable in retail, traffic monitoring and surveillance. 
 
 \subsection{Classification}
 
-Image classification is a task, where given an image, one class has to be assigned from previously known set of classes. This is a hard task because of the variance in lightning, pose, rotation, scale, as well as intra class variation.  
+Image classification is a task, where given an image, one class has to be assigned from previously known set of classes. This is a hard task because of the variance in lightning, pose, rotation, scale, as well as intra class variation. The detection task described in the section \ref{sec:detection} is linked to the classification problem and all deep learning detectors use image classification networks.
 
 Accuracy is usually measured as the proportion of correctly classified images in the test set. Two metrics are used. In top 1 accuracy only one prediction is made. In top 5 accuracy, 5 predictions are made and an image is considered to be correctly classified, if the correct class is among them.
 
@@ -83,9 +87,9 @@ In 2012 AlexNet \cite{krizhevsky2012imagenet} won the ImageNet Large Scale Visua
 
 The paper ZFNet \cite{zeiler2014visualizing} in 2103 introduced some inside to how CNNs work by introducing De Deconvolutional Network could show various feature activations. It also outperformed the AlexNet on ImageNet by the top-5 error rate being 14.8\% and winning the ILSVRC 2013.
 
-GoogLeNet/Inception won the ILSVRC 2014 with the incredible top-5 error rate of 6.67\%. the architecture was based on LeNet \cite{lecun1998gradient}, but introduced an inception module. this module eliminates all full-connected layers, greatly reducing the number of parameters.
+GoogLeNet/Inception won the ILSVRC 2014 with the incredible top-5 error rate of 6.67\%. the architecture was based on LeNet \cite{lecun1998gradient}, but introduced an inception module. this module eliminates all full-connected layers, greatly reducing the number of parameters. This network is used as a backbone in many object detection networks and has been used in this thesis as a backbone for Facenet \cite{schroff2015facenet} described in the section \ref{sec:facenet}
 
-The second best network in ILSVRC 2014 was the VGG Net \cite{simonyan2014very}. The depth of the network has been increased, but the number of parameters kept low thanks to very small 3x3 filters. The architecture is simpler than the Inception and it is widely used in transfered learning and as a detection backbones.
+The second best network in ILSVRC 2014 was the VGG Net \cite{simonyan2014very}. The depth of the network has been increased, but the number of parameters kept low thanks to very small 3x3 filters. The architecture is simpler than the Inception and it is widely used in transfered learning and as a detection backbones. This network has been used in this thesis as a backbone for the SSD detector\cite{liu2016ssd} described in the section \ref{sec:ssd}. 
 
 The Microsoft's ResNet\cite{he2016deep} introduced a 152 layers deep architecture. they are able to train the network thanks to the introduction of the residual connections. Part of the information passes through the layers unchanged. This helps to solve the vanishing gradient problem. With the top-5 error rate 3.57\% They surpassed the human accuracy winning the ILSVRC 2015.
 
@@ -96,6 +100,7 @@ DenseNet \cite{huang2017densely} connects each layer to every other layers in fr
 The task of image classification is considered to be solved, but more research is being done. These image classification networks can be used as a backbone for other tasks, such as image detection, localization or segmentation.
 
 \subsection{Detection}
+\label{sec:detection}
 \subsubsection{Vehicle detection}
 There are many ways to detect vehicles, not just with cameras. One can detect changes in magnetic fields \cite{daubaras2012vehicle, caruso1999vehicle} or a laser scanner \cite{gate2009fast}.
 
@@ -105,7 +110,7 @@ Lot of research has been done for detection of vehicles and people thanks to the
 
 
 \subsubsection{Object detection}
-
+\label{sec:object_detection}
 In computer vision, the object detection is a specified task. The goal is to draw a bounding box around each object and assign it one class selected from a previously known set of classes. The accuracy is measured in mean Average Precision described in the section \ref{sec:mAP}. 
 
 Before the rapid using of neural networks, various methods have been used for object detection. Haar features were used for detecting faces \cite{haar, lienhart2002extended, viola2004robust} and vehicles \cite{sun2002real}. For general object detection, the background subtraction \cite{piccardi2004background, horprasert1999statistical} or optical flow \cite{naoya1990optical, quenot1992orthogonal, chen2011tracking} described in the sections \ref{sec:bgs} and \ref{sec:optical-flow}. SIFT \cite{lowe2004distinctive} HOG \cite{girshick2014rich, wang2009hog, zhu2006fast, felzenszwalb2010object, dalal2005histograms} are also being used.
@@ -136,6 +141,12 @@ Region convolutional neural networks, which create proposals and then classify t
 
 There has been lately many more architectures introduced, such as \cite{lin2017focal, li2017fssd, dai2016r} and many more are coming.
 
+Video is a sequence of frames. Most of the time for detection objects in a video, it is decomposed to different frames  and each frame is detected independently \cite{sudowe2011efficient}. This looses much of the information  encoded in the video. background subtraction \cite{gonzalez2012digital} or optical flow \cite{naoya1990optical} as described in the section \ref{sec:classical} can be used for detection. 
+
+Some newer work combines an optical flow information with neural networks \ref{ng2015beyond}, but optical flow is expensive to compute, even though there is a convolutional network for optical flow estimation \ref{simonyan2014two}. \cite{karpathy2014large} preserves the video information by taking as an input multiple frames from the video, but this makes the model large. 
+
+A good trade-off between the network's size and preserving video information has been introduced in this thesis by combining the RGB input image with a 4th channel of temporal difference between frames and feeding it to a neural network. There is a research \cite{bayona2010stationary, koprinska2001temporal} using temporal difference for detection and segmentation, but to my knowledge has not been combined with deep learning.
+
 
 \subsection{Object tracking}
 
@@ -163,6 +174,7 @@ When an object leaves one camera and appears in another camera, the task is to r
 
 When the camera's fields of view don't overlap, the task becomes much more challenging. The camera positions can be either known \cite{rahimi2004simultaneous} or unknown \cite{makris2004bridging}. For reidentification, mean a posteriori (MAP) is estimated, giving the probability of the detected object being the same \cite{javed2005appearance, huang1997object}. \cite{kettnaker1999bayesian} used a probabilistic Baesian model formulation with previously known transition functions. \cite{kang2003continuous} explored this system for controllable movable cameras. 
 
+***similarity - facenet...***
 
 
 
@@ -399,8 +411,11 @@ A point from a camera coordinate system $(x^w, y^w)$ is transformed to the city 
 
 
 
-\section{Detection and tracking on CPU}
+\section{Dataset generation}
 \label{sec:classical}
+
+A vehicles detection and tracking without using deep learning has been explored. For several reasons described in this section it has not been used for the final product, but allowed a much faster video annotating, than standard methods and was used to create dataset for training similarity between vehicles described in the section \ref{sec:similarity}
+
 The final system needs be easily scalable and a particular system architecture has been explored. If the detections and tracking were computed on-board of the cameras, that would help greatly. There would be much less communication needed. Instead of transferring whole video streams, only some meta-data would be sent. That would include: 
 
 \begin{itemize}
@@ -584,22 +599,130 @@ and can alswhich detections will be used
 
 % corello
 
-\section{Detection and reidentification}
-tried inception rcnn, but not working directly.
+\section{Deep learning}
+*** teorie k obecnym neuronovym sitim, popis vrstev. Transfered learning. Popis VGG-16 a Google Inception. Hodne citaci***
 
-***A processing of a single frame needs to be perfected. That includes detection and classification. Detection is in form of a bounding box. Each detection in a single frame needs to be classified into several classes. When we have a detections and classifications over a sequence of frames, a tracking needs to be implemented. That means connecting the bounding boxes into sequences, where each sequence of bounding boxes represents a trajectory of a vehicle. ***
+Deep learning is used for artificial intelligence models, which use more non-linear layers of computation. Most common are the Artificial neural networks. They are a computational model inspired by a brain, that can be thought various tasks from image classification \cite{szegedy2016rethinking} to speech processing \cite{graves2013speech}. In this section we will focus on neural networks for image processing.
+
+\subsection{Inspiration by biology}
+The basic computational unit in a brain is a neuron. A neuron in a brain has an input and an output. The input is a dendritic tree, which is connected to outputs(axons) of another neurons. Neurons are only unidirectional and their output is binary. They either fire, if the input is strong enough or they don't. Their connections to other neurons can vary from very weak to a very strong ones and their size can change by learning.
+
+The basic element artificial neural networks is also a neuron. It also has several inputs and one output. The most common neuron can be also called a perceptron\cite{rosenblatt1958perceptron}, which is a well known classifier. The basic function of a neuron can be described as $f(\overrightarrow{\omega} \cdot \overrightarrow{x} + b)$, where $\overrightarrow{x}$ is the input of the neuron, $\overrightarrow{\omega}$ is the output and $f$ is the activation function and $b$ is the bias. The weights and the biases are the only thing, that changes during the training, where the goal is to find such a weights and biases, that the neural networks performs the required task well.
+
+When an architecture is created, the neural network needs to learn how to perform the required task. It figures that out in a training phase from showing the network many input data with labels, for example many pictures and classes of the objects in the images. This is called a supervised learning. After the training phase, the weights are frozen and the network can perform the task, that is was trained to do.
+
+While the structure of the neural network is inspired by the brain, the training is not. The way it is performed is explained more in detail in the section \ref{sec:back-prop}.
+
+\subsection{Layers}
+Neurons in artificial neural networks, similarly like in a brain, are organized in layers. These layers are usually connected to each other in a serial way. Neurons in one layer perform the same function. There is more types of layers depending on the neuron's function and the way they are connected. The information describing this defines the neural network architecture.
 
 
+\subsection{Convolutional layer}
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[height=40mm]{fig/conv1.jpeg} 
+        \caption{An example of a convolutional layer}
+        \label{fig:conv_layer}   
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[height=40mm]{fig/conv2.jpeg}
+        \caption{Model of a neuron.}   
+        \label{fig:neuron}
+    \end{subfigure} 
+    \caption{Examples of neural networks concepts from \cite{karpathy2016cs231n}.}
+\end{figure}
+
+The convolutional layer is a set of neurons placed in a grid of size $m \times n \times k$. Each neuron is connected to a local region in the previous layer. Each neuron performs the function $f(\overrightarrow{\omega} \cdot \overrightarrow{x} + b)$ shown in the figure \ref{fig:neuron}. Thanks to their regular structure and sharing parameters they perform a convolution function, where they look for a different features in the previous layer. The neurons in lower layers can detect edges or lines, while neurons in higher layers can detect eyes or wheels. The neurons can be in a sparser grid relative to the previous layer with gaps called stride, downsampling the previous layer. 
+
+A better insight to this phenomena has been described in \cite{zeiler2014visualizing}.
+
+\subsubsection{Pooling layer}
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[height=40mm]{fig/pool1.jpeg} 
+        \caption{Pooling downsamples the previous layer.}
+        \label{fig:conv_layer}
+    \end{subfigure}
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[height=40mm]{fig/pool2.jpeg}
+        \caption{Max pooling operation.}   
+        \label{fig:neuron}
+    \end{subfigure} 
+    \caption{Examples of pooling concepts from \cite{karpathy2016cs231n}.}
+\end{figure}
+
+The image has usually big resolution, but the information gained can be described in much smaller information. Because at the lower levels we care about the relative positions of different features, such as lines or colors a lot, with the higher level, where the generalization is bigger, the dimension of the network usually becomes smaller. Pooling neuron takes a set of inputs and returns only one output as the highest input(max pool) or the average of the inputs(average pool). The pooling layer\cite{scherer2010evaluation} is an important part of almost all convolutional neural networks and it can not be trained since it does not have any parameters.
+
+\subsubsection{Fully connected layer}
+In the fully connected layer, each of the neurons is connected to every neuron in the previous layer. Since the layers can have many neurons, this is a very expensive operation and is usually performed at the last layers of the network, where the layers are smaller. They are used as the final classifier, each neuron representing one class.
+
+\subsubsection{Overfitting and dropout layer}
+The neural network has many parameters and high Vapnik-Chervonenkis dimension \ref{blumer1989learnability}, therefore it is more prone to overfitting. The network should from the training set of examples figure out some basic understanding of the problem and use this knowledge to process a sample, that it has never seen before. Overfitting means, that the network performs well on the training set by learning it by heart, but fails on the test set. This is a general phenomena in machine learning. Usually the way is to select a simpler classifier, that can still handle the problem or increase the training data. Neural networks have come up with a solution called dropout, which does not solve the problem completely, but greatly helps. 
+
+A neuron in a dropout layer has only one input and during training randomly copies it's value to the output or returns a zero. This forces the network to build more robust connections. This layer is active only during training. 
+
+
+\subsection{Backpropagation}
+\label{sec:back-prop}
+As mentioned before, the learning of artificial neural networks is very different from learning of a real brain. With each input example, the network performs a forward pass. The informations flows from one layer to next layer and the operations are performed until the information reaches the output layer. Information is compared with the ground truth embedding and a backpropagation is performed, that changes the parameters of the network in a way, that next time the output is closer to the required embedding. The difference is called loss and there are different ways to compute it.
+
+The simplest square loss is computed as 
+
+\begin{equation}
+ L(\overrightarrow{y}) = - \sum_{i=1}^N(y_i -  \hat{y_i})^2.
+\end{equation} 
+
+After each forward pass, backpropagation finds a gradient for each weight and bias $\omega$, that minimizes the loss and changes it in the direction. 
+
+\begin{equation}
+\omega_{t + 1} = \omega_{t} + \frac{\partial L(\overrightarrow{y_t})}{\partial \omega}
+\end{equation}
+
+This general process is called a gradient descent. Backpropagation is an efficient way how to  compute these partial derivatives from back to front of the network based on the chain rule.
+
+\subsection{Frameworks}
+Artificial neural networks require sometimes billions of very simple operations. Although they have been known for many years\cite{widrow199030}, only recently they have had a great success. That is due increased computational power, parallelizing the computations on GPU, which perform these operations much faster than CPU and access to a big amount of data. 
+
+There are also some frameworks, that offer very fast computations on GPU such as Google's TensorFlow \cite{abadi2016tensorflow}, Theano \cite{bergstra2011theano} or CNTK\cite{seide2016cntk} by Microsoft, from which the TensorFlow is the most common and the reidentification part of the thesis described in the section \ref{sec:similarity} has been implemented in this framework. 
+
+There are also some libraries such as Keras \cite{chollet2015keras} and Caffe \cite{jia2014caffe} that make implementing deep learning in C++ or python much easier. The SSD object detection network described in the section \ref{sec:ssd-implementation} has been implemented in Keras.
+
+
+
+\section{Classification, Detection and Reidentification networks}
 \subsection{Neural networks for classification}
 \label{sec:neural_networks_classification}
 The Neural networks have been the state of the art for the classification. Furthermore they are used as the backbone for detection networks.
 
-\subsubsection{intuition}
 
 \subsubsection{*** conv layers, ..., ?}
-\subsubsection{VGG512}
+\subsubsection{VGG}
+\label{sec:vgg}
 
-\subsection{SSD network}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/vgg.png}
+\caption{The different VGG architectures. The ReLU function is not shown for simplicity. \cite{simonyan2014very}}
+\label{fig:vgg}
+\end{figure}
+
+The VGG\cite{simonyan2014very} architecture from Oxford is one of the simplest ones, but is very accurate. It is often used as a base network in object detection networks such as YOLO\cite{redmon2016you}, ARTOS\cite{barz2017fast}, SSD \cite{liu2016ssd} or Faster R-CNN \cite{faster-rcnn}. In this thesis, the VGG network has been used as the SSD backbone and has been adjusted for the detection task in the section \ref{sec:ssd-implementation}. 
+
+The VGG is an image classification network. It takes an input image and produces a probabilities for each predefined class. It has been inspired by \cite{ciresan2011flexible} and \cite{krizhevsky2012imagenet}.
+
+The input resolution of the network is fixed to 224 $\times$ 224. The idea of the network is to use a very small filters 3 $\times$ 3  (which is the smallest size to capture the notion of left/right, up/down, center)\cite{simonyan2014very}. Two of these filters stacked on top of each other create a receptive field of 5 $\times$ 5 and three have the receptive field of 7 $\times$ 7. With sharing parameters, the three layers has almost half the parameters, than the layer with 7 $\times$ 7 filters. This is different from \cite{krizhevsky2012imagenet} with 11 $\times$ 11 filter in the first layer and \cite{zeiler2014visualizing} with 7 $\times$ 7.
+
+To bring more non-linearity, the VGG16 uses a filters with 1 $\times$ 1 filters. This has been used also in \cite{lecun1989backpropagation} as a network in a network.
+
+Thanks to padding and the stride 1 of convolutional layers, the layers are down-sampled only by 2 $\times$ 2 max-pool layers with stride 2. The number of channels increases for better processing of higher level features. 
+
+Different VGG architectures have been evaluated designed in \cite{simonyan2014very} and shown in the figure \ref{fig:vgg}. 
+
+
+
+\subsection{SSD network for detection}
 \label{sec:ssd}
 
 The state of the art in detection is at the time the Single Shot MultiBox detector \cite{liu2016ssd}. This network provides accurate realtime object detections (74.3\% mAP at 59fps on VOC2007 on GPU). They achieve much faster speed, compared to previous Faster R-CNN (7 fps on GPU) thanks to eliminating the bounding box proposals. Since the SSD architecture is much simpler and compact, than R-CNN architectures, the training is performed end to end on a single model, instead of training multiple networks for region proposal, classification and bounding box regression.
@@ -644,22 +767,351 @@ A prediction of a probability of each class and predicted offset of the the boun
     \caption{The background subtraction detection algorithm.}
 \end{figure}
 
+\subsection{Loss}
+*** todo ***
+
 \subsubsection{Training}
 With each training image, the ground truth boxes need to be assigned to a default bounding box. The ground truth box is matched to all default boxes, which have the Jaccard overlap higher than 0.5. This is more robust, than picking only the one box with the highest overlap as in MultiBox \cite{erhan2014scalable}. After that, the training is performed end to end by a standard backpropagation. 
 
 The training phase also includes a positive and a hard negative mining. Not all predicted boxes participate on training. Most of the predicted boxes are usually negatives. The backpropagation is on all the boxes matched with ground truth box as well as the negatives with lowest score for background. This is called hard negative mining and it speeds up the convergence. The negatives are picked with the ratio 3:1 to the positives.
 
+\subsection{Non maxima suppression}
+*** todo ***
 
 
-
-
-\subsection{Facenet}
+\subsection{Facenet for reidentification}
 \label{sec:facenet}
+Google Facenet \cite{schroff2015facenet} is a deep neural network for computing similarities between faces, but can be retrained for computing similarities between objects from any domain, such as vehicles. This network  receives an input image in rgb with the size of $220 \times 220$ and returns a embedding vector with the length of 128. The euclidean distance between samples directly corresponds to the similarity of objects. Faces of the same person are mapped to the similar place in the euclidean space. Once we have this metrics, recognition becomes a K-NN and verification is a simple thresholding of the distance. The goal is, that the embeddings will be invariant to pose, illumination and other factors.
+
+\subsubsection{Architecture}
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[width=0.95\linewidth]{fig/facenet.png} 
+        \caption{The model structure}
+        \label{fig:facenet_structure}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/triplet_loss.png}
+        \caption{The learning objective}   
+        \label{fig:triplet_loss}
+    \end{subfigure}
+    \caption{The Facenet \cite{schroff2015facenet}.}
+\end{figure}
+
+The facenet architecture is mostly an image classification network for 128 categories and a normalization layer. Google has tried various architectures, such as Zeiler\&Fergus \cite{zeiler2014visualizing} (with the input resolution 220 $\times$ 220), Google Inception \cite{szegedy2016rethinking} (224 $\times$ 224, 160 $\times$ 160, 96 $\times$ 96) and mini Inception (165 $\times$ 165) and tiny Inception(140 $\times$ 140). 
+
+
+The \cite{szegedy2016rethinking} shows, that the embedding space dimensionality of 128 is enough for recognizing faces.
+
+\subsubsection{Training}
+The training and evaluation data are sets of images of different people. The goal of the network is to project images of the same person close to each other and different people far from each other as shown in the figure \ref{fig:triplet_loss}. This is a different problem, than classification, where a finite number of categories is previously known. There have been been attempts \cite{wst2008deeply, taigman2014deepface} for training network for classification and then removing the last classification layers, but with less success.
+
+The introduced approach is different from an image classification training and is called triplet loss. With each training step, three examples are selected. Two of the same class and one from a different one. One of the positives is called anchor, the one from the same class is called a positive and the third one a negative sample. The goal is to change the network parameters in a way, that the positive embedding is moved closer to the anchor and the negative further from the anchor.
+
+The triplet loss is represented as $f(x) \in R^d$, where $x$ is the input image that is transformed into an Euclidean $d$-dimensional space. The last normalization layer normalizes the embedding to a hypersphere of the size 1, meaning $\|f(x)\|_2 = 1$ 
+
+To ensure, that the model is consistent, meaning, that there exists a threshold, that will correctly classify every pair of the images, we need to ensure, that for $\alpha = 0$
+
+\begin{equation}
+\begin{aligned}
+&\|f(x_i^a) - f(x_i^p)\|^2_2 + \alpha < \|f(x_i^a) - f(x_i^n)\|^2_2 \\
+&\forall (f(x_i^a), f(x_i^p), f(x_i^n)) \in T
+\end{aligned}
+\end{equation}
+
+The $\alpha$ is a constant, that can enforce a margin. $T$ is a set of all possible combinations of images in the training set.
+
+The loss, that is being used for training according to \cite{szegedy2016rethinking} is 
+
+\begin{equation}
+\sum_i^N [\|f(x_i^a) - f(x_i^p)\|^2_2 - \|f(x_i^a) - f(x_i^n)\|^2_2 + \alpha]_+.
+\end{equation}
+
+After couple of steps of training, most of the images will be classified correctly and the constraint will be met. For fast convergence, it is crucial to select those triplets, that violate the condition. This is called hard positive and hard negative mining.
+
+There have been recently some improvements of triplet loss in form of quadruplet loss \cite{chen2017beyond}, that enforces grater margins among classes.
+
 
 
 
 
 \section{Implementation}
+
+\subsection{Detection and tracking on CPU}
+
+\subsection{Mask R-CNN segmentation}
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[width=0.95\linewidth]{fig/Mask-RCNN-road.png} 
+        \caption{Mask R-CNN on a standard street camera}
+        \label{fig:mask-street-cam}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/Mask-RCNN-omni.png}
+        \caption{Mask R-CNN on a fish-eye has problems recognizing vehicles from the top}   
+        \label{fig:mask-omni-cam}
+    \end{subfigure}
+    \caption{Examples of Mask R-CNN network \cite{he2017mask}}
+    \label{fig:facenet}
+\end{figure}
+
+First, couple of approaches have been explored, but not to a great detail. One of them is  Mask R-CNN\cite{he2017mask}. This network builds on detections and provides segmentation. This gives more information, since we know exactly what parts of objects belong to which entity, making the tracking simpler. As shown in the figure \ref{fig:mask-street-cam}, Mask R-CNN can very well detect standard traffic scenes, however, in the figure \ref{fig:mask-omni-cam}  one can see, that it has problems detecting vehicles from the top. This is due to a very small number of vehicles viewed right from the top in the Microsoft COCO dataset \ref{lin2014microsoft}. 
+
+Since there are no datasets for training and evaluating segmentation from the top-places fish-eye street cameras the performance has not been measured. Transfered learning could be applied, but creating such a segmentation dataset is very expensive to create. Combining this fact with the 5 fps of this network, it is not feasible for realtime application and this approach has not been explored further. 
+
+However, it is a valuable insight and when segmentation becomes faster, this is definitely an approach worth looking into in the future work.
+
+\subsection{SSD detector}
+\label{sec:ssd-implementation}
+The most important part of the thesis is the vehicle detection. This is a very hard problem given the conditions. First of all, since the camera is fish-eye, it is not possible to simply use a off the shelf network trained for example on ImageNet or on PASCAL VOC and use it right away. 
+
+For the detector has been chosen the SSD network \cite{liu2016ssd} described in the section \ref{sec:ssd}. It is the state of the art realtime detector outperforming the R-CNN\cite{faster-rcnn} and YOLO\cite{redmon2016you} in speed and accuracy as described in the section \ref{sec:object_detection}. 
+
+the SSD uses VGG-16 for the base network, which has been described in the section \ref{sec:vgg}. VGG networks are popular among detection networks for their performance and simplicity. 
+
+The SSD introduces two versions differing in the input resolution: SSD300 and SSD512 with the resolutions $300 \times 300$ and $512 \times 512$ respectively. Because the cameras are positioned high and because of the fish-eye view, objects, especially bicycles and motorcycles, can appear very small. It is sometimes problem for humans to detect them on $1024 \times 1024$ image, therefore the version with higher resolution has been chosen. 
+
+A working network implemented in keras\cite{ssd_keras} has been used as a starting point, but some modifications have been made. 
+
+\subsubsection{Temporal difference}
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[width=0.95\linewidth]{fig/stream_frame.png} 
+        \caption{A frame from the street camera.}
+        \label{fig:td_frame}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/stream_black.png}
+        \caption{Temporal difference highlights moving objects.}   
+        \label{fig:td_black}
+    \end{subfigure}
+    \caption{Temporal difference helps to detect moving objects.}
+    \label{fig:td}
+\end{figure}
+
+As described in the section \ref{sec:object_detection}, the standard pipeline for video detection is detecting each frame independently. This looses much information, that can be gained from the video. Cameras used in this thesis are static and the vehicles, that are to be detected are mostly moving. A cheap segmentation of the scene is a temporal difference. 
+
+A difference between two subsequent frames is shown in the figure \ref{fig:td_black}. It is computed as:
+
+\begin{equation}
+D(F^{T}_{i, j}) = max(255, \sum_{c = 1}^3 |F^t_{i, j, c} - F^{t-1}_{i, j, c}|)
+\end{equation}
+
+where $F_{i, j}^t$ is a value of a frame at the time $t$, $i$-th row and $j$-th column. The image is represented in 8-bit unsigned int, therefore to prevent overflow, the value is saturated on 255. The difference between frames can be computed very fast in python using numpy\cite{walt2011numpy} and opencv\cite{opencv} libraries. 
+
+There are more ways, how to use this information in the network. One could feed just this layer and probably achieve good detections, but would have problems with object classification by loosing the rgb information. The introduced approach keeps both the information by feeding both to the network.
+
+The SSD network has been extended for an extra input channel in addition to rgb, that is the temporal difference. The data have size $H \times W \times 4$ instead of $H \times W \times 3$ for standard images. This version of the network has been temporarily called RGBD network. The D stands for the difference and should not be confused with commonly used distance.
+
+In some cases, we don't want to detect parked cars. This is in a case of a road with lot of parked cars and where are no traffic lights. In this case, the tracking will perform better with less bounding boxes and no occlusions with the parked cars. This can be easily done by computing the average value in the difference channel and thresholding it.
+
+
+\subsubsection{Architecture}
+The architecture is similar to the original SSD512 architecture, but some changes have been made. 
+
+The input layer has been extended for the differential channel as described before. 
+
+According to some literature \cite{cao2018feature}, SSD might have problem with detecting small objects. Therefore one more feature layers has been added with a small scaling factor 0.05, compared to the original 0.1. This additional feature layer is able to detect roughly twice as smaller objects as the original network, such as pedestrians, bicycles or motorcycles.
+
+\subsubsection{Dataset}
+A scene annotating has been introduced in the section \ref{sec:data-generation}. However this approach could not be used for SSD training and was used only for similarity training described in the section \ref{sec:similarity}. Even though it produces no false positives, sometime it produces false negatives due to the inability of correctly segmenting overlapping objects. It only detects such a situation and does not label anything.
+
+Despite over-all good scene annotation, the SSD's hard negative mining strategy selects the bounding, that the network predicted most likely as a presence of an object and were not labeled and tweaks the weights in such a way, that next time it is predicted as a background. In other words, if a vehicle is not labeled in the image, the network might detect it, but will be corrected, that it is a background. This would lead to a bad learning, overfitting and might not even converge.
+
+A standard online annotation tool has been provided by the goodvision company, that allows annotators to draw bounding boxes and attach classes to images. Several annotators have annotated 1764 images.
+
+The Brazilian party provided 15 videos from different scenes, each about 1 hour long. Each video has been shot from a slope on a car, as shown in the figure \ref{fig:calibration}. Only two cameras in lamps were working and recording video in the time of writing this thesis, since the whole project is still in development. 
+
+The rgb images and the temporal difference have been extracted from the total of 17 scenes a second apart and the images without traffic have been deleted. There is need for many scenes for the diversity of the roads, surroundings and lightning conditions. 
+
+A detector can easily overfit on a scene by learning it's background, therefore the test data have been chosen to be one scene, where the detector did not learn.
+
+The dataset contains 1654 training and 110 testing images. Because of the sparsity of the data and not many hyperparameters, the validation set is equal to the test set.
+
+There are 7 classes in the data: 
+[person, bicycle, car, bus, motorbike, truck, animal]
+
+The classes person and animal are not important for this project, but might be used for adding new features in the future.
+\subsubsection{Data augmentation}
+For extending the dataset, many different methods of editing the images are being used. They usually contain horizontal flip, selecting patches or editing brightness. 
+
+The nature of the 360 degree camera enables us to rotate the image in an arbitrary angle, not only a horizontal flip, such as on standard datasets. 
+
+On a standard frame, not all vehicles are moving. Some are parked and some stay at a traffic or on a red light. It is important to detect these also, therefore 4th layer is set to zero with the probability of 0.1 to provide more data for the rgb part of the network.
+
+All the data augmentation techniques used during training are:
+
+\begin{itemize}
+\item Random rotation of the image.
+\item Random brightness change.
+\item Random image translation.
+\item Random scaling of the image.
+\item Random setting of the 4th layer to zero.
+\end{itemize}
+
+\subsubsection{Training}
+
+It is not possible to use pretrained model on ImageNet\cite{deng2009imagenet} or COCO \cite{lin2014microsoft}, because of the changed architecture of the network. A pretrained weights could not be used for transfered learning. An attempt has been made to pretrain the model on Youtube-boundingboxes dataset\cite{real2017youtube}, but only static videos would have to be selected because of the differential input channel and the scenes are too different from the fish-eye traffic camera.
+
+The images were shuffled before each epoch. The minimum overlap between anchor and a label has been set to 0.5, the maximum overlap between anchor and background label has been set to 0.2 and the threshold for moving labels from the ground truth during training was set to 0.2. The training was performed on the NVIDIA GeForce GTX 1080 for 4 days.
+
+A custom tensorboard callback and mAP computation had to be implemented for observing the training progress and evaluating the model. Another features were added, such as tracking the  detection ratio or computing the best threshold from the mAP curve. 
+
+The Adam optimizer \cite{kingma2014adam} has been used with parameters: The learning rate $10^{-3}$, $\beta_1 = 0.9, \beta_2 = 0.999, \epsilon=10^{-8}, decay = 0.0005$. These parameters have been selected by \cite{ssd_keras} and were not changed. The training process is shown in the figure \ref{fig:ssd_training}
+
+
+\begin{figure}[H]
+    \begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/ssd_rgbd/mAP.png}
+        \caption{The mean average precision on validation set.}   
+        \label{fig:ssd_mAP}
+    \end{subfigure}
+    \begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/ssd_rgbd/loss.png}
+        \caption{The loss on the training set.}   
+        \label{fig:ssd_loss}
+    \end{subfigure}    
+	\begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/ssd_rgbd/val_loss.png}
+        \caption{The loss on the validation set.}   
+        \label{fig:ssd_val_loss}
+    \end{subfigure}    
+    \caption{The process of training the 4 channel input SSD network. The training was performed on the NVIDIA GeForce GTX 1080 for 4 days.}
+    \label{fig:ssd_training}
+\end{figure}
+
+The training converged after about 3000 training steps. The final training loss was 0.3035 ant validation loss 0.2201. The mAP on the test set was 91,6 \%.
+
+
+
+\subsection{Tracking}
+
+\subsection{Similarity}
+\label{sec:similarity}
+
+\begin{figure}
+    \begin{subfigure}[Sample1]{0.5\linewidth}
+    	\includegraphics[width=0.95\linewidth]{fig/facenet_eval_table.png} 
+        \caption{Mean VAL at $10^{-3}$ FAR.}
+        \label{fig:facenet_table}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/facenet_eval.png}
+        \caption{Comparison of different DNN architectures.}   
+        \label{fig:triplet_loss}
+    \end{subfigure}
+    \caption{Comparison of various facenet\cite{szegedy2016rethinking} base networks evaluated on Labeled faces in the wild\cite{huang2007labeled} and YouTube faces\cite{wolf2011face} datasets.}
+    \label{fig:facenet}
+\end{figure}
+
+The neural network Facenet \cite{schroff2015facenet} was chosen as the metrics of similarity among vehicles. As described in the section \ref{sec:facenet}, it is designed to compute similarity between faces and is taught to be invariant to various poses and illumination conditions. The network can be retrained for a different domain apart from faces, in our case vehicles. Given an image of a car, the network will produce an embedding in an 128-d Euclidean space in such a way, that the same objects should be close to each other. Google has tried many architectures, that are compared in the figure \ref{fig:facenet}. The Inception network NN3 with the input resolution of 160 $\times$ 160 is a good trade-off between the speed and accuracy. Furthermore increasing input resolution is not practical for our task, since the resolution of the cameras is only full HD and the vehicles inhabit only  very small area in the frame.
+
+As a starting point, TensorFlow implementation of the network \cite{facenet} has been used. The network stayed unchanged, but the data handling, tensorboard callbacks and evaluation had to be implemented.
+
+\subsubsection{Dataset}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/facenet/labeling.png}
+\caption{An example of a one object in a training set.}
+\label{fig:facenet-labeling}
+\end{figure}
+
+The dataset needed for this task is in a form of a set of images of an object for many objects. That means, that we need set of images of the same vehicle for many vehicles. Use of other datasets, such as \ref{standford} is not possible, because their images look too different, from those in the fish-eye street camera.
+
+The main idea in creating a custom dataset was, that if we have a track - a set of bounding boxes of the same car on one scene, we can use these detections as a set of images of the same vehicle. That is exactly what the background subtraction and optical flow does. This dataset has been created by a semi-supervised annotation tool based on background subtraction and optical flow described in the section \ref{sec:data-generation}.
+
+Different scenes and different weather conditions have been used for better diversity. The created dataset contained over 9 000 images.
+
+\subsubsection{Problems with the dataset}
+When the facenet network was trained on this dataset, it did not work at all. There are couple of big problems that have to do with the way Facenet learns. In each training step it takes two images, that belong to different classes, but have been classified as too similar. If each class contained a different car, this would make no problem. However, vehicles, especially in south America, are very similar. If there is a model of the same car in the database more times, the facenet will be taught, that it is a different car and it needs to change. Especially if the car is in the same scene, it looks almost identical and not even human can tell them apart. 
+
+Another problem is, that if the same model of the car appears on a different scene, there is no match with the original car. The network treats these cars as different. This is the opposite of what we want to achieve.
+
+The final problem considers low diversity among one track. The road is usually of the same color and the lightning conditions barely change. The network can then overfit on these features and will not generalize.
+
+\subsubsection{Improving the dataset}
+These problems had to be taken into account when creating a new version of the dataset. It would be very hard for the annotator to remember, which types of vehicles have passed and which did not. Instead, the original dataset had to be clustered. That means putting same vehicles from a different scenes into one class. This is a very time demanding process, but the results are worth it.
+
+\subsubsection{Evaluation}
+Evaluating the similarity task has been transformed to a evaluation a classification task. The task is to classify if a pair is positive (belong to the same class), or negative(does not belong to the same class). Given two images, compute the distance of their embeddings and compare it to a threshold. 
+
+The threshold is found by cross-validation on the training set. The validation pairs are selected randomly in the ratio 1:1 of being positive and negative.
+
+\subsubsection{Training}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{fig/facenet/acc.png}
+\caption{Accuracy during the facenet training.}
+\label{fig:facenet_training}
+\end{figure}
+
+To extend the dataset, some augmentation techniques have been used, such as rotation of the vehicles by 90\textdegree. Transfered learning has been used and the network pretrained by Google on faces was fine tuned on vehicles. The training took 12 hours (150 000 steps) on the NVIDIA GeForce GTX 1080. The training set contained 8800 images and the validation set 884 images from the clustered dataset. These were models of a vehicles, that the network has not seen before. 
+
+\begin{figure}[H]
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/facenet/tpr.png}
+        \caption{True positive rate.}   
+        \label{fig:facenet}
+    \end{subfigure}
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/facenet/tnr.png}
+        \caption{True negative rate.}   
+        \label{fig:facenet}
+    \end{subfigure}    
+	\begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/facenet/fpr.png}
+        \caption{False positive rate.}   
+        \label{fig:facenet}
+    \end{subfigure}
+    \begin{subfigure}[Sample1]{0.5\linewidth} 
+    	\includegraphics[width=0.95\linewidth]{fig/facenet/fnr.png}
+        \caption{False negative rate.}   
+        \label{fig:facenet}
+    \end{subfigure}       
+    \caption{Additional information about the Facenet training. The training was performed on the NVIDIA GeForce GTX 1080 for 12 hours.}
+    \label{fig:facenet_training_additional}
+\end{figure}
+
+The final results are shown in the table 
+
+\begin{table}
+\centering
+\begin{tabular}{|l|l|}
+  \hline
+  Accuracy & 0.8105 \\
+  \hline
+  True positive rate & 0.811 \\
+  \hline
+  True negative rate & 0.791 \\
+  \hline
+  False positive rate & 0.209 \\
+  \hline
+  False negative rate & 0.189 \\
+  \hline
+\end{tabular}
+\caption{Final results of the facenet training.}
+\label{tab:facenet}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Image decomposition}
 \label{sec:decomposition}
@@ -706,11 +1158,47 @@ where $C$ is the set of classes.
 \label{fig:precision-recall}
 \end{figure}
 
+\subsection{Object detection}
+The implemented detector described in the section \ref{sec:ssd-implementation} has been compared with the state of the art SSD \cite{liu2016ssd}. Because using pretrained SSD on ImageNet would perform badly because of the domain specifications, the models have been trained with the same parameters on the same dataset. 
 
+\begin{figure}[H]
+    \begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=1\linewidth]{fig/ssd_compare/mAP.png}
+        \caption{The mean average precision on validation set.}   
+        \label{fig:ssd_mAP}
+    \end{subfigure}
+    \begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=1\linewidth]{fig/ssd_compare/loss.png}
+        \caption{The loss on the training set.}   
+        \label{fig:ssd_loss}
+    \end{subfigure}    
+	\begin{subfigure}[Sample1]{1\linewidth} 
+    	\includegraphics[width=1\linewidth]{fig/ssd_compare/val_loss.png}
+        \caption{The loss on the validation set.}   
+        \label{fig:ssd_val_loss}
+    \end{subfigure}    
+    \caption{The process of training the introduced 4 channel SSD (orange) and the 3 channel SSD (blue) networks. The training was performed on the NVIDIA GeForce GTX 1080 for 1 day. The graph shows, that the presented solution performs much better than the state of the art SSD.}
+    \label{fig:ssd_training}
+\end{figure}
 
+Because of the hardware limitations, the training of each network took one day. After deciding, that the difference layer greatly helps, the rgbd network was trained for 4 days. The final comparison is shown in the table \ref{tab:ssd_camparison}.
 
-
-
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+  \hline
+  models & Training time & Loss & Validation Loss & mAP \\
+  \hline
+  SSD512 (RGB) & 1 day & 1.127 & 1.055 & 63,2 \\
+  \hline
+  SSD512 (RGBD) & 1 day & 0.4583 & 0.3349 & 90,0 \\
+  \hline
+  SSD512 (RGBD) & 4 days & 0.3035 & 0.2201 & 91,6 \\
+  \hline
+\end{tabular}
+\caption{Results on the custom dataset from the section \ref{sec:ssd-dataset}.}
+\label{tab:ssd_camparison}
+\end{table}
 
 \bibliographystyle{plain}
 \bibliography{ref}{}

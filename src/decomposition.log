@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  13 MAY 2018 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.2)  15 MAY 2018 20:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,38 +514,567 @@ Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 \c@subfigure=\count114
 \c@subtable=\count115
 )
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2016/01/19 v6377 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2016/01/19 v6377 L3 programming layer (code)
+L3 Module: l3bootstrap 2016/01/01 v6339 L3 Bootstrap code
+L3 Module: l3names 2015/12/21 v6328 L3 Namespace for primitives
+L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
+L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
+L3 Module: l3tl 2015/09/29 v6121 L3 Token lists
+L3 Module: l3str 2016/01/03 v6357 L3 Strings
+L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
+L3 Module: l3int 2016/01/05 v6366 L3 Integers
+\c_max_int=\count116
+\l_tmpa_int=\count117
+\l_tmpb_int=\count118
+\g_tmpa_int=\count119
+\g_tmpb_int=\count120
+L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
+L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
+\g__prg_map_int=\count121
+L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
+L3 Module: l3token 2015/11/11 v6249 L3 Experimental token manipulation
+L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
+L3 Module: l3msg 2015/09/28 v6113 L3 Messages
+L3 Module: l3file 2015/12/03 v6317 L3 File and I/O operations
+\l_iow_line_count_int=\count122
+\l__iow_target_count_int=\count123
+\l__iow_current_line_int=\count124
+\l__iow_current_word_int=\count125
+\l__iow_current_indentation_int=\count126
+L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
+\c_zero_dim=\dimen122
+\c_max_dim=\dimen123
+\l_tmpa_dim=\dimen124
+\l_tmpb_dim=\dimen125
+\g_tmpa_dim=\dimen126
+\g_tmpb_dim=\dimen127
+\c_zero_skip=\skip49
+\c_max_skip=\skip50
+\l_tmpa_skip=\skip51
+\l_tmpb_skip=\skip52
+\g_tmpa_skip=\skip53
+\g_tmpb_skip=\skip54
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
+\g__keyval_level_int=\count127
+\l_keys_choice_int=\count128
+L3 Module: l3fp 2015/08/25 v5890 L3 Floating points
+\c__fp_leading_shift_int=\count129
+\c__fp_middle_shift_int=\count130
+\c__fp_trailing_shift_int=\count131
+\c__fp_big_leading_shift_int=\count132
+\c__fp_big_middle_shift_int=\count133
+\c__fp_big_trailing_shift_int=\count134
+\c__fp_Bigg_leading_shift_int=\count135
+\c__fp_Bigg_middle_shift_int=\count136
+\c__fp_Bigg_trailing_shift_int=\count137
+L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
+\c_empty_box=\box30
+\l_tmpa_box=\box31
+\l_tmpb_box=\box32
+\g_tmpa_box=\box33
+\g_tmpb_box=\box34
+L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
+\l__coffin_internal_box=\box35
+\l__coffin_internal_dim=\dimen128
+\l__coffin_offset_x_dim=\dimen129
+\l__coffin_offset_y_dim=\dimen130
+\l__coffin_x_dim=\dimen131
+\l__coffin_y_dim=\dimen132
+\l__coffin_x_prime_dim=\dimen133
+\l__coffin_y_prime_dim=\dimen134
+\c_empty_coffin=\box36
+\l__coffin_aligned_coffin=\box37
+\l__coffin_aligned_internal_coffin=\box38
+\l_tmpa_coffin=\box39
+\l_tmpb_coffin=\box40
+\l__coffin_display_coffin=\box41
+\l__coffin_display_coord_coffin=\box42
+\l__coffin_display_pole_coffin=\box43
+\l__coffin_display_offset_dim=\dimen135
+\l__coffin_display_x_dim=\dimen136
+\l__coffin_display_y_dim=\dimen137
+L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
+L3 Module: l3candidates 2016/01/14 v6376 L3 Experimental additions to l3kernel
+\l__box_top_dim=\dimen138
+\l__box_bottom_dim=\dimen139
+\l__box_left_dim=\dimen140
+\l__box_right_dim=\dimen141
+\l__box_top_new_dim=\dimen142
+\l__box_bottom_new_dim=\dimen143
+\l__box_left_new_dim=\dimen144
+\l__box_right_new_dim=\dimen145
+\l__box_internal_box=\box44
+\l__coffin_bounding_shift_dim=\dimen146
+\l__coffin_left_corner_dim=\dimen147
+\l__coffin_right_corner_dim=\dimen148
+\l__coffin_bottom_corner_dim=\dimen149
+\l__coffin_top_corner_dim=\dimen150
+\l__coffin_scaled_total_height_dim=\dimen151
+\l__coffin_scaled_width_dim=\dimen152
+L3 Module: l3luatex 2015/11/11 v6250 L3 Experimental LuaTeX-specific functions
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2015/11/11 v6250 L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count138
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2016/01/19 v6377 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count139
+\l__xparse_m_args_int=\count140
+\l__xparse_mandatory_args_int=\count141
+\l__xparse_processor_int=\count142
+\l__xparse_v_nesting_int=\count143
+)
+Package: siunitx 2016/03/01 v2.6q A comprehensive (SI) units package
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen153
+\extrarowheight=\dimen154
+\NC@list=\toks26
+\extratabsurround=\skip55
+\backup@length=\skip56
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2016/01/19 v6377 LaTeX2e option processing using LaTeX3 keys
+)
+\l__siunitx_tmp_box=\box45
+\l__siunitx_tmp_dim=\dimen155
+\l__siunitx_tmp_int=\count144
+\l__siunitx_number_mantissa_length_int=\count145
+\l__siunitx_number_uncert_length_int=\count146
+\l__siunitx_round_int=\count147
+\l__siunitx_process_decimal_int=\count148
+\l__siunitx_process_uncertainty_int=\count149
+\l__siunitx_process_fixed_int=\count150
+\l__siunitx_process_integer_min_int=\count151
+\l__siunitx_process_precision_int=\count152
+\l__siunitx_group_min_int=\count153
+\l__siunitx_angle_marker_box=\box46
+\l__siunitx_angle_unit_box=\box47
+\l__siunitx_angle_marker_dim=\dimen156
+\l__siunitx_angle_unit_dim=\dimen157
+\l__siunitx_unit_int=\count154
+\l__siunitx_unit_denominator_int=\count155
+\l__siunitx_unit_numerator_int=\count156
+\l__siunitx_unit_prefix_int=\count157
+\l__siunitx_unit_prefix_base_int=\count158
+\l__siunitx_unit_prefix_gram_int=\count159
+\l__siunitx_number_product_int=\count160
+\c__siunitx_one_fill_skip=\skip57
+\l__siunitx_table_unit_align_skip=\skip58
+\l__siunitx_table_exponent_dim=\dimen158
+\l__siunitx_table_integer_dim=\dimen159
+\l__siunitx_table_mantissa_dim=\dimen160
+\l__siunitx_table_marker_dim=\dimen161
+\l__siunitx_table_result_dim=\dimen162
+\l__siunitx_table_uncert_dim=\dimen163
+\l__siunitx_table_fill_pre_dim=\dimen164
+\l__siunitx_table_fill_post_dim=\dimen165
+\l__siunitx_table_fill_mid_dim=\dimen166
+\l__siunitx_table_pre_box=\box48
+\l__siunitx_table_post_box=\box49
+\l__siunitx_table_mantissa_box=\box50
+\l__siunitx_table_result_box=\box51
+\l__siunitx_table_number_align_skip=\skip59
+\l__siunitx_table_text_align_skip=\skip60
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareBinaryPrefix with sig. 'mmm' on line 7218.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPostPower with sig. 'mm' on line 7221.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPrefix with sig. 'mmm' on line 7224.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIPrePower with sig. 'mm' on line 7227.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIQualifier with sig. 'mm' on line 7230.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIUnit with sig. 'O{}mm' on line 7233.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareSIUnitWithOptions with sig. 'mmm' on line 7236.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \ang with sig. 'o>{\SplitArgument {2}{;}}m' on line 7251.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \num with sig. 'om' on line 7260.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \numlist with sig. 'o>{\SplitList {;}}m' on line 7269.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \numrange with sig. 'omm' on line 7278.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SIlist with sig. 'o>{\SplitList {;}}mm' on line 7290.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SIrange with sig. 'ommm' on line 7302.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \SI with sig. 'omom' on line 7314.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \sisetup with sig. 'm' on line 7317.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \tablenum with sig. 'om' on line 7332.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \si with sig. 'om' on line 7344.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_num:w with sig. 'om' on line 7391.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_numrange:w with sig. 'omm' on line
+. 7393.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SI:w with sig. 'omom' on line 7395.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SIlist:w with sig. 'omm' on line 7397.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_SIrange:w with sig. 'ommm' on line
+. 7399.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__siunitx_bookmark_si:w with sig. 'om' on line 7400.
+.................................................
+\g__file_internal_ior=\read1
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator-language-
+mappings.tex))) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
 (./decomposition.aux
 
 LaTeX Warning: Label `fig:linear_model' multiply defined.
 
+
+LaTeX Warning: Label `fig:conv_layer' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:conv_layer' multiply defined.
+
+
+LaTeX Warning: Label `fig:neuron' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:neuron' multiply defined.
+
+
+LaTeX Warning: Label `fig:triplet_loss' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:triplet_loss' multiply defined.
+
+
+LaTeX Warning: Label `fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:facenet' multiply defined.
+
+
+LaTeX Warning: Label `fig:ssd_mAP' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ssd_mAP' multiply defined.
+
+
+LaTeX Warning: Label `fig:ssd_loss' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ssd_loss' multiply defined.
+
+
+LaTeX Warning: Label `fig:ssd_val_loss' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ssd_val_loss' multiply defined.
+
+
+LaTeX Warning: Label `fig:ssd_training' multiply defined.
+
 )
 \openout1 = `decomposition.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 18.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen122
-\scratchbox=\box30
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen123
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count161
+\scratchdimen=\dimen167
+\scratchbox=\box52
+\nofMPsegments=\count162
+\nofMParguments=\count163
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count164
+\MPscratchDim=\dimen168
+\MPnumerator=\count165
+\makeMPintoPDFobject=\count166
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -597,39 +1126,51 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
+ic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
- [2] [3] [4]
-LaTeX Font Info:    Try loading font information for U+msa on input line 125.
+(/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
+)
+\c__siunitx_mathsf_int=\count167
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 125.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [5] [6]
-<fig/stream1.png, id=24, 1927.2pt x 1094.0875pt>
+)
+\c__siunitx_mathtt_int=\count168
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+
+LaTeX Warning: Reference `ng2015beyond' on page 6 undefined on input line 146.
+
+
+LaTeX Warning: Reference `simonyan2014two' on page 6 undefined on input line 14
+6.
+
+[6] <fig/stream1.png, id=24, 1927.2pt x 1094.0875pt>
 File: fig/stream1.png Graphic file (type png)
  <use fig/stream1.png>
-Package pdftex.def Info: fig/stream1.png used on input line 174.
+Package pdftex.def Info: fig/stream1.png used on input line 186.
 (pdftex.def)             Requested size: 390.0pt x 221.40125pt.
- [7 <./fig/stream1.png (PNG copy)>]
-
-LaTeX Warning: Citation `lukacs1997real' on page 8 undefined on input line 196.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-Overfull \hbox (22.18123pt too wide) detected at line 220
+[7] [8 <./fig/stream1.png (PNG copy)>]
+
+LaTeX Warning: Citation `lukacs1997real' on page 9 undefined on input line 208.
+
+
+
+Overfull \hbox (22.18123pt too wide) detected at line 232
 \OML/cmm/m/it/12 C\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 M; s[]; s[]; a; r\OT1/cmr/m
 /n/12 ) = [] [] \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s[]; s[];
  a; r\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12
@@ -638,21 +1179,23 @@ Overfull \hbox (22.18123pt too wide) detected at line 220
 MS/cmsy/m/n/12 ^^A \OML/cmm/m/it/12 M[]
  []
 
-[8] <fig/sphere.png, id=39, 4265.9375pt x 3844.3625pt>
+[9] <fig/sphere.png, id=43, 4265.9375pt x 3844.3625pt>
 File: fig/sphere.png Graphic file (type png)
  <use fig/sphere.png>
-Package pdftex.def Info: fig/sphere.png used on input line 258.
+Package pdftex.def Info: fig/sphere.png used on input line 270.
 (pdftex.def)             Requested size: 390.0pt x 351.43309pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9] [10 <./fig/sphere.png>]
-<fig/calibration.png, id=48, 1371.1225pt x 770.88pt>
+[10 <./fig/sphere.png>] <fig/calibration.png, id=49, 1371.1225pt x 770.88pt>
 File: fig/calibration.png Graphic file (type png)
- <use fig/calibration.png>
-Package pdftex.def Info: fig/calibration.png used on input line 323.
+
+<use fig/calibration.png>
+Package pdftex.def Info: fig/calibration.png used on input line 335.
 (pdftex.def)             Requested size: 390.0pt x 219.26787pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11]
 Package epstopdf Info: Source file: <fig/linear_model3.eps>
 (epstopdf)                    date: 2018-04-09 14:34:50
 (epstopdf)                    size: 29657 bytes
@@ -661,21 +1204,20 @@ Package epstopdf Info: Source file: <fig/linear_model3.eps>
 (epstopdf)                    size: 24875 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/linear_model3-eps-conv
 erted-to.pdf fig/linear_model3.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 353.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/linear_model3-eps-converted-to.pdf, id=49, 462.72874pt x 346.29375pt>
+<fig/linear_model3-eps-converted-to.pdf, id=53, 462.72874pt x 346.29375pt>
 File: fig/linear_model3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/linear_model3-eps-converted-to.pdf>
 Package pdftex.def Info: fig/linear_model3-eps-converted-to.pdf used on input l
-ine 341.
+ine 353.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./fig/calibration.png>]
 Package epstopdf Info: Source file: <fig/tan_model2.eps>
 (epstopdf)                    date: 2018-04-09 14:36:17
 (epstopdf)                    size: 29967 bytes
@@ -684,77 +1226,76 @@ Package epstopdf Info: Source file: <fig/tan_model2.eps>
 (epstopdf)                    size: 24875 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/tan_model2-eps-convert
 ed-to.pdf fig/tan_model2.eps>
-(epstopdf)             \includegraphics on input line 360.
+(epstopdf)             \includegraphics on input line 372.
 Package epstopdf Info: Output file is already uptodate.
-
-<fig/tan_model2-eps-converted-to.pdf, id=53, 462.72874pt x 346.29375pt>
+<fig/tan_model2-eps-converted-to.pdf, id=54, 462.72874pt x 346.29375pt>
 File: fig/tan_model2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/tan_model2-eps-converted-to.pdf>
 Package pdftex.def Info: fig/tan_model2-eps-converted-to.pdf used on input line
- 360.
+ 372.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./fig/linear_model3-eps-converted-to.pdf>] [13 <./fig/tan_model2-eps-conve
-rted-to.pdf>] [14]
-<fig/background_mean_crop.png, id=136, 707.64375pt x 361.35pt>
+[12 <./fig/calibration.png>] [13 <./fig/linear_model3-eps-converted-to.pdf>]
+[14 <./fig/tan_model2-eps-converted-to.pdf>]
+<fig/background_mean_crop.png, id=137, 707.64375pt x 361.35pt>
 File: fig/background_mean_crop.png Graphic file (type png)
 
 <use fig/background_mean_crop.png>
-Package pdftex.def Info: fig/background_mean_crop.png used on input line 432.
+Package pdftex.def Info: fig/background_mean_crop.png used on input line 447.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 432--433
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 447--448
 [][] 
  []
 
-<fig/background_med_crop.png, id=137, 707.64375pt x 361.35pt>
+<fig/background_med_crop.png, id=138, 707.64375pt x 361.35pt>
 File: fig/background_med_crop.png Graphic file (type png)
 
 <use fig/background_med_crop.png>
-Package pdftex.def Info: fig/background_med_crop.png used on input line 438.
+Package pdftex.def Info: fig/background_med_crop.png used on input line 453.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 438--439
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 453--454
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 431--442
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 446--457
 []$[]$  $[]$ 
  []
 
-<fig/threshold_mean_crop.png, id=138, 707.64375pt x 361.35pt>
+[15] <fig/threshold_mean_crop.png, id=142, 707.64375pt x 361.35pt>
 File: fig/threshold_mean_crop.png Graphic file (type png)
 
 <use fig/threshold_mean_crop.png>
-Package pdftex.def Info: fig/threshold_mean_crop.png used on input line 457.
+Package pdftex.def Info: fig/threshold_mean_crop.png used on input line 472.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 457--458
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 472--473
 [][] 
  []
 
-<fig/threshold_med_crop.png, id=139, 707.64375pt x 361.35pt>
+<fig/threshold_med_crop.png, id=143, 707.64375pt x 361.35pt>
 File: fig/threshold_med_crop.png Graphic file (type png)
 
 <use fig/threshold_med_crop.png>
-Package pdftex.def Info: fig/threshold_med_crop.png used on input line 463.
+Package pdftex.def Info: fig/threshold_med_crop.png used on input line 478.
 (pdftex.def)             Requested size: 206.16164pt x 105.27519pt.
 
-Overfull \hbox (11.16164pt too wide) in paragraph at lines 463--464
+Overfull \hbox (11.16164pt too wide) in paragraph at lines 478--479
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 456--467
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 471--482
 []$[]$  $[]$ 
  []
 
-[15 <./fig/background_mean_crop.png (PNG copy)> <./fig/background_med_crop.png 
+[16 <./fig/background_mean_crop.png (PNG copy)> <./fig/background_med_crop.png 
 (PNG copy)> <./fig/threshold_mean_crop.png (PNG copy)> <./fig/threshold_med_cro
 p.png (PNG copy)>]
 Package epstopdf Info: Source file: <fig/pixel_hist.eps>
@@ -765,105 +1306,365 @@ Package epstopdf Info: Source file: <fig/pixel_hist.eps>
 (epstopdf)                    size: 18427 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/pixel_hist-eps-convert
 ed-to.pdf fig/pixel_hist.eps>
-(epstopdf)             \includegraphics on input line 477.
+(epstopdf)             \includegraphics on input line 492.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/pixel_hist-eps-converted-to.pdf, id=144, 462.72874pt x 346.29375pt>
+<fig/pixel_hist-eps-converted-to.pdf, id=148, 462.72874pt x 346.29375pt>
 File: fig/pixel_hist-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/pixel_hist-eps-converted-to.pdf>
 Package pdftex.def Info: fig/pixel_hist-eps-converted-to.pdf used on input line
- 477.
+ 492.
 (pdftex.def)             Requested size: 390.0pt x 291.86758pt.
- [16 <./fig/pixel_hist-eps-converted-to.pdf>] <fig/frame_cropped.png, id=183, 7
+ [17 <./fig/pixel_hist-eps-converted-to.pdf>] <fig/frame_cropped.png, id=187, 7
 83.92876pt x 880.28876pt>
 File: fig/frame_cropped.png Graphic file (type png)
 
 <use fig/frame_cropped.png>
-Package pdftex.def Info: fig/frame_cropped.png used on input line 490.
+Package pdftex.def Info: fig/frame_cropped.png used on input line 505.
 (pdftex.def)             Requested size: 215.37173pt x 241.84842pt.
 
-Overfull \hbox (20.37173pt too wide) in paragraph at lines 490--491
+Overfull \hbox (20.37173pt too wide) in paragraph at lines 505--506
 [][] 
  []
 
-<fig/mask_area.png, id=184, 1188.44pt x 1290.8225pt>
+<fig/mask_area.png, id=188, 1188.44pt x 1290.8225pt>
 File: fig/mask_area.png Graphic file (type png)
  <use fig/mask_area.png>
-Package pdftex.def Info: fig/mask_area.png used on input line 496.
+Package pdftex.def Info: fig/mask_area.png used on input line 511.
 (pdftex.def)             Requested size: 222.6506pt x 241.84842pt.
 
-Overfull \hbox (27.6506pt too wide) in paragraph at lines 496--497
+Overfull \hbox (27.6506pt too wide) in paragraph at lines 511--512
 [][] 
  []
 
 
-Overfull \hbox (26.11084pt too wide) in paragraph at lines 489--500
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 504--515
 []$[]$  $[]$ 
  []
 
-[17 <./fig/frame_cropped.png (PNG copy)> <./fig/mask_area.png (PNG copy)>]
+[18 <./fig/frame_cropped.png (PNG copy)> <./fig/mask_area.png (PNG copy)>]
 
-LaTeX Warning: Reference `...' on page 18 undefined on input line 519.
+LaTeX Warning: Reference `...' on page 19 undefined on input line 534.
 
-[18] [19] <fig/omni_labeling.png, id=195, 1004.75375pt x 1056.94875pt>
+[19] [20] <fig/omni_labeling.png, id=199, 1004.75375pt x 1056.94875pt>
 File: fig/omni_labeling.png Graphic file (type png)
 
 <use fig/omni_labeling.png>
-Package pdftex.def Info: fig/omni_labeling.png used on input line 573.
+Package pdftex.def Info: fig/omni_labeling.png used on input line 588.
 (pdftex.def)             Requested size: 195.0pt x 205.12845pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20] [21 <./fig/omni_labeling.png>]
-<fig/SSDvsYOLO.png, id=202, 1567.8575pt x 843.15pt>
-File: fig/SSDvsYOLO.png Graphic file (type png)
- <use fig/SSDvsYOLO.png>
-Package pdftex.def Info: fig/SSDvsYOLO.png used on input line 611.
-(pdftex.def)             Requested size: 390.0pt x 209.73201pt.
+[21] [22 <./fig/omni_labeling.png>]
+<fig/conv1.jpeg, id=206, 465.74pt x 327.2225pt>
+File: fig/conv1.jpeg Graphic file (type jpg)
+ <use fig/conv1.jpeg>
+Package pdftex.def Info: fig/conv1.jpeg used on input line 624.
+(pdftex.def)             Requested size: 161.98808pt x 113.81102pt.
 
-[22 <./fig/SSDvsYOLO.png>]
-<fig/ssd_dog_cat.png, id=206, 641.39626pt x 642.4pt>
+<fig/conv2.jpeg, id=207, 661.47125pt x 377.41pt>
+File: fig/conv2.jpeg Graphic file (type jpg)
+ <use fig/conv2.jpeg>
+Package pdftex.def Info: fig/conv2.jpeg used on input line 630.
+(pdftex.def)             Requested size: 199.47241pt x 113.81102pt.
+
+Overfull \hbox (4.47241pt too wide) in paragraph at lines 630--631
+[][] 
+ []
+
+
+Overfull \hbox (26.11084pt too wide) in paragraph at lines 623--634
+[]$[]$  $[]$ 
+ []
+
+<fig/pool1.jpeg, id=208, 515.9275pt x 407.5225pt>
+File: fig/pool1.jpeg Graphic file (type jpg)
+ <use fig/pool1.jpeg>
+Package pdftex.def Info: fig/pool1.jpeg used on input line 644.
+(pdftex.def)             Requested size: 144.08084pt x 113.81102pt.
+
+<fig/pool2.jpeg, id=209, 789.95125pt x 369.38pt>
+File: fig/pool2.jpeg Graphic file (type jpg)
+ <use fig/pool2.jpeg>
+Package pdftex.def Info: fig/pool2.jpeg used on input line 649.
+(pdftex.def)             Requested size: 243.3877pt x 113.81102pt.
+
+Overfull \hbox (48.3877pt too wide) in paragraph at lines 649--650
+[][] 
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 643--653
+[]$[]$ $[]$ 
+ []
+
+[23 <./fig/conv1.jpeg> <./fig/conv2.jpeg>]
+
+LaTeX Warning: Reference `blumer1989learnability' on page 24 undefined on input
+ line 662.
+
+[24 <./fig/pool1.jpeg> <./fig/pool2.jpeg>] [25]
+<fig/vgg.png, id=220, 1024.82875pt x 1039.885pt>
+File: fig/vgg.png Graphic file (type png)
+ <use fig/vgg.png>
+Package pdftex.def Info: fig/vgg.png used on input line 706.
+(pdftex.def)             Requested size: 390.0pt x 395.73163pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26] [27 <./fig/vgg.png>] <fig/SSDvsYOLO.png, id=227, 1567.8575pt x 843.15pt>
+File: fig/SSDvsYOLO.png Graphic file (type png)
+
+<use fig/SSDvsYOLO.png>
+Package pdftex.def Info: fig/SSDvsYOLO.png used on input line 734.
+(pdftex.def)             Requested size: 390.0pt x 209.73201pt.
+ [28 <./fig/SSDvsYOLO.png>]
+<fig/ssd_dog_cat.png, id=231, 641.39626pt x 642.4pt>
 File: fig/ssd_dog_cat.png Graphic file (type png)
  <use fig/ssd_dog_cat.png>
-Package pdftex.def Info: fig/ssd_dog_cat.png used on input line 628.
+Package pdftex.def Info: fig/ssd_dog_cat.png used on input line 751.
 (pdftex.def)             Requested size: 99.58176pt x 99.58076pt.
 
-<fig/ssd_feature_map.png, id=207, 650.43pt x 649.42625pt>
+<fig/ssd_feature_map.png, id=232, 650.43pt x 649.42625pt>
 File: fig/ssd_feature_map.png Graphic file (type png)
 
 <use fig/ssd_feature_map.png>
-Package pdftex.def Info: fig/ssd_feature_map.png used on input line 634.
+Package pdftex.def Info: fig/ssd_feature_map.png used on input line 757.
 (pdftex.def)             Requested size: 99.58493pt x 99.5799pt.
 
-<fig/ssd_4_feature_map.png, id=208, 651.43375pt x 653.44125pt>
+<fig/ssd_4_feature_map.png, id=233, 651.43375pt x 653.44125pt>
 File: fig/ssd_4_feature_map.png Graphic file (type png)
 
 <use fig/ssd_4_feature_map.png>
-Package pdftex.def Info: fig/ssd_4_feature_map.png used on input line 640.
+Package pdftex.def Info: fig/ssd_4_feature_map.png used on input line 763.
 (pdftex.def)             Requested size: 99.57957pt x 99.57735pt.
- [23 <./fig/ssd_dog_cat.png> <./fig/ssd_feature_map.png> <./fig/ssd_4_feature_m
-ap.png>] [24]
-<fig/precision-recall.png, id=215, 462.528pt x 346.896pt>
+ [29 <./fig/ssd_dog_cat.png> <./fig/ssd_feature_map.png> <./fig/ssd_4_feature_m
+ap.png>]
+<fig/facenet.png, id=237, 1590.94376pt x 307.1475pt>
+File: fig/facenet.png Graphic file (type png)
+ <use fig/facenet.png>
+Package pdftex.def Info: fig/facenet.png used on input line 789.
+(pdftex.def)             Requested size: 185.2494pt x 35.7641pt.
+
+<fig/triplet_loss.png, id=238, 1574.88374pt x 378.41376pt>
+File: fig/triplet_loss.png Graphic file (type png)
+
+<use fig/triplet_loss.png>
+Package pdftex.def Info: fig/triplet_loss.png used on input line 795.
+(pdftex.def)             Requested size: 185.2494pt x 44.50693pt.
+
+Overfull \hbox (14.36096pt too wide) in paragraph at lines 788--799
+[]$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (0.94455pt too wide) in paragraph at lines 805--806
+[]\OT1/cmr/m/n/12 The [[]] shows, that the em-bed-ding space di-men-sion-al-ity
+ of 128 is enough
+ []
+
+[30 <./fig/facenet.png> <./fig/triplet_loss.png>]
+<fig/Mask-RCNN-road.png, id=242, 952.55875pt x 643.40375pt>
+File: fig/Mask-RCNN-road.png Graphic file (type png)
+
+<use fig/Mask-RCNN-road.png>
+Package pdftex.def Info: fig/Mask-RCNN-road.png used on input line 846.
+(pdftex.def)             Requested size: 185.2494pt x 125.12451pt.
+
+<fig/Mask-RCNN-omni.png, id=243, 922.44624pt x 907.39pt>
+File: fig/Mask-RCNN-omni.png Graphic file (type png)
+
+<use fig/Mask-RCNN-omni.png>
+Package pdftex.def Info: fig/Mask-RCNN-omni.png used on input line 852.
+(pdftex.def)             Requested size: 185.2494pt x 182.22244pt.
+
+Overfull \hbox (14.36096pt too wide) in paragraph at lines 845--856
+[]$[]$  $[]$ 
+ []
+
+[31]
+
+LaTeX Warning: Reference `lin2014microsoft' on page 32 undefined on input line 
+860.
+
+[32 <./fig/Mask-RCNN-road.png> <./fig/Mask-RCNN-omni.png>]
+<fig/stream_frame.png, id=253, 1027.84pt x 1027.84pt>
+File: fig/stream_frame.png Graphic file (type png)
+
+<use fig/stream_frame.png>
+Package pdftex.def Info: fig/stream_frame.png used on input line 882.
+(pdftex.def)             Requested size: 185.2494pt x 185.23846pt.
+
+<fig/stream_black.png, id=254, 1027.84pt x 1027.84pt>
+File: fig/stream_black.png Graphic file (type png)
+
+<use fig/stream_black.png>
+Package pdftex.def Info: fig/stream_black.png used on input line 888.
+(pdftex.def)             Requested size: 185.2494pt x 185.23846pt.
+
+Overfull \hbox (14.36096pt too wide) in paragraph at lines 881--892
+[]$[]$  $[]$ 
+ []
+
+[33] [34 <./fig/stream_frame.png (PNG copy)> <./fig/stream_black.png (PNG copy)
+>] [35] <fig/ssd_rgbd/mAP.png, id=264, 1502.61375pt x 433.62pt>
+File: fig/ssd_rgbd/mAP.png Graphic file (type png)
+
+<use fig/ssd_rgbd/mAP.png>
+Package pdftex.def Info: fig/ssd_rgbd/mAP.png used on input line 969.
+(pdftex.def)             Requested size: 370.49881pt x 106.91602pt.
+
+<fig/ssd_rgbd/loss.png, id=265, 1498.59875pt x 430.60875pt>
+File: fig/ssd_rgbd/loss.png Graphic file (type png)
+
+<use fig/ssd_rgbd/loss.png>
+Package pdftex.def Info: fig/ssd_rgbd/loss.png used on input line 974.
+(pdftex.def)             Requested size: 370.49881pt x 106.45607pt.
+
+<fig/ssd_rgbd/val_loss.png, id=266, 1500.60625pt x 432.61626pt>
+File: fig/ssd_rgbd/val_loss.png Graphic file (type png)
+
+<use fig/ssd_rgbd/val_loss.png>
+Package pdftex.def Info: fig/ssd_rgbd/val_loss.png used on input line 979.
+(pdftex.def)             Requested size: 370.49881pt x 106.80714pt.
+ [36]
+<fig/facenet_eval_table.png, id=270, 1397.22pt x 593.21625pt>
+File: fig/facenet_eval_table.png Graphic file (type png)
+
+<use fig/facenet_eval_table.png>
+Package pdftex.def Info: fig/facenet_eval_table.png used on input line 998.
+(pdftex.def)             Requested size: 185.2494pt x 78.65056pt.
+
+<fig/facenet_eval.png, id=271, 1343.0175pt x 959.585pt>
+File: fig/facenet_eval.png Graphic file (type png)
+
+<use fig/facenet_eval.png>
+Package pdftex.def Info: fig/facenet_eval.png used on input line 1004.
+(pdftex.def)             Requested size: 185.2494pt x 132.34966pt.
+
+Overfull \hbox (14.36096pt too wide) in paragraph at lines 997--1008
+[]$[]$  $[]$ 
+ []
+
+[37 <./fig/ssd_rgbd/mAP.png> <./fig/ssd_rgbd/loss.png> <./fig/ssd_rgbd/val_loss
+.png>] <fig/facenet/labeling.png, id=276, 1009.7725pt x 474.77374pt>
+File: fig/facenet/labeling.png Graphic file (type png)
+
+<use fig/facenet/labeling.png>
+Package pdftex.def Info: fig/facenet/labeling.png used on input line 1019.
+(pdftex.def)             Requested size: 390.0pt x 183.37163pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `standford' on page 38 undefined on input line 1024.
+
+[38 <./fig/facenet_eval_table.png> <./fig/facenet_eval.png>] [39 <./fig/facenet
+/labeling.png (PNG copy)>]
+<fig/facenet/acc.png, id=283, 1469.49pt x 411.5375pt>
+File: fig/facenet/acc.png Graphic file (type png)
+
+<use fig/facenet/acc.png>
+Package pdftex.def Info: fig/facenet/acc.png used on input line 1048.
+(pdftex.def)             Requested size: 390.0pt x 109.22018pt.
+
+<fig/facenet/tpr.png, id=284, 606.265pt x 407.5225pt>
+File: fig/facenet/tpr.png Graphic file (type png)
+
+<use fig/facenet/tpr.png>
+Package pdftex.def Info: fig/facenet/tpr.png used on input line 1057.
+(pdftex.def)             Requested size: 185.2494pt x 124.52115pt.
+
+<fig/facenet/tnr.png, id=285, 606.265pt x 400.49625pt>
+File: fig/facenet/tnr.png Graphic file (type png)
+
+<use fig/facenet/tnr.png>
+Package pdftex.def Info: fig/facenet/tnr.png used on input line 1062.
+(pdftex.def)             Requested size: 185.2494pt x 122.37422pt.
+
+<fig/facenet/fpr.png, id=286, 599.23875pt x 410.53375pt>
+File: fig/facenet/fpr.png Graphic file (type png)
+
+<use fig/facenet/fpr.png>
+Package pdftex.def Info: fig/facenet/fpr.png used on input line 1067.
+(pdftex.def)             Requested size: 185.2494pt x 126.91335pt.
+
+<fig/facenet/fnr.png, id=287, 599.23875pt x 411.5375pt>
+File: fig/facenet/fnr.png Graphic file (type png)
+
+<use fig/facenet/fnr.png>
+Package pdftex.def Info: fig/facenet/fnr.png used on input line 1072.
+(pdftex.def)             Requested size: 185.2494pt x 127.22365pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1056--1076
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 1056--1076
+[]$ $[]$ 
+ []
+
+[40 <./fig/facenet/acc.png>] [41 <./fig/facenet/tpr.png> <./fig/facenet/tnr.png
+> <./fig/facenet/fpr.png> <./fig/facenet/fnr.png>]
+<fig/precision-recall.png, id=294, 462.528pt x 346.896pt>
 File: fig/precision-recall.png Graphic file (type png)
 
 <use fig/precision-recall.png>
-Package pdftex.def Info: fig/precision-recall.png used on input line 704.
+Package pdftex.def Info: fig/precision-recall.png used on input line 1156.
 (pdftex.def)             Requested size: 390.0pt x 292.5128pt.
- (./decomposition.bbl [25 <./fig/precision-recall.png>]
-Underfull \hbox (badness 1527) in paragraph at lines 32--36
+ [42]
+<fig/ssd_compare/mAP.png, id=298, 1500.60625pt x 434.62375pt>
+File: fig/ssd_compare/mAP.png Graphic file (type png)
+
+<use fig/ssd_compare/mAP.png>
+Package pdftex.def Info: fig/ssd_compare/mAP.png used on input line 1166.
+(pdftex.def)             Requested size: 370.49881pt x 107.30276pt.
+
+<fig/ssd_compare/loss.png, id=299, 1495.5875pt x 434.62375pt>
+File: fig/ssd_compare/loss.png Graphic file (type png)
+
+<use fig/ssd_compare/loss.png>
+Package pdftex.def Info: fig/ssd_compare/loss.png used on input line 1171.
+(pdftex.def)             Requested size: 370.49881pt x 107.66753pt.
+
+<fig/ssd_compare/val_loss.png, id=300, 1497.595pt x 435.6275pt>
+File: fig/ssd_compare/val_loss.png Graphic file (type png)
+
+<use fig/ssd_compare/val_loss.png>
+Package pdftex.def Info: fig/ssd_compare/val_loss.png used on input line 1176.
+(pdftex.def)             Requested size: 370.49881pt x 107.76994pt.
+ [43 <./fig/precision-recall.png>]
+(./decomposition.bbl [44 <./fig/ssd_compare/mAP.png> <./fig/ssd_compare/loss.pn
+g> <./fig/ssd_compare/val_loss.png>] [45]
+Underfull \hbox (badness 1527) in paragraph at lines 59--63
 []\OT1/cmr/m/n/12 Manuele Bicego, An-drea Lago-rio, En-rico Grosso, and Mas-sim
 o
  []
 
-[26] [27] [28] [29] [30] [31] [32]
-Underfull \hbox (badness 1769) in paragraph at lines 496--499
+
+Underfull \hbox (badness 1132) in paragraph at lines 114--118
+\OT1/cmr/m/n/12 Be-yond triplet loss: a deep quadru-plet net-work for per-son r
+e-
+ []
+
+[46] [47] [48] [49]
+Underfull \hbox (badness 1509) in paragraph at lines 333--338
+[]\OT1/cmr/m/n/12 Yangqing Jia, Evan Shel-hamer, Jeff Don-ahue, Sergey Karayev,
+
+ []
+
+[50] [51] [52] [53] [54]
+Underfull \hbox (badness 1769) in paragraph at lines 651--654
 []\OT1/cmr/m/n/12 Karen Si-monyan and An-drew Zis-ser-man.  Very deep con-vo-lu
 -
  []
 
-[33] [34] [35]) [36] (./decomposition.aux)
+[55] [56] [57]) [58] (./decomposition.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -872,29 +1673,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5150 strings out of 493029
- 74030 string characters out of 6136235
- 143905 words of memory out of 5000000
- 8578 multiletter control sequences out of 15000+600000
- 11698 words of font info for 44 fonts, out of 8000000 for 9000
+ 15228 strings out of 493029
+ 297178 string characters out of 6136235
+ 299583 words of memory out of 5000000
+ 18567 multiletter control sequences out of 15000+600000
+ 13920 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,39p,1043b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-
-Output written on decomposition.pdf (36 pages, 9331234 bytes).
+ 38i,14n,42p,10385b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1200.pfb>
+Output written on decomposition.pdf (58 pages, 14572331 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
+ 404 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

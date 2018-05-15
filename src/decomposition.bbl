@@ -1,8 +1,27 @@
 \begin{thebibliography}{100}
 
+\bibitem{abadi2016tensorflow}
+Mart{\'\i}n Abadi, Paul Barham, Jianmin Chen, Zhifeng Chen, Andy Davis, Jeffrey
+  Dean, Matthieu Devin, Sanjay Ghemawat, Geoffrey Irving, Michael Isard, et~al.
+\newblock Tensorflow: A system for large-scale machine learning.
+\newblock In {\em OSDI}, volume~16, pages 265--283, 2016.
+
 \bibitem{banerjee2008multi}
 Salil~P Banerjee and Kris Pallipuram.
 \newblock Multi person tracking using kalman filter, 2008.
+
+\bibitem{barz2017fast}
+Bj{\"o}rn Barz, Erik Rodner, Christoph K{\"a}ding, and Joachim Denzler.
+\newblock Fast learning and prediction for object detection using whitened cnn
+  features.
+\newblock {\em arXiv preprint arXiv:1704.02930}, 2017.
+
+\bibitem{bayona2010stationary}
+{\'A}lvaro Bayona, Juan~C SanMiguel, and Jos{\'e}~M Mart{\'\i}nez.
+\newblock Stationary foreground detection using background subtraction and
+  temporal difference in video surveillance.
+\newblock In {\em Image Processing (ICIP), 2010 17th IEEE International
+  Conference on}, pages 4657--4660. IEEE, 2010.
 
 \bibitem{optical-flow}
 S.~S. Beauchemin and J.~L. Barron.
@@ -14,6 +33,14 @@ Ben Benfold and Ian Reid.
 \newblock Stable multi-target tracking in real-time surveillance video.
 \newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2011 IEEE
   Conference on}, pages 3457--3464. IEEE, 2011.
+
+\bibitem{bergstra2011theano}
+James Bergstra, Fr{\'e}d{\'e}ric Bastien, Olivier Breuleux, Pascal Lamblin,
+  Razvan Pascanu, Olivier Delalleau, Guillaume Desjardins, David Warde-Farley,
+  Ian Goodfellow, Arnaud Bergeron, et~al.
+\newblock Theano: Deep learning on gpus with python.
+\newblock In {\em NIPS 2011, BigLearning Workshop, Granada, Spain}, volume~3.
+  Citeseer, 2011.
 
 \bibitem{bertinetto2016fully}
 Luca Bertinetto, Jack Valmadre, Joao~F Henriques, Andrea Vedaldi, and Philip~HS
@@ -51,6 +78,13 @@ Gary Bradski and Adrian Kaehler.
 \newblock Opencv.
 \newblock {\em Dr. Dobb’s journal of software tools}, 3, 2000.
 
+\bibitem{cao2018feature}
+Guimei Cao, Xuemei Xie, Wenzhe Yang, Quan Liao, Guangming Shi, and Jinjian Wu.
+\newblock Feature-fused ssd: fast detection for small objects.
+\newblock In {\em Ninth International Conference on Graphic and Image
+  Processing (ICGIP 2017)}, volume 10615, page 106151E. International Society
+  for Optics and Photonics, 2018.
+
 \bibitem{ncarlevaris-2015a}
 Nicholas Carlevaris-Bianco, Arash~K. Ushani, and Ryan~M. Eustice.
 \newblock University of {Michigan} {North} {Campus} long-term vision and lidar
@@ -76,11 +110,29 @@ Olivier Chapelle, Patrick Haffner, and Vladimir~N Vapnik.
 \newblock Support vector machines for histogram-based image classification.
 \newblock {\em IEEE transactions on Neural Networks}, 10(5):1055--1064, 1999.
 
+\bibitem{chen2017beyond}
+Weihua Chen, Xiaotang Chen, Jianguo Zhang, and Kaiqi Huang.
+\newblock Beyond triplet loss: a deep quadruplet network for person
+  re-identification.
+\newblock In {\em Proc. CVPR}, volume~2, 2017.
+
 \bibitem{chen2011tracking}
 Zhiwen Chen, Jianzhong Cao, Yao Tang, and Linao Tang.
 \newblock Tracking of moving object based on optical flow detection.
 \newblock In {\em Computer Science and Network Technology (ICCSNT), 2011
   International Conference on}, volume~2, pages 1096--1099. IEEE, 2011.
+
+\bibitem{chollet2015keras}
+Fran{\c{c}}ois Chollet et~al.
+\newblock Keras, 2015.
+
+\bibitem{ciresan2011flexible}
+Dan~C Ciresan, Ueli Meier, Jonathan Masci, Luca Maria~Gambardella, and
+  J{\"u}rgen Schmidhuber.
+\newblock Flexible, high performance convolutional neural networks for image
+  classification.
+\newblock In {\em IJCAI Proceedings-International Joint Conference on
+  Artificial Intelligence}, volume~22, page 1237. Barcelona, Spain, 2011.
 
 \bibitem{comaniciu2003kernel}
 Dorin Comaniciu, Visvanathan Ramesh, and Peter Meer.
@@ -142,6 +194,16 @@ Pedro~F Felzenszwalb, Ross~B Girshick, David McAllester, and Deva Ramanan.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   32(9):1627--1645, 2010.
 
+\bibitem{facenet}
+Pierluigi Ferrari.
+\newblock Face recognition using tensorflow.
+\newblock \url{https://github.com/davidsandberg/facenet}, 2015.
+
+\bibitem{ssd_keras}
+Pierluigi Ferrari.
+\newblock A keras port of single shot multibox detector.
+\newblock \url{https://github.com/pierluigiferrari/ssd_keras}, 2017.
+
 \bibitem{gaidon2016virtual}
 Adrien Gaidon, Qiao Wang, Yohann Cabon, and Eleonora Vig.
 \newblock Virtual worlds as proxy for multi-object tracking analysis.
@@ -185,6 +247,16 @@ Susanna Gladh, Martin Danelljan, Fahad~Shahbaz Khan, and Michael Felsberg.
 \newblock In {\em Pattern Recognition (ICPR), 2016 23rd International
   Conference on}, pages 1243--1248. IEEE, 2016.
 
+\bibitem{gonzalez2012digital}
+Rafael~C Gonzalez and Richard~E Woods.
+\newblock Digital image processing, 2012.
+
+\bibitem{graves2013speech}
+Alex Graves, Abdel-rahman Mohamed, and Geoffrey Hinton.
+\newblock Speech recognition with deep recurrent neural networks.
+\newblock In {\em Acoustics, speech and signal processing (icassp), 2013 ieee
+  international conference on}, pages 6645--6649. IEEE, 2013.
+
 \bibitem{harris}
 Chris Harris and Mike Stephens.
 \newblock A combined corner and edge detector.
@@ -196,6 +268,12 @@ Anselm Haselhoff and Anton Kummert.
 \newblock A vehicle detection system based on haar and triangle features.
 \newblock In {\em Intelligent Vehicles Symposium, 2009 IEEE}, pages 261--266.
   IEEE, 2009.
+
+\bibitem{he2017mask}
+Kaiming He, Georgia Gkioxari, Piotr Doll{\'a}r, and Ross Girshick.
+\newblock Mask r-cnn.
+\newblock In {\em Computer Vision (ICCV), 2017 IEEE International Conference
+  on}, pages 2980--2988. IEEE, 2017.
 
 \bibitem{he2016deep}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
@@ -221,6 +299,13 @@ Gao Huang, Zhuang Liu, Kilian~Q Weinberger, and Laurens van~der Maaten.
 \newblock In {\em Proceedings of the IEEE conference on computer vision and
   pattern recognition}, volume~1, page~3, 2017.
 
+\bibitem{huang2007labeled}
+Gary~B Huang, Manu Ramesh, Tamara Berg, and Erik Learned-Miller.
+\newblock Labeled faces in the wild: A database for studying face recognition
+  in unconstrained environments.
+\newblock Technical report, Technical Report 07-49, University of
+  Massachusetts, Amherst, 2007.
+
 \bibitem{huang1997object}
 Timothy Huang and Stuart Russell.
 \newblock Object identification in a bayesian context.
@@ -244,6 +329,13 @@ Omar Javed, Khurram Shafique, and Mubarak Shah.
 \newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
   IEEE Computer Society Conference on}, volume~2, pages 26--33. IEEE, 2005.
 
+\bibitem{jia2014caffe}
+Yangqing Jia, Evan Shelhamer, Jeff Donahue, Sergey Karayev, Jonathan Long, Ross
+  Girshick, Sergio Guadarrama, and Trevor Darrell.
+\newblock Caffe: Convolutional architecture for fast feature embedding.
+\newblock In {\em Proceedings of the 22nd ACM international conference on
+  Multimedia}, pages 675--678. ACM, 2014.
+
 \bibitem{joshi2012survey}
 Kinjal~A Joshi and Darshak~G Thakore.
 \newblock A survey on moving object detection and tracking in video
@@ -265,6 +357,18 @@ Jinman Kang, Isaac Cohen, and Gerard Medioni.
 \newblock In {\em Computer Vision and Pattern Recognition, 2003. Proceedings.
   2003 IEEE Computer Society Conference on}, volume~1, pages I--I. IEEE, 2003.
 
+\bibitem{karpathy2016cs231n}
+Andrej Karpathy.
+\newblock Cs231n convolutional neural networks for visual recognition.
+\newblock {\em Neural networks}, 1, 2016.
+
+\bibitem{karpathy2014large}
+Andrej Karpathy, George Toderici, Sanketh Shetty, Thomas Leung, Rahul
+  Sukthankar, and Li~Fei-Fei.
+\newblock Large-scale video classification with convolutional neural networks.
+\newblock In {\em Proceedings of the IEEE conference on Computer Vision and
+  Pattern Recognition}, pages 1725--1732, 2014.
+
 \bibitem{kettnaker1999bayesian}
 Vera Kettnaker and Ramin Zabih.
 \newblock Bayesian multi-camera surveillance.
@@ -285,6 +389,16 @@ SamYong Kim, Se-Young Oh, JeongKwan Kang, YoungWoo Ryu, Kwangsoo Kim,
   times using vision and sonar sensor fusion.
 \newblock In {\em Intelligent Robots and Systems, 2005.(IROS 2005). 2005
   IEEE/RSJ International Conference on}, pages 2173--2178. IEEE, 2005.
+
+\bibitem{kingma2014adam}
+Diederik~P Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem{koprinska2001temporal}
+Irena Koprinska and Sergio Carrato.
+\newblock Temporal video segmentation: A survey.
+\newblock {\em Signal processing: Image communication}, 16(5):477--500, 2001.
 
 \bibitem{standford}
 Jonathan Krause, Michael Stark, Jia Deng, and Li~Fei-Fei.
@@ -348,6 +462,13 @@ Rainer Lienhart and Jochen Maydt.
 Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and Piotr Doll{\'a}r.
 \newblock Focal loss for dense object detection.
 \newblock {\em arXiv preprint arXiv:1708.02002}, 2017.
+
+\bibitem{lin2014microsoft}
+Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva
+  Ramanan, Piotr Doll{\'a}r, and C~Lawrence Zitnick.
+\newblock Microsoft coco: Common objects in context.
+\newblock In {\em European conference on computer vision}, pages 740--755.
+  Springer, 2014.
 
 \bibitem{liu2016ssd}
 Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed,
@@ -463,6 +584,14 @@ Ali Rahimi, Brian Dunagan, and Trevor Darrell.
   Proceedings of the 2004 IEEE Computer Society Conference on}, volume~1, pages
   I--I. IEEE, 2004.
 
+\bibitem{real2017youtube}
+Esteban Real, Jonathon Shlens, Stefano Mazzocchi, Xin Pan, and Vincent
+  Vanhoucke.
+\newblock Youtube-boundingboxes: A large high-precision human-annotated data
+  set for object detection in video.
+\newblock In {\em 2017 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 7464--7473. IEEE, 2017.
+
 \bibitem{redmon2016you}
 Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi.
 \newblock You only look once: Unified, real-time object detection.
@@ -479,11 +608,37 @@ Joseph Redmon and Ali Farhadi.
 \newblock Yolov3: An incremental improvement.
 \newblock {\em arXiv preprint arXiv:1804.02767}, 2018.
 
-\bibitem{facenet}
+\bibitem{faster-rcnn}
+Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun.
+\newblock Faster r-cnn: Towards real-time object detection with region proposal
+  networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  91--99, 2015.
+
+\bibitem{rosenblatt1958perceptron}
+Frank Rosenblatt.
+\newblock The perceptron: a probabilistic model for information storage and
+  organization in the brain.
+\newblock {\em Psychological review}, 65(6):386, 1958.
+
+\bibitem{scherer2010evaluation}
+Dominik Scherer, Andreas M{\"u}ller, and Sven Behnke.
+\newblock Evaluation of pooling operations in convolutional architectures for
+  object recognition.
+\newblock In {\em International conference on artificial neural networks},
+  pages 92--101. Springer, 2010.
+
+\bibitem{schroff2015facenet}
 Florian Schroff, Dmitry Kalenichenko, and James Philbin.
 \newblock Facenet: A unified embedding for face recognition and clustering.
 \newblock In {\em Proceedings of the IEEE conference on computer vision and
   pattern recognition}, pages 815--823, 2015.
+
+\bibitem{seide2016cntk}
+Frank Seide and Amit Agarwal.
+\newblock Cntk: Microsoft's open-source deep-learning toolkit.
+\newblock In {\em Proceedings of the 22nd ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pages 2135--2135. ACM, 2016.
 
 \bibitem{shi-tomasi}
 Jianbo Shi et~al.
@@ -497,11 +652,32 @@ Karen Simonyan and Andrew Zisserman.
 \newblock Very deep convolutional networks for large-scale image recognition.
 \newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
 
+\bibitem{sudowe2011efficient}
+Patrick Sudowe and Bastian Leibe.
+\newblock Efficient use of geometric constraints for sliding-window object
+  detection in video.
+\newblock In {\em International Conference on Computer Vision Systems}, pages
+  11--20. Springer, 2011.
+
 \bibitem{sun2002real}
 Zehang Sun, Ronald Miller, George Bebis, and David DiMeo.
 \newblock A real-time precrash vehicle detection system.
 \newblock In {\em Applications of Computer Vision, 2002.(WACV 2002).
   Proceedings. Sixth IEEE Workshop on}, pages 171--176. IEEE, 2002.
+
+\bibitem{szegedy2016rethinking}
+Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew
+  Wojna.
+\newblock Rethinking the inception architecture for computer vision.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 2818--2826, 2016.
+
+\bibitem{taigman2014deepface}
+Yaniv Taigman, Ming Yang, Marc'Aurelio Ranzato, and Lior Wolf.
+\newblock Deepface: Closing the gap to human-level performance in face
+  verification.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 1701--1708, 2014.
 
 \bibitem{tan2005introduction}
 Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
@@ -531,6 +707,11 @@ Paul Viola and Michael~J Jones.
 \newblock Robust real-time face detection.
 \newblock {\em International journal of computer vision}, 57(2):137--154, 2004.
 
+\bibitem{walt2011numpy}
+St{\'e}fan van~der Walt, S~Chris Colbert, and Gael Varoquaux.
+\newblock The numpy array: a structure for efficient numerical computation.
+\newblock {\em Computing in Science \& Engineering}, 13(2):22--30, 2011.
+
 \bibitem{wang2003online}
 Chieh-Chih Wang, Charles Thorpe, and Sebastian Thrun.
 \newblock Online simultaneous localization and mapping with detection and
@@ -550,12 +731,31 @@ Stefan Wender and Klaus Dietmayer.
 \newblock 3d vehicle detection using a laser scanner and a video camera.
 \newblock {\em IET Intelligent Transport Systems}, 2(2):105--112, 2008.
 
+\bibitem{widrow199030}
+Bernard Widrow and Michael~A Lehr.
+\newblock 30 years of adaptive neural networks: perceptron, madaline, and
+  backpropagation.
+\newblock {\em Proceedings of the IEEE}, 78(9):1415--1442, 1990.
+
+\bibitem{wolf2011face}
+Lior Wolf, Tal Hassner, and Itay Maoz.
+\newblock Face recognition in unconstrained videos with matched background
+  similarity.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2011 IEEE
+  Conference on}, pages 529--534. IEEE, 2011.
+
 \bibitem{wren1997pfinder}
 Christopher~Richard Wren, Ali Azarbayejani, Trevor Darrell, and Alex~Paul
   Pentland.
 \newblock Pfinder: Real-time tracking of the human body.
 \newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
   19(7):780--785, 1997.
+
+\bibitem{wst2008deeply}
+Web-Scale~Training WST.
+\newblock Deeply learned face representations are sparse, selective, and
+  robust.
+\newblock {\em perception}, 31:411--438, 2008.
 
 \bibitem{xie2017aggregated}
 Saining Xie, Ross Girshick, Piotr Doll{\'a}r, Zhuowen Tu, and Kaiming He.

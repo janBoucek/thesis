@@ -3,7 +3,6 @@
 \citation{optical-flow}
 \citation{haar}
 \citation{liu2016ssd}
-\citation{facenet}
 \select@language{english}
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
@@ -11,9 +10,9 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem statement}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Overview of methodology}{1}}
+\citation{schroff2015facenet}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Contribution}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Classification}{2}}
 \citation{lecun-mnisthandwrittendigit-2010}
 \citation{deng2009imagenet}
 \citation{Everingham10}
@@ -31,7 +30,10 @@
 \citation{krizhevsky2012imagenet}
 \citation{zeiler2014visualizing}
 \citation{lecun1998gradient}
+\citation{schroff2015facenet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Classification}{3}}
 \citation{simonyan2014very}
+\citation{liu2016ssd}
 \citation{he2016deep}
 \citation{zagoruyko2016wide}
 \citation{xie2017aggregated}
@@ -50,6 +52,9 @@
 \citation{RobotCarDatasetIJRR}
 \citation{ncarlevaris-2015a}
 \citation{tzomakas1998vehicle}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Detection}{4}}
+\newlabel{sec:detection}{{2.2}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Vehicle detection}{4}}
 \citation{haar}
 \citation{lienhart2002extended}
 \citation{viola2004robust}
@@ -65,9 +70,6 @@
 \citation{zhu2006fast}
 \citation{felzenszwalb2010object}
 \citation{dalal2005histograms}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Detection}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Vehicle detection}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Object detection}{4}}
 \citation{girshick2016region}
 \citation{DBLP:journals/corr/GirshickDDM13}
 \citation{carreira2012cpmc}
@@ -78,10 +80,17 @@
 \citation{redmon2018yolov3}
 \citation{liu2016ssd}
 \citation{erhan2014scalable}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Object detection}{5}}
+\newlabel{sec:object_detection}{{2.2.2}{5}}
 \citation{lin2017focal}
 \citation{li2017fssd}
 \citation{dai2016r}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Results on PASCAL VOC2007 test.\relax }}{5}}
+\citation{sudowe2011efficient}
+\citation{gonzalez2012digital}
+\citation{naoya1990optical}
+\citation{karpathy2014large}
+\citation{bayona2010stationary}
+\citation{koprinska2001temporal}
 \citation{yilmaz2006object}
 \citation{kale2015moving}
 \citation{comaniciu2003kernel}
@@ -100,6 +109,8 @@
 \citation{gladh2016deep}
 \citation{gaidon2016virtual}
 \citation{lee2016globally}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Results on PASCAL VOC2007 test.\relax }}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Object tracking}{6}}
 \citation{tan2005introduction}
 \citation{benfold2011stable}
 \citation{chen2011tracking}
@@ -111,216 +122,411 @@
 \citation{zhao2005real}
 \citation{javed2005appearance}
 \citation{porikli2003inter}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Object tracking}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Reidentification}{6}}
 \citation{rahimi2004simultaneous}
 \citation{makris2004bridging}
 \citation{javed2005appearance}
 \citation{huang1997object}
 \citation{kettnaker1999bayesian}
 \citation{kang2003continuous}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Fish-eye camera model}{7}}
-\newlabel{sec:lens}{{3}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Frame of the provided video\relax }}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Reidentification}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Frame of the provided video\relax }}{8}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:stream1}{{3.1}{7}}
-\citation{lukacs1997real}
+\newlabel{fig:stream1}{{3.1}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Fish-eye camera model}{8}}
+\newlabel{sec:lens}{{3}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Scene localization}{8}}
 \newlabel{sec:scene_localization}{{3.1}{8}}
-\newlabel{eq:ellipse}{{1}{8}}
+\citation{lukacs1997real}
+\newlabel{eq:ellipse}{{1}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Camera model}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The spherical coordinates of the world\relax }}{10}}
 \newlabel{fig:sphere}{{3.2}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The provided calibration data\relax }}{11}}
-\newlabel{fig:calibration}{{3.3}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Linear model}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The linear model of the lens\relax }}{12}}
-\newlabel{fig:linear_model}{{3.4}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The provided calibration data\relax }}{12}}
+\newlabel{fig:calibration}{{3.3}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Linear model}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Tangent model}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}The city coordinate system}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The linear model of the lens\relax }}{13}}
-\newlabel{fig:linear_model}{{3.5}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Detection and tracking on CPU}{13}}
-\newlabel{sec:classical}{{4}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The linear model of the lens\relax }}{13}}
+\newlabel{fig:linear_model}{{3.4}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The linear model of the lens\relax }}{14}}
+\newlabel{fig:linear_model}{{3.5}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Dataset generation}{14}}
+\newlabel{sec:classical}{{4}{14}}
 \citation{piccardi2004background}
 \citation{horprasert1999statistical}
 \citation{zivkovic2006efficient}
 \citation{opencv}
 \citation{wren1997pfinder}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Background subtraction detection}{14}}
-\newlabel{sec:bgs}{{4.1}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Background subtraction detection}{15}}
+\newlabel{sec:bgs}{{4.1}{15}}
 \citation{bgs-med1}
 \citation{bgs-med2}
-\newlabel{fig:cut_mean}{{4.1a}{15}}
-\newlabel{sub@fig:cut_mean}{{a}{15}}
-\newlabel{fig:cut_med}{{4.1b}{15}}
-\newlabel{sub@fig:cut_med}{{b}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Background model created by the mean and the median approach.\relax }}{15}}
-\newlabel{fig:threshold_mean}{{4.2a}{15}}
-\newlabel{sub@fig:threshold_mean}{{a}{15}}
-\newlabel{fig:threshold_med}{{4.2b}{15}}
-\newlabel{sub@fig:threshold_med}{{b}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces The difference between the frame and a background shown in a gray-scale.\relax }}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The histogram of a particular pixel over 100 images with computed medians\relax }}{16}}
-\newlabel{fig:pixel_hist}{{4.3}{16}}
-\newlabel{fig:frame_for_detection}{{4.4a}{17}}
-\newlabel{sub@fig:frame_for_detection}{{a}{17}}
-\newlabel{fig:mask_area}{{4.4b}{17}}
-\newlabel{sub@fig:mask_area}{{b}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The background subtraction detection algorithm.\relax }}{17}}
+\newlabel{fig:cut_mean}{{4.1a}{16}}
+\newlabel{sub@fig:cut_mean}{{a}{16}}
+\newlabel{fig:cut_med}{{4.1b}{16}}
+\newlabel{sub@fig:cut_med}{{b}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Background model created by the mean and the median approach.\relax }}{16}}
+\newlabel{fig:threshold_mean}{{4.2a}{16}}
+\newlabel{sub@fig:threshold_mean}{{a}{16}}
+\newlabel{fig:threshold_med}{{4.2b}{16}}
+\newlabel{sub@fig:threshold_med}{{b}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces The difference between the frame and a background shown in a gray-scale.\relax }}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The histogram of a particular pixel over 100 images with computed medians\relax }}{17}}
+\newlabel{fig:pixel_hist}{{4.3}{17}}
+\newlabel{fig:frame_for_detection}{{4.4a}{18}}
+\newlabel{sub@fig:frame_for_detection}{{a}{18}}
+\newlabel{fig:mask_area}{{4.4b}{18}}
+\newlabel{sub@fig:mask_area}{{b}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The background subtraction detection algorithm.\relax }}{18}}
 \citation{opencv}
 \citation{optical-flow}
 \citation{lucas-kanede}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Optical Flow tracking}{18}}
-\newlabel{sec:optical-flow}{{4.2}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Optical Flow tracking}{19}}
+\newlabel{sec:optical-flow}{{4.2}{19}}
 \citation{shi-tomasi}
 \citation{harris}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}classification}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Semi-supervised data generation}{20}}
-\newlabel{sec:data-generation}{{4.4}{20}}
+\citation{szegedy2016rethinking}
+\citation{graves2013speech}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}classification}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Semi-supervised data generation}{21}}
+\newlabel{sec:data-generation}{{4.4}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Deep learning}{21}}
+\citation{rosenblatt1958perceptron}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The dialog from the annotation tool.\relax }}{22}}
+\newlabel{fig:labeling}{{4.5}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Inspiration by biology}{22}}
+\citation{karpathy2016cs231n}
+\citation{karpathy2016cs231n}
+\citation{zeiler2014visualizing}
+\citation{karpathy2016cs231n}
+\citation{karpathy2016cs231n}
+\newlabel{fig:conv_layer}{{5.1a}{23}}
+\newlabel{sub@fig:conv_layer}{{a}{23}}
+\newlabel{fig:neuron}{{5.1b}{23}}
+\newlabel{sub@fig:neuron}{{b}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Examples of neural networks concepts from \cite  {karpathy2016cs231n}.\relax }}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Layers}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Convolutional layer}{23}}
+\citation{scherer2010evaluation}
+\newlabel{fig:conv_layer}{{5.2a}{24}}
+\newlabel{sub@fig:conv_layer}{{a}{24}}
+\newlabel{fig:neuron}{{5.2b}{24}}
+\newlabel{sub@fig:neuron}{{b}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Examples of pooling concepts from \cite  {karpathy2016cs231n}.\relax }}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Pooling layer}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Fully connected layer}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Overfitting and dropout layer}{24}}
+\citation{widrow199030}
+\citation{abadi2016tensorflow}
+\citation{bergstra2011theano}
+\citation{seide2016cntk}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Backpropagation}{25}}
+\newlabel{sec:back-prop}{{5.4}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Frameworks}{25}}
+\citation{chollet2015keras}
+\citation{jia2014caffe}
+\citation{simonyan2014very}
+\citation{simonyan2014very}
+\citation{simonyan2014very}
+\citation{redmon2016you}
+\citation{barz2017fast}
 \citation{liu2016ssd}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The dialog from the annotation tool.\relax }}{21}}
-\newlabel{fig:labeling}{{4.5}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Detection and reidentification}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Neural networks for classification}{21}}
-\newlabel{sec:neural_networks_classification}{{5.1}{21}}
+\citation{faster-rcnn}
+\citation{ciresan2011flexible}
+\citation{krizhevsky2012imagenet}
+\citation{simonyan2014very}
+\citation{krizhevsky2012imagenet}
+\citation{zeiler2014visualizing}
+\citation{lecun1989backpropagation}
+\citation{simonyan2014very}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Classification, Detection and Reidentification networks}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Neural networks for classification}{26}}
+\newlabel{sec:neural_networks_classification}{{6.1}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}*** conv layers, ..., ?}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}VGG}{26}}
+\newlabel{sec:vgg}{{6.1.2}{26}}
+\citation{liu2016ssd}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The different VGG architectures. The ReLU function is not shown for simplicity. \cite  {simonyan2014very}\relax }}{27}}
+\newlabel{fig:vgg}{{6.1}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}SSD network for detection}{27}}
+\newlabel{sec:ssd}{{6.2}{27}}
 \citation{liu2016ssd}
 \citation{redmon2016you}
 \citation{liu2016ssd}
 \citation{redmon2016you}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}intuition}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}*** conv layers, ..., ?}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}VGG512}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}SSD network}{22}}
-\newlabel{sec:ssd}{{5.2}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Architecture}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparison of the SSD\cite  {liu2016ssd}(300x300) and YOLO\cite  {redmon2016you}(448x448) architectures.\relax }}{22}}
-\newlabel{fig:ssd_vs_yolo}{{5.1}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Architecture}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison of the SSD\cite  {liu2016ssd}(300x300) and YOLO\cite  {redmon2016you}(448x448) architectures.\relax }}{28}}
+\newlabel{fig:ssd_vs_yolo}{{6.2}{28}}
 \citation{erhan2014scalable}
-\newlabel{fig:ssd_detection}{{5.2a}{23}}
-\newlabel{sub@fig:ssd_detection}{{a}{23}}
-\newlabel{fig:ssd4}{{5.2b}{23}}
-\newlabel{sub@fig:ssd4}{{b}{23}}
-\newlabel{fig:ssd8}{{5.2c}{23}}
-\newlabel{sub@fig:ssd8}{{c}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The background subtraction detection algorithm.\relax }}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Default boxes and aspect ratios}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Training}{23}}
+\newlabel{fig:ssd_detection}{{6.3a}{29}}
+\newlabel{sub@fig:ssd_detection}{{a}{29}}
+\newlabel{fig:ssd4}{{6.3b}{29}}
+\newlabel{sub@fig:ssd4}{{b}{29}}
+\newlabel{fig:ssd8}{{6.3c}{29}}
+\newlabel{sub@fig:ssd8}{{c}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces The background subtraction detection algorithm.\relax }}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Default boxes and aspect ratios}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Loss}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Training}{29}}
+\citation{schroff2015facenet}
+\citation{schroff2015facenet}
+\citation{schroff2015facenet}
+\citation{zeiler2014visualizing}
+\citation{szegedy2016rethinking}
+\citation{szegedy2016rethinking}
+\citation{wst2008deeply}
+\citation{taigman2014deepface}
+\newlabel{fig:facenet_structure}{{6.4a}{30}}
+\newlabel{sub@fig:facenet_structure}{{a}{30}}
+\newlabel{fig:triplet_loss}{{6.4b}{30}}
+\newlabel{sub@fig:triplet_loss}{{b}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces The Facenet \cite  {schroff2015facenet}.\relax }}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Non maxima suppression}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Facenet for reidentification}{30}}
+\newlabel{sec:facenet}{{6.5}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}Architecture}{30}}
+\citation{szegedy2016rethinking}
+\citation{chen2017beyond}
+\citation{he2017mask}
+\citation{he2017mask}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}Training}{31}}
+\citation{he2017mask}
+\newlabel{fig:mask-street-cam}{{7.1a}{32}}
+\newlabel{sub@fig:mask-street-cam}{{a}{32}}
+\newlabel{fig:mask-omni-cam}{{7.1b}{32}}
+\newlabel{sub@fig:mask-omni-cam}{{b}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Examples of Mask R-CNN network \cite  {he2017mask}\relax }}{32}}
+\newlabel{fig:facenet}{{7.1}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Implementation}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Detection and tracking on CPU}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Mask R-CNN segmentation}{32}}
+\citation{liu2016ssd}
+\citation{faster-rcnn}
+\citation{redmon2016you}
+\citation{ssd_keras}
+\citation{walt2011numpy}
+\citation{opencv}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}SSD detector}{33}}
+\newlabel{sec:ssd-implementation}{{7.3}{33}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.1}Temporal difference}{33}}
+\citation{cao2018feature}
+\newlabel{fig:td_frame}{{7.2a}{34}}
+\newlabel{sub@fig:td_frame}{{a}{34}}
+\newlabel{fig:td_black}{{7.2b}{34}}
+\newlabel{sub@fig:td_black}{{b}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Temporal difference helps to detect moving objects.\relax }}{34}}
+\newlabel{fig:td}{{7.2}{34}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.2}Architecture}{34}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.3}Dataset}{35}}
+\citation{deng2009imagenet}
+\citation{lin2014microsoft}
+\citation{real2017youtube}
+\citation{kingma2014adam}
+\citation{ssd_keras}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.4}Data augmentation}{36}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.5}Training}{36}}
+\citation{szegedy2016rethinking}
+\citation{huang2007labeled}
+\citation{wolf2011face}
+\citation{szegedy2016rethinking}
+\citation{huang2007labeled}
+\citation{wolf2011face}
+\citation{schroff2015facenet}
+\newlabel{fig:ssd_mAP}{{7.3a}{37}}
+\newlabel{sub@fig:ssd_mAP}{{a}{37}}
+\newlabel{fig:ssd_loss}{{7.3b}{37}}
+\newlabel{sub@fig:ssd_loss}{{b}{37}}
+\newlabel{fig:ssd_val_loss}{{7.3c}{37}}
+\newlabel{sub@fig:ssd_val_loss}{{c}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces The process of training the 4 channel input SSD network. The training was performed on the NVIDIA GeForce GTX 1080 for 4 days.\relax }}{37}}
+\newlabel{fig:ssd_training}{{7.3}{37}}
+\citation{facenet}
+\newlabel{fig:facenet_table}{{7.4a}{38}}
+\newlabel{sub@fig:facenet_table}{{a}{38}}
+\newlabel{fig:triplet_loss}{{7.4b}{38}}
+\newlabel{sub@fig:triplet_loss}{{b}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Comparison of various facenet\cite  {szegedy2016rethinking} base networks evaluated on Labeled faces in the wild\cite  {huang2007labeled} and YouTube faces\cite  {wolf2011face} datasets.\relax }}{38}}
+\newlabel{fig:facenet}{{7.4}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Tracking}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Similarity}{38}}
+\newlabel{sec:similarity}{{7.5}{38}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Dataset}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces An example of a one object in a training set.\relax }}{39}}
+\newlabel{fig:facenet-labeling}{{7.5}{39}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.2}Problems with the dataset}{39}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.3}Improving the dataset}{40}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.4}Evaluation}{40}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.5}Training}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Accuracy during the facenet training.\relax }}{40}}
+\newlabel{fig:facenet_training}{{7.6}{40}}
 \citation{standford}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Facenet}{24}}
-\newlabel{sec:facenet}{{5.3}{24}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Implementation}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Image decomposition}{24}}
-\newlabel{sec:decomposition}{{6.1}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Dataset}{24}}
-\newlabel{sec:ssd-dataset}{{6.2}{24}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Evaluation}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.0.1}Mean average precision.}{24}}
-\newlabel{sec:mAP}{{7.0.1}{24}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Final results of the facenet training.\relax }}{41}}
+\newlabel{tab:facenet}{{2}{41}}
+\newlabel{fig:facenet}{{7.7a}{41}}
+\newlabel{sub@fig:facenet}{{a}{41}}
+\newlabel{fig:facenet}{{7.7b}{41}}
+\newlabel{sub@fig:facenet}{{b}{41}}
+\newlabel{fig:facenet}{{7.7c}{41}}
+\newlabel{sub@fig:facenet}{{c}{41}}
+\newlabel{fig:facenet}{{7.7d}{41}}
+\newlabel{sub@fig:facenet}{{d}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.7}{\ignorespaces Additional information about the Facenet training. The training was performed on the NVIDIA GeForce GTX 1080 for 12 hours.\relax }}{41}}
+\newlabel{fig:facenet_training_additional}{{7.7}{41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Image decomposition}{41}}
+\newlabel{sec:decomposition}{{7.6}{41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Dataset}{41}}
+\newlabel{sec:ssd-dataset}{{7.7}{41}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Evaluation}{42}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.0.1}Mean average precision.}{42}}
+\newlabel{sec:mAP}{{8.0.1}{42}}
+\citation{liu2016ssd}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Example of precision-recall curve\relax }}{43}}
+\newlabel{fig:precision-recall}{{8.1}{43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Object detection}{43}}
 \bibstyle{plain}
 \bibdata{ref}
-\bibcite{banerjee2008multi}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Example of precision-recall curve\relax }}{25}}
-\newlabel{fig:precision-recall}{{7.1}{25}}
-\bibcite{optical-flow}{2}
-\bibcite{benfold2011stable}{3}
-\bibcite{bertinetto2016fully}{4}
-\bibcite{bertozzi2000stereo}{5}
-\bibcite{bicego2006use}{6}
-\bibcite{boiman2008defense}{7}
-\bibcite{bosch2007image}{8}
-\bibcite{opencv}{9}
-\bibcite{ncarlevaris-2015a}{10}
-\bibcite{carreira2012cpmc}{11}
-\bibcite{caruso1999vehicle}{12}
-\bibcite{chapelle1999support}{13}
-\bibcite{chen2011tracking}{14}
-\bibcite{comaniciu2003kernel}{15}
-\bibcite{bgs-med2}{16}
-\bibcite{dai2016r}{17}
-\bibcite{dalal2005histograms}{18}
-\bibcite{daubaras2012vehicle}{19}
-\bibcite{deng2009imagenet}{20}
-\bibcite{elgammal2002background}{21}
-\bibcite{erhan2014scalable}{22}
-\bibcite{Everingham10}{23}
-\bibcite{felzenszwalb2010object}{24}
-\bibcite{gaidon2016virtual}{25}
-\bibcite{gate2009fast}{26}
-\bibcite{girshick2015fast}{27}
-\bibcite{girshick2014rich}{28}
-\bibcite{girshick2016region}{29}
-\bibcite{DBLP:journals/corr/GirshickDDM13}{30}
-\bibcite{gladh2016deep}{31}
-\bibcite{harris}{32}
-\bibcite{haar}{33}
-\bibcite{he2016deep}{34}
-\bibcite{held2016learning}{35}
-\bibcite{horprasert1999statistical}{36}
-\bibcite{huang2017densely}{37}
-\bibcite{huang1997object}{38}
-\bibcite{apollo-scape}{39}
-\bibcite{isard2001bramble}{40}
-\bibcite{javed2005appearance}{41}
-\bibcite{joshi2012survey}{42}
-\bibcite{kale2015moving}{43}
-\bibcite{kang2003continuous}{44}
-\bibcite{kettnaker1999bayesian}{45}
-\bibcite{khan2003consistent}{46}
-\bibcite{kim2005front}{47}
-\bibcite{standford}{48}
-\bibcite{krizhevsky2012imagenet}{49}
-\bibcite{krumm2000multi}{50}
-\bibcite{lazebnik2006beyond}{51}
-\bibcite{lecun1989backpropagation}{52}
-\bibcite{lecun1998gradient}{53}
-\bibcite{lecun-mnisthandwrittendigit-2010}{54}
-\bibcite{lee2016globally}{55}
-\bibcite{li2017fssd}{56}
-\bibcite{lienhart2002extended}{57}
-\bibcite{lin2017focal}{58}
-\bibcite{liu2016ssd}{59}
-\bibcite{bgs-med1}{60}
-\bibcite{lowe2004distinctive}{61}
-\bibcite{lucas-kanede}{62}
-\bibcite{RobotCarDatasetIJRR}{63}
-\bibcite{madhavan2017bdd}{64}
-\bibcite{mae1996object}{65}
-\bibcite{makris2004bridging}{66}
-\bibcite{munder2006experimental}{67}
-\bibcite{naoya1990optical}{68}
-\bibcite{nowak2006sampling}{69}
-\bibcite{opelt2004weak}{70}
-\bibcite{piccardi2004background}{71}
-\bibcite{porikli2003inter}{72}
-\bibcite{porikli2005multi}{73}
-\bibcite{premebida2007lidar}{74}
-\bibcite{quenot1992orthogonal}{75}
-\bibcite{rahimi2004simultaneous}{76}
-\bibcite{redmon2016you}{77}
-\bibcite{redmon2017yolo9000}{78}
-\bibcite{redmon2018yolov3}{79}
-\bibcite{facenet}{80}
-\bibcite{shi-tomasi}{81}
-\bibcite{simonyan2014very}{82}
-\bibcite{sun2002real}{83}
-\bibcite{tan2005introduction}{84}
-\bibcite{toulminet2006vehicle}{85}
-\bibcite{tzomakas1998vehicle}{86}
-\bibcite{veenman1998fast}{87}
-\bibcite{viola2004robust}{88}
-\bibcite{wang2003online}{89}
-\bibcite{wang2009hog}{90}
-\bibcite{wender20083d}{91}
-\bibcite{wren1997pfinder}{92}
-\bibcite{xie2017aggregated}{93}
-\bibcite{yang2009linear}{94}
-\bibcite{yilmaz2007object}{95}
-\bibcite{yilmaz2006object}{96}
-\bibcite{zagoruyko2016wide}{97}
-\bibcite{zeiler2014visualizing}{98}
-\bibcite{zhang2006svm}{99}
-\bibcite{zhao2005real}{100}
-\bibcite{zhong2012moving}{101}
-\bibcite{zhu2006fast}{102}
-\bibcite{zivkovic2006efficient}{103}
+\bibcite{abadi2016tensorflow}{1}
+\newlabel{fig:ssd_mAP}{{8.2a}{44}}
+\newlabel{sub@fig:ssd_mAP}{{a}{44}}
+\newlabel{fig:ssd_loss}{{8.2b}{44}}
+\newlabel{sub@fig:ssd_loss}{{b}{44}}
+\newlabel{fig:ssd_val_loss}{{8.2c}{44}}
+\newlabel{sub@fig:ssd_val_loss}{{c}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces The process of training the introduced 4 channel SSD (orange) and the 3 channel SSD (blue) networks. The training was performed on the NVIDIA GeForce GTX 1080 for 1 day. The graph shows, that the presented solution performs much better than the state of the art SSD.\relax }}{44}}
+\newlabel{fig:ssd_training}{{8.2}{44}}
+\bibcite{banerjee2008multi}{2}
+\bibcite{barz2017fast}{3}
+\bibcite{bayona2010stationary}{4}
+\bibcite{optical-flow}{5}
+\bibcite{benfold2011stable}{6}
+\bibcite{bergstra2011theano}{7}
+\bibcite{bertinetto2016fully}{8}
+\bibcite{bertozzi2000stereo}{9}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Results on the custom dataset from the section \ref  {sec:ssd-dataset}.\relax }}{45}}
+\newlabel{tab:ssd_camparison}{{3}{45}}
+\bibcite{bicego2006use}{10}
+\bibcite{boiman2008defense}{11}
+\bibcite{bosch2007image}{12}
+\bibcite{opencv}{13}
+\bibcite{cao2018feature}{14}
+\bibcite{ncarlevaris-2015a}{15}
+\bibcite{carreira2012cpmc}{16}
+\bibcite{caruso1999vehicle}{17}
+\bibcite{chapelle1999support}{18}
+\bibcite{chen2017beyond}{19}
+\bibcite{chen2011tracking}{20}
+\bibcite{chollet2015keras}{21}
+\bibcite{ciresan2011flexible}{22}
+\bibcite{comaniciu2003kernel}{23}
+\bibcite{bgs-med2}{24}
+\bibcite{dai2016r}{25}
+\bibcite{dalal2005histograms}{26}
+\bibcite{daubaras2012vehicle}{27}
+\bibcite{deng2009imagenet}{28}
+\bibcite{elgammal2002background}{29}
+\bibcite{erhan2014scalable}{30}
+\bibcite{Everingham10}{31}
+\bibcite{felzenszwalb2010object}{32}
+\bibcite{facenet}{33}
+\bibcite{ssd_keras}{34}
+\bibcite{gaidon2016virtual}{35}
+\bibcite{gate2009fast}{36}
+\bibcite{girshick2015fast}{37}
+\bibcite{girshick2014rich}{38}
+\bibcite{girshick2016region}{39}
+\bibcite{DBLP:journals/corr/GirshickDDM13}{40}
+\bibcite{gladh2016deep}{41}
+\bibcite{gonzalez2012digital}{42}
+\bibcite{graves2013speech}{43}
+\bibcite{harris}{44}
+\bibcite{haar}{45}
+\bibcite{he2017mask}{46}
+\bibcite{he2016deep}{47}
+\bibcite{held2016learning}{48}
+\bibcite{horprasert1999statistical}{49}
+\bibcite{huang2017densely}{50}
+\bibcite{huang2007labeled}{51}
+\bibcite{huang1997object}{52}
+\bibcite{apollo-scape}{53}
+\bibcite{isard2001bramble}{54}
+\bibcite{javed2005appearance}{55}
+\bibcite{jia2014caffe}{56}
+\bibcite{joshi2012survey}{57}
+\bibcite{kale2015moving}{58}
+\bibcite{kang2003continuous}{59}
+\bibcite{karpathy2016cs231n}{60}
+\bibcite{karpathy2014large}{61}
+\bibcite{kettnaker1999bayesian}{62}
+\bibcite{khan2003consistent}{63}
+\bibcite{kim2005front}{64}
+\bibcite{kingma2014adam}{65}
+\bibcite{koprinska2001temporal}{66}
+\bibcite{standford}{67}
+\bibcite{krizhevsky2012imagenet}{68}
+\bibcite{krumm2000multi}{69}
+\bibcite{lazebnik2006beyond}{70}
+\bibcite{lecun1989backpropagation}{71}
+\bibcite{lecun1998gradient}{72}
+\bibcite{lecun-mnisthandwrittendigit-2010}{73}
+\bibcite{lee2016globally}{74}
+\bibcite{li2017fssd}{75}
+\bibcite{lienhart2002extended}{76}
+\bibcite{lin2017focal}{77}
+\bibcite{lin2014microsoft}{78}
+\bibcite{liu2016ssd}{79}
+\bibcite{bgs-med1}{80}
+\bibcite{lowe2004distinctive}{81}
+\bibcite{lucas-kanede}{82}
+\bibcite{RobotCarDatasetIJRR}{83}
+\bibcite{madhavan2017bdd}{84}
+\bibcite{mae1996object}{85}
+\bibcite{makris2004bridging}{86}
+\bibcite{munder2006experimental}{87}
+\bibcite{naoya1990optical}{88}
+\bibcite{nowak2006sampling}{89}
+\bibcite{opelt2004weak}{90}
+\bibcite{piccardi2004background}{91}
+\bibcite{porikli2003inter}{92}
+\bibcite{porikli2005multi}{93}
+\bibcite{premebida2007lidar}{94}
+\bibcite{quenot1992orthogonal}{95}
+\bibcite{rahimi2004simultaneous}{96}
+\bibcite{real2017youtube}{97}
+\bibcite{redmon2016you}{98}
+\bibcite{redmon2017yolo9000}{99}
+\bibcite{redmon2018yolov3}{100}
+\bibcite{faster-rcnn}{101}
+\bibcite{rosenblatt1958perceptron}{102}
+\bibcite{scherer2010evaluation}{103}
+\bibcite{schroff2015facenet}{104}
+\bibcite{seide2016cntk}{105}
+\bibcite{shi-tomasi}{106}
+\bibcite{simonyan2014very}{107}
+\bibcite{sudowe2011efficient}{108}
+\bibcite{sun2002real}{109}
+\bibcite{szegedy2016rethinking}{110}
+\bibcite{taigman2014deepface}{111}
+\bibcite{tan2005introduction}{112}
+\bibcite{toulminet2006vehicle}{113}
+\bibcite{tzomakas1998vehicle}{114}
+\bibcite{veenman1998fast}{115}
+\bibcite{viola2004robust}{116}
+\bibcite{walt2011numpy}{117}
+\bibcite{wang2003online}{118}
+\bibcite{wang2009hog}{119}
+\bibcite{wender20083d}{120}
+\bibcite{widrow199030}{121}
+\bibcite{wolf2011face}{122}
+\bibcite{wren1997pfinder}{123}
+\bibcite{wst2008deeply}{124}
+\bibcite{xie2017aggregated}{125}
+\bibcite{yang2009linear}{126}
+\bibcite{yilmaz2007object}{127}
+\bibcite{yilmaz2006object}{128}
+\bibcite{zagoruyko2016wide}{129}
+\bibcite{zeiler2014visualizing}{130}
+\bibcite{zhang2006svm}{131}
+\bibcite{zhao2005real}{132}
+\bibcite{zhong2012moving}{133}
+\bibcite{zhu2006fast}{134}
+\bibcite{zivkovic2006efficient}{135}
