@@ -25,59 +25,60 @@
 \BOOKMARK [1][-]{section.51}{Convolutional Neural Networks}{}% 25
 \BOOKMARK [2][-]{subsection.52}{Inspiration by biology}{section.51}% 26
 \BOOKMARK [2][-]{subsection.53}{Layers}{section.51}% 27
-\BOOKMARK [2][-]{subsection.54}{Convolutional layer}{section.51}% 28
-\BOOKMARK [3][-]{subsubsection.56}{Pooling layer}{subsection.54}% 29
-\BOOKMARK [3][-]{subsubsection.58}{Fully connected layer}{subsection.54}% 30
-\BOOKMARK [3][-]{subsubsection.59}{Overfitting and dropout layer}{subsection.54}% 31
+\BOOKMARK [3][-]{subsubsection.54}{Convolutional layer}{subsection.53}% 28
+\BOOKMARK [3][-]{subsubsection.56}{Pooling layer}{subsection.53}% 29
+\BOOKMARK [3][-]{subsubsection.58}{Fully connected layer}{subsection.53}% 30
+\BOOKMARK [3][-]{subsubsection.59}{Overfitting and dropout layer}{subsection.53}% 31
 \BOOKMARK [2][-]{subsection.60}{Backpropagation}{section.51}% 32
-\BOOKMARK [2][-]{subsection.63}{Transfered learning}{section.51}% 33
+\BOOKMARK [2][-]{subsection.63}{Transfer learning}{section.51}% 33
 \BOOKMARK [2][-]{subsection.64}{Frameworks}{section.51}% 34
 \BOOKMARK [1][-]{section.65}{Classification, Detection and Reidentification networks}{}% 35
-\BOOKMARK [2][-]{subsection.66}{Neural networks for classification}{section.65}% 36
-\BOOKMARK [3][-]{subsubsection.67}{VGG}{subsection.66}% 37
-\BOOKMARK [2][-]{subsection.69}{SSD network for detection}{section.65}% 38
-\BOOKMARK [3][-]{subsubsection.70}{Architecture}{subsection.69}% 39
-\BOOKMARK [3][-]{subsubsection.72}{Default boxes and aspect ratios}{subsection.69}% 40
-\BOOKMARK [2][-]{subsection.74}{Loss}{section.65}% 41
-\BOOKMARK [3][-]{subsubsection.75}{Training}{subsection.74}% 42
-\BOOKMARK [2][-]{subsection.76}{Non maxima suppression}{section.65}% 43
-\BOOKMARK [2][-]{subsection.78}{Facenet for reidentification}{section.65}% 44
-\BOOKMARK [3][-]{subsubsection.79}{Architecture}{subsection.78}% 45
-\BOOKMARK [3][-]{subsubsection.81}{Training}{subsection.78}% 46
-\BOOKMARK [2][-]{subsection.84}{Multi camera tracking}{section.65}% 47
-\BOOKMARK [1][-]{section.85}{Implementation}{}% 48
-\BOOKMARK [2][-]{subsection.86}{Mask R-CNN segmentation}{section.85}% 49
-\BOOKMARK [2][-]{subsection.88}{SSD detector}{section.85}% 50
-\BOOKMARK [3][-]{subsubsection.89}{Temporal difference}{subsection.88}% 51
-\BOOKMARK [3][-]{subsubsection.92}{Architecture}{subsection.88}% 52
-\BOOKMARK [3][-]{subsubsection.93}{Dataset}{subsection.88}% 53
-\BOOKMARK [3][-]{subsubsection.94}{Data augmentation}{subsection.88}% 54
-\BOOKMARK [3][-]{subsubsection.95}{Training}{subsection.88}% 55
-\BOOKMARK [2][-]{subsection.97}{Single camera tracking}{section.85}% 56
-\BOOKMARK [3][-]{subsubsection.98}{Seeding}{subsection.97}% 57
-\BOOKMARK [3][-]{subsubsection.99}{Displacement}{subsection.97}% 58
-\BOOKMARK [3][-]{subsubsection.100}{Matching}{subsection.97}% 59
-\BOOKMARK [2][-]{subsection.101}{Similarity}{section.85}% 60
-\BOOKMARK [3][-]{subsubsection.103}{Dataset}{subsection.101}% 61
-\BOOKMARK [3][-]{subsubsection.105}{Problems with the dataset}{subsection.101}% 62
-\BOOKMARK [3][-]{subsubsection.106}{Improving the dataset}{subsection.101}% 63
-\BOOKMARK [3][-]{subsubsection.107}{Training}{subsection.101}% 64
-\BOOKMARK [3][-]{subsubsection.110}{T-SNE visualization}{subsection.101}% 65
-\BOOKMARK [2][-]{subsection.112}{City representation}{section.85}% 66
-\BOOKMARK [3][-]{subsubsection.114}{Reidentification}{subsection.112}% 67
-\BOOKMARK [3][-]{subsubsection.116}{Decreasing computational demands}{subsection.112}% 68
-\BOOKMARK [2][-]{subsection.118}{Multi camera tracking}{section.85}% 69
-\BOOKMARK [1][-]{section.119}{Evaluation}{}% 70
-\BOOKMARK [2][-]{subsection.120}{Mean average precision.}{section.119}% 71
-\BOOKMARK [2][-]{subsection.125}{SSD object detection}{section.119}% 72
-\BOOKMARK [2][-]{subsection.128}{Facenet similarity}{section.119}% 73
-\BOOKMARK [3][-]{subsubsection.129}{Evaluation metrics}{subsection.128}% 74
-\BOOKMARK [3][-]{subsubsection.130}{Results}{subsection.128}% 75
-\BOOKMARK [3][-]{subsubsection.132}{Comparison to state of the art}{subsection.128}% 76
-\BOOKMARK [2][-]{subsection.133}{Multi camera tracking experiment}{section.119}% 77
-\BOOKMARK [3][-]{subsubsection.134}{Evaluation measurement}{subsection.133}% 78
-\BOOKMARK [3][-]{subsubsection.135}{Results}{subsection.133}% 79
-\BOOKMARK [3][-]{subsubsection.136}{Comparison to state of the art}{subsection.133}% 80
-\BOOKMARK [1][-]{section.137}{Discussion}{}% 81
-\BOOKMARK [1][-]{section.138}{Conclusion}{}% 82
-\BOOKMARK [2][-]{subsection.139}{Future work}{section.138}% 83
+\BOOKMARK [2][-]{subsubsection.66}{VGG}{section.65}% 36
+\BOOKMARK [2][-]{subsection.68}{Inception}{section.65}% 37
+\BOOKMARK [2][-]{subsection.70}{SSD network for detection}{section.65}% 38
+\BOOKMARK [3][-]{subsubsection.71}{Architecture}{subsection.70}% 39
+\BOOKMARK [3][-]{subsubsection.73}{Default boxes and aspect ratios}{subsection.70}% 40
+\BOOKMARK [2][-]{subsection.75}{Loss}{section.65}% 41
+\BOOKMARK [3][-]{subsubsection.77}{Training}{subsection.75}% 42
+\BOOKMARK [2][-]{subsection.78}{Non-maxima suppression}{section.65}% 43
+\BOOKMARK [2][-]{subsection.80}{Facenet for reidentification}{section.65}% 44
+\BOOKMARK [3][-]{subsubsection.81}{Architecture}{subsection.80}% 45
+\BOOKMARK [3][-]{subsubsection.83}{Training}{subsection.80}% 46
+\BOOKMARK [2][-]{subsection.86}{Multi camera tracking}{section.65}% 47
+\BOOKMARK [1][-]{section.87}{Implementation}{}% 48
+\BOOKMARK [2][-]{subsection.88}{Mask R-CNN segmentation}{section.87}% 49
+\BOOKMARK [2][-]{subsection.90}{SSD detector}{section.87}% 50
+\BOOKMARK [3][-]{subsubsection.91}{Temporal difference}{subsection.90}% 51
+\BOOKMARK [3][-]{subsubsection.94}{Architecture}{subsection.90}% 52
+\BOOKMARK [3][-]{subsubsection.95}{Dataset}{subsection.90}% 53
+\BOOKMARK [3][-]{subsubsection.96}{Data augmentation}{subsection.90}% 54
+\BOOKMARK [3][-]{subsubsection.97}{Training}{subsection.90}% 55
+\BOOKMARK [2][-]{subsection.99}{Single camera tracking}{section.87}% 56
+\BOOKMARK [3][-]{subsubsection.100}{Seeding}{subsection.99}% 57
+\BOOKMARK [3][-]{subsubsection.101}{Displacement}{subsection.99}% 58
+\BOOKMARK [3][-]{subsubsection.102}{Matching}{subsection.99}% 59
+\BOOKMARK [2][-]{subsection.103}{Similarity}{section.87}% 60
+\BOOKMARK [3][-]{subsubsection.105}{Dataset}{subsection.103}% 61
+\BOOKMARK [3][-]{subsubsection.107}{Problems with the dataset}{subsection.103}% 62
+\BOOKMARK [3][-]{subsubsection.108}{Improving the dataset}{subsection.103}% 63
+\BOOKMARK [3][-]{subsubsection.109}{Training}{subsection.103}% 64
+\BOOKMARK [3][-]{subsubsection.112}{T-SNE visualization}{subsection.103}% 65
+\BOOKMARK [2][-]{subsection.114}{City representation}{section.87}% 66
+\BOOKMARK [3][-]{subsubsection.116}{Reidentification}{subsection.114}% 67
+\BOOKMARK [3][-]{subsubsection.118}{Decreasing computational demands}{subsection.114}% 68
+\BOOKMARK [2][-]{subsection.120}{Multi camera tracking}{section.87}% 69
+\BOOKMARK [1][-]{section.121}{Evaluation}{}% 70
+\BOOKMARK [2][-]{subsection.122}{Mean average precision.}{section.121}% 71
+\BOOKMARK [2][-]{subsection.127}{SSD object detection}{section.121}% 72
+\BOOKMARK [2][-]{subsection.130}{Facenet similarity}{section.121}% 73
+\BOOKMARK [3][-]{subsubsection.131}{Evaluation metrics}{subsection.130}% 74
+\BOOKMARK [3][-]{subsubsection.132}{Results}{subsection.130}% 75
+\BOOKMARK [3][-]{subsubsection.134}{Comparison to state of the art}{subsection.130}% 76
+\BOOKMARK [2][-]{subsection.135}{Multi camera tracking experiment}{section.121}% 77
+\BOOKMARK [3][-]{subsubsection.136}{Evaluation measurement}{subsection.135}% 78
+\BOOKMARK [3][-]{subsubsection.137}{Results}{subsection.135}% 79
+\BOOKMARK [3][-]{subsubsection.138}{Comparison to state of the art}{subsection.135}% 80
+\BOOKMARK [1][-]{section.139}{Discussion}{}% 81
+\BOOKMARK [1][-]{section.140}{Conclusion}{}% 82
+\BOOKMARK [2][-]{subsection.141}{Future work}{section.140}% 83
+\BOOKMARK [1][-]{subsection.141}{References}{}% 84
