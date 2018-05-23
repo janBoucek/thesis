@@ -1,0 +1,83 @@
+\BOOKMARK [1][-]{section.5}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.6}{Problem statement}{section.5}% 2
+\BOOKMARK [2][-]{subsection.8}{Overview of methodology}{section.5}% 3
+\BOOKMARK [2][-]{subsection.9}{Contribution}{section.5}% 4
+\BOOKMARK [1][-]{section.10}{Related work}{}% 5
+\BOOKMARK [2][-]{subsection.11}{Classification}{section.10}% 6
+\BOOKMARK [2][-]{subsection.12}{Object Detection}{section.10}% 7
+\BOOKMARK [3][-]{subsubsection.13}{Vehicle detection}{subsection.12}% 8
+\BOOKMARK [3][-]{subsubsection.14}{Object detection in computer vision}{subsection.12}% 9
+\BOOKMARK [2][-]{subsection.16}{Object tracking}{section.10}% 10
+\BOOKMARK [2][-]{subsection.17}{Reidentification}{section.10}% 11
+\BOOKMARK [1][-]{section.18}{Fisheye camera model}{}% 12
+\BOOKMARK [2][-]{subsection.20}{Scene localization}{section.18}% 13
+\BOOKMARK [2][-]{subsection.25}{Camera model}{section.18}% 14
+\BOOKMARK [3][-]{subsubsection.31}{Linear model}{subsection.25}% 15
+\BOOKMARK [3][-]{subsubsection.34}{Tangent model}{subsection.25}% 16
+\BOOKMARK [2][-]{subsection.36}{The city coordinate system}{section.18}% 17
+\BOOKMARK [1][-]{section.37}{Dataset generation}{}% 18
+\BOOKMARK [2][-]{subsection.38}{Need for a custom dataset}{section.37}% 19
+\BOOKMARK [2][-]{subsection.40}{Distributed system}{section.37}% 20
+\BOOKMARK [2][-]{subsection.41}{Background subtraction detection}{section.37}% 21
+\BOOKMARK [2][-]{subsection.47}{Optical Flow tracking}{section.37}% 22
+\BOOKMARK [2][-]{subsection.48}{Classification}{section.37}% 23
+\BOOKMARK [2][-]{subsection.49}{Semi-supervised dataset generation}{section.37}% 24
+\BOOKMARK [1][-]{section.51}{Convolutional Neural Networks}{}% 25
+\BOOKMARK [2][-]{subsection.52}{Inspiration by biology}{section.51}% 26
+\BOOKMARK [2][-]{subsection.53}{Layers}{section.51}% 27
+\BOOKMARK [2][-]{subsection.54}{Convolutional layer}{section.51}% 28
+\BOOKMARK [3][-]{subsubsection.56}{Pooling layer}{subsection.54}% 29
+\BOOKMARK [3][-]{subsubsection.58}{Fully connected layer}{subsection.54}% 30
+\BOOKMARK [3][-]{subsubsection.59}{Overfitting and dropout layer}{subsection.54}% 31
+\BOOKMARK [2][-]{subsection.60}{Backpropagation}{section.51}% 32
+\BOOKMARK [2][-]{subsection.63}{Transfered learning}{section.51}% 33
+\BOOKMARK [2][-]{subsection.64}{Frameworks}{section.51}% 34
+\BOOKMARK [1][-]{section.65}{Classification, Detection and Reidentification networks}{}% 35
+\BOOKMARK [2][-]{subsection.66}{Neural networks for classification}{section.65}% 36
+\BOOKMARK [3][-]{subsubsection.67}{VGG}{subsection.66}% 37
+\BOOKMARK [2][-]{subsection.69}{SSD network for detection}{section.65}% 38
+\BOOKMARK [3][-]{subsubsection.70}{Architecture}{subsection.69}% 39
+\BOOKMARK [3][-]{subsubsection.72}{Default boxes and aspect ratios}{subsection.69}% 40
+\BOOKMARK [2][-]{subsection.74}{Loss}{section.65}% 41
+\BOOKMARK [3][-]{subsubsection.75}{Training}{subsection.74}% 42
+\BOOKMARK [2][-]{subsection.76}{Non maxima suppression}{section.65}% 43
+\BOOKMARK [2][-]{subsection.78}{Facenet for reidentification}{section.65}% 44
+\BOOKMARK [3][-]{subsubsection.79}{Architecture}{subsection.78}% 45
+\BOOKMARK [3][-]{subsubsection.81}{Training}{subsection.78}% 46
+\BOOKMARK [2][-]{subsection.84}{Multi camera tracking}{section.65}% 47
+\BOOKMARK [1][-]{section.85}{Implementation}{}% 48
+\BOOKMARK [2][-]{subsection.86}{Mask R-CNN segmentation}{section.85}% 49
+\BOOKMARK [2][-]{subsection.88}{SSD detector}{section.85}% 50
+\BOOKMARK [3][-]{subsubsection.89}{Temporal difference}{subsection.88}% 51
+\BOOKMARK [3][-]{subsubsection.92}{Architecture}{subsection.88}% 52
+\BOOKMARK [3][-]{subsubsection.93}{Dataset}{subsection.88}% 53
+\BOOKMARK [3][-]{subsubsection.94}{Data augmentation}{subsection.88}% 54
+\BOOKMARK [3][-]{subsubsection.95}{Training}{subsection.88}% 55
+\BOOKMARK [2][-]{subsection.97}{Single camera tracking}{section.85}% 56
+\BOOKMARK [3][-]{subsubsection.98}{Seeding}{subsection.97}% 57
+\BOOKMARK [3][-]{subsubsection.99}{Displacement}{subsection.97}% 58
+\BOOKMARK [3][-]{subsubsection.100}{Matching}{subsection.97}% 59
+\BOOKMARK [2][-]{subsection.101}{Similarity}{section.85}% 60
+\BOOKMARK [3][-]{subsubsection.103}{Dataset}{subsection.101}% 61
+\BOOKMARK [3][-]{subsubsection.105}{Problems with the dataset}{subsection.101}% 62
+\BOOKMARK [3][-]{subsubsection.106}{Improving the dataset}{subsection.101}% 63
+\BOOKMARK [3][-]{subsubsection.107}{Training}{subsection.101}% 64
+\BOOKMARK [3][-]{subsubsection.110}{T-SNE visualization}{subsection.101}% 65
+\BOOKMARK [2][-]{subsection.112}{City representation}{section.85}% 66
+\BOOKMARK [3][-]{subsubsection.114}{Reidentification}{subsection.112}% 67
+\BOOKMARK [3][-]{subsubsection.116}{Decreasing computational demands}{subsection.112}% 68
+\BOOKMARK [2][-]{subsection.118}{Multi camera tracking}{section.85}% 69
+\BOOKMARK [1][-]{section.119}{Evaluation}{}% 70
+\BOOKMARK [2][-]{subsection.120}{Mean average precision.}{section.119}% 71
+\BOOKMARK [2][-]{subsection.125}{SSD object detection}{section.119}% 72
+\BOOKMARK [2][-]{subsection.128}{Facenet similarity}{section.119}% 73
+\BOOKMARK [3][-]{subsubsection.129}{Evaluation metrics}{subsection.128}% 74
+\BOOKMARK [3][-]{subsubsection.130}{Results}{subsection.128}% 75
+\BOOKMARK [3][-]{subsubsection.132}{Comparison to state of the art}{subsection.128}% 76
+\BOOKMARK [2][-]{subsection.133}{Multi camera tracking experiment}{section.119}% 77
+\BOOKMARK [3][-]{subsubsection.134}{Evaluation measurement}{subsection.133}% 78
+\BOOKMARK [3][-]{subsubsection.135}{Results}{subsection.133}% 79
+\BOOKMARK [3][-]{subsubsection.136}{Comparison to state of the art}{subsection.133}% 80
+\BOOKMARK [1][-]{section.137}{Discussion}{}% 81
+\BOOKMARK [1][-]{section.138}{Conclusion}{}% 82
+\BOOKMARK [2][-]{subsection.139}{Future work}{section.138}% 83

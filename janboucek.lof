@@ -1,0 +1,30 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The fisheye camera is mounted in a lamp, so the view is directly from above.\relax }}{2}{figure.caption.7}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Frame of the provided video.\relax }}{11}{figure.caption.19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The spherical coordinates of the world.\relax }}{13}{figure.caption.26}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The provided calibration data.\relax }}{14}{figure.caption.29}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Approximation of the calibration data by a linear and tangent model of the lens.\relax }}{15}{figure.caption.33}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The car class examples in ImageNet \cite {krizhevsky2012imagenet} and COCO \cite {lin2014microsoft}.\relax }}{17}{figure.caption.39}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Background model created by the mean and the median approach.\relax }}{19}{figure.caption.42}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The difference between the frame and a background shown in a gray-scale.\relax }}{19}{figure.caption.44}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The histogram of a particular pixel over 100 images with computed medians.\relax }}{20}{figure.caption.45}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The background subtraction detection algorithm.\relax }}{21}{figure.caption.46}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The dialog from the annotation tool.\relax }}{24}{figure.caption.50}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Examples of neural networks concepts from \cite {karpathy2016cs231n}.\relax }}{27}{figure.caption.55}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Examples of pooling concepts from \cite {karpathy2016cs231n}.\relax }}{28}{figure.caption.57}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The different VGG architectures. The ReLU function is not shown for simplicity. \cite {simonyan2014very}\relax }}{32}{figure.caption.68}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison of the SSD\cite {liu2016ssd}(300x300) and YOLO\cite {redmon2016you}(448x448) architectures.\relax }}{33}{figure.caption.71}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The background subtraction detection algorithm.\relax }}{34}{figure.caption.73}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Non maxima suppression\cite {diez2011non} keeps a single prediction.\relax }}{35}{figure.caption.77}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces The Facenet \cite {schroff2015facenet}.\relax }}{36}{figure.caption.80}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Examples of Mask R-CNN network \cite {he2017mask}.\relax }}{38}{figure.caption.87}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Temporal difference helps to detect moving objects.\relax }}{40}{figure.caption.90}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces The process of training the 4 channel input SSD network. The training was performed on the NVIDIA GeForce GTX 1080 for 4 days.\relax }}{43}{figure.caption.96}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Comparison of various facenet\cite {szegedy2016rethinking} base networks evaluated on Labeled faces in the wild\cite {huang2007labeled} and YouTube faces\cite {wolf2011face} datasets.\relax }}{45}{figure.caption.102}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces An example of a one object in a training set.\relax }}{46}{figure.caption.104}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Accuracy during the facenet training.\relax }}{47}{figure.caption.108}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Additional information about the Facenet training. The training was performed on the NVIDIA GeForce GTX 1080 for 12 hours.\relax }}{48}{figure.caption.109}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Visualization of facenet embeddings using the T-SNE dimensionality reduction.\relax }}{49}{figure.caption.111}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces An example of a part of city representation with transition probabilities.\relax }}{50}{figure.caption.113}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Example of precision-recall curve.\relax }}{54}{figure.caption.124}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces The process of training the introduced 4 channel SSD (orange) and the 3 channel SSD (blue) networks. The training was performed on the NVIDIA GeForce GTX 1080 for 1 day. The graph shows, that the presented solution performs much better than the state of the art SSD.\relax }}{55}{figure.caption.126}

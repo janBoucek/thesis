@@ -1,0 +1,171 @@
+\pdfoutput=1
+\documentclass[a4paper,12pt,titlepage, twoside]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{algorithm,algpseudocode}
+\usepackage[title,titletoc]{appendix}
+\newcommand{\Author}{Jan Bouček}
+\newcommand{\Title}{Model Predictive Control of Unmanned Helicopter with Obstacle Avoidance}
+\newcommand{\Acronym}{Acronym}
+\newcommand{\WorkPackage}{WorkPackage}
+\newcommand{\DocName}{Bachelor thesis}
+\newcommand{\Subject}{\WorkPackage - \DocName}
+\newcommand{\Keywords}{mobile robotics}
+\newcommand{\Date}{18/05/2016}
+\newcommand{\DOCVersion}{0.1}
+\newcommand{\jed}[1]{\ensuremath{~\mathrm{#1}}} %příkaz pro sazbu fyzikálních jednotek
+
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\uvec}{\textbf{\underline{u}}}
+\newcommand{\macJ}{\mathrm{J}(\uvec)}
+\newcommand{\urvec}{\textbf{\underline{u}}_r}
+\newcommand{\macf}{f(\uvec)}
+\newcommand{\macg}{g(\uvec)}
+\newcommand{\macoi}{\vec{\omega}_i}
+\newcommand{\macU}{\textbf{U}}
+\newcommand{\macAr}{\textbf{\^A}}
+\newcommand{\macBr}{\textbf{\^B}}
+\newcommand{\macHr}{\textbf{\^H}}
+\newcommand{\maccr}{\textbf{\^c}}
+
+\def\clinks{false}
+
+\input{src/doc_head}
+
+\renewcommand{\lstlistlistingname}{List of Algorithms}
+\renewcommand{\lstlistingname}{Listing}
+\definecolor{background_color}{rgb}{1.0, 1.0, 0.85}
+\definecolor{comment_color}{rgb}{0.0, 0.5, 0.0}
+\definecolor{keyword_color}{rgb}{0.0, 0.0, 1.0}
+\definecolor{string_color}{rgb}{0.8, 0.0, 0.0}
+\lstset{language=ksh}
+\lstset{backgroundcolor=\color{background_color}}
+\lstset{frameround=tttt}
+\lstset{columns=fullflexible}
+\lstset{keywordstyle=\color{keyword_color}\bfseries}
+\lstset{commentstyle=\color{comment_color}}
+\lstset{stringstyle=\color{string_color}}
+\lstset{basicstyle=\ttfamily}
+\lstset{showstringspaces=false}
+\lstset{frame=single}
+\lstset{keepspaces=true}
+\lstset{tabsize=4}
+\lstset{breaklines=true}
+\lstset{captionpos=b}
+
+\begin{document}
+\DocBegin
+
+%% PRINT
+%% \setlength{\oddsidemargin}{+0.5cm} 
+%% \setlength{\evensidemargin}{-0.5cm}
+%%
+
+% Titulní stránka
+\input{src/title}
+\pagestyle{empty}
+\cleardoublepage
+
+%% EBOOK
+\input{src/prohlaseni}
+\cleardoublepage
+%%
+
+
+%% EBOOK
+\includepdf[pages={1}]{zadani.pdf}
+\cleardoublepage
+%%
+
+
+
+
+
+% Podekování
+\input{src/podekovani}
+\cleardoublepage
+
+% Stránka s abstrakty
+\input{src/abstract}
+\input{src/abstrakt}
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{roman}
+\cfoot{\thepage}
+
+% Obsah
+\tableofcontents
+\cleardoublepage
+
+% Seznam obrázků
+\listoffigures
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\cfoot{}
+\rfoot{\thepage$/$\pageref{LastPage}}
+\setlength{\parskip}{0.35cm}
+
+\lhead{\emph{\leftmark}}
+\rhead{}
+
+% Úvod
+\input{src/introduction}
+\clearpage
+
+% State of the art
+% \input{src/related_work}	// muj comment
+% \clearpage
+
+
+\input{src/dynamics}
+\clearpage
+
+\input{src/mpc_formulation}
+\clearpage
+
+
+\input{src/mpc_implementation}
+\clearpage
+
+\input{src/avoidance}
+\clearpage
+
+\input{src/solving_lcqp}
+\clearpage
+
+\input{src/move_blocking}
+\clearpage
+
+\input{src/simulations}
+\clearpage
+
+\input{src/hardware}
+\clearpage
+
+\input{src/experiments}
+\clearpage
+
+% Závěr
+\input{src/conclusion}
+\cleardoublepage
+
+% Seznam literatury se nachází v bp.bib
+\bibliographystyle{plain}
+\bibliography{bp}{}
+\cleardoublepage
+\clearpage
+
+
+% Apendixy, schemata, seznam zkratek, atp...
+\appendices
+\lhead{\emph{APPENDIX \leftmark}} 
+\input{src/obsah_CD}.
+\clearpage
+
+\input{src/list_of_abbreviations}
+
+\end{document}

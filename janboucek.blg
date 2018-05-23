@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: janboucek.aux
+The style file: plain.bst
+Database file #1: src/ref.bib
+Warning--I didn't find a database entry for "lukacs1997real"
+Warning--can't use both volume and number fields in ciresan2011flexible
+Warning--empty journal in diez2011non
+Warning--can't use both volume and number fields in harris
+Warning--can't use both volume and number fields in horprasert1999statistical
+Warning--can't use both volume and number fields in huang2017densely
+Warning--there's a number but no series in kuhne1991freeway
+Warning--empty publisher in kuhne1991freeway
+Warning--empty journal in lecun-mnisthandwrittendigit-2010
+Warning--empty journal in lucas-kanede
+Warning--empty journal in madhavan2017bdd
+You've used 149 entries,
+            2118 wiz_defined-function locations,
+            1256 strings with 31043 characters,
+and the built_in function-call counts, 62423 in all, are:
+= -- 6378
+> -- 2876
+< -- 108
++ -- 1145
+- -- 978
+* -- 4220
+:= -- 9619
+add.period$ -- 508
+call.type$ -- 149
+change.case$ -- 930
+chr.to.int$ -- 0
+cite$ -- 159
+duplicate$ -- 2516
+empty$ -- 4815
+format.name$ -- 978
+if$ -- 13678
+int.to.chr$ -- 0
+int.to.str$ -- 149
+missing$ -- 141
+newline$ -- 743
+num.names$ -- 298
+pop$ -- 1112
+preamble$ -- 1
+purify$ -- 781
+quote$ -- 0
+skip$ -- 1977
+stack$ -- 0
+substring$ -- 4064
+swap$ -- 945
+text.length$ -- 108
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 594
+warning$ -- 10
+while$ -- 598
+width$ -- 152
+write$ -- 1693
+(There were 11 warnings)
